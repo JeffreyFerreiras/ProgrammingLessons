@@ -10,7 +10,8 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            BinarySearch binSearch = new BinarySearch();
+            //BinarySearch binSearch = new BinarySearch();
+            QuickSort quickSort = new QuickSort();
         }
     }
 }
