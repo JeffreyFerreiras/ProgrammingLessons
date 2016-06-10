@@ -65,5 +65,34 @@ namespace Algorithms
             }
             return -1;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //AGAIN!
+        public int BinSearch2(int[] arry, int target)
+        {
+            int l = 0, r = arry.Length-1;
+            while(l<=r)
+            {
+                int m = (l+r)/2;
+                if(arry[m] > target) l=m+1; // always compare the midpoint to the target.
+                else if(arry[m] < target) r=m-1;
+                else return m;
+            }
+            return -1; //not found.
+        }
     }
 }

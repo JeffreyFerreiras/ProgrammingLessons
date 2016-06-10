@@ -24,7 +24,7 @@ namespace Algorithms
             if(left < pivot - 1)//sort left half         
                 QuickSorter(arry, left, pivot - 1);         
             if(pivot < right)// sort right half
-                QuickSorter(arry, pivot, right);            
+                QuickSorter(arry, pivot, right);
         }
         private int GetPartitionedPivot(int[] arry, int left, int right)
         {
@@ -50,6 +50,34 @@ namespace Algorithms
                 }
             }
             return left; //new pivot...
+        }
+        public void QuickSort2(int[] arry, int left, int right)
+        {
+            int pivot = GetPartitionedPivot2(arry, left, right);
+            if(left < pivot - 1) QuickSort2(arry, left, pivot);
+            if(pivot < right) QuickSort2(arry, pivot, right);
+        }
+        private int GetPartitionedPivot2(int[] arry, int left, int right)
+        {    
+            while(left <= right) //continues until the right index and left side reach the center
+            {
+                int mid = arry[(left + right) / 2];//gets the middle point of the array
+                while(arry[left] >= mid) left++; //move left index right until it reaches a number that belongs on the right side.
+                while(arry[right] < mid) right--; //move right index to the left until it reaches a number that belongs on the right side.
+                if(arry[left] >= arry[right]) //confirm the right side is less than a number on the left side
+                {
+                    //swap
+                    int temp = arry[left];
+                    arry[left] = arry[right];
+                    arry[right] = temp;
+                    
+                    //avoid infinite loop
+                    left++;
+                    right--;
+                    return left;
+                }
+            }
+            return -1; //error!
         }
     }
 }
