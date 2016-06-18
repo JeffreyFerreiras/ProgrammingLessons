@@ -95,31 +95,5 @@ namespace Algorithms
             }
             return left; // new pivot
         }
-
-        void QuickSort3(int[] a, int left, int right)
-        {
-            int pivot = GetQuickSort3Pivot(a, left, right);
-            if(left < pivot) QuickSort3(a, left, pivot -1);
-            if(right > pivot) QuickSort3(a, pivot +1, right);
-        }
-        private int GetQuickSort3Pivot(int[] a, int left, int right)
-        {
-            while(left <= right)
-            {
-                int mid = (left + right)/2;
-                while(a[left] < a[mid]) left++;
-                while(a[right] > a[mid]) right--;
-                if(left <= right)
-                {
-                    int t = a[right];
-                    a[right] = a[left];
-                    a[left] = t;
-                    
-                    right++;
-                    left--;
-                }
-            }
-            return left;
-        }
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyWords", "KeyWords\KeyWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{927772DD-95B8-4B50-A188-25C2A9AACFCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{28441FC0-34A1-4D57-B5EA-CEF8375425ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{927772DD-95B8-4B50-A188-25C2A9AACFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{927772DD-95B8-4B50-A188-25C2A9AACFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{927772DD-95B8-4B50-A188-25C2A9AACFCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
