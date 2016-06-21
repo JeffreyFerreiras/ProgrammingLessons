@@ -8,20 +8,38 @@ namespace Algorithms
 {
     class Program
     {
+        static System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
+
         static void Main(string[] args)
         {
-            //BinarySearch binSearch = new BinarySearch();
-            //QuickSort quickSort = new QuickSort();
-            MergeSort mergeSort = new MergeSort();
-            mergeSort.Sort(GetUnsortedArray());
+            int [] unsortedArry = GetUnsortedArray();
+
+            var q = new int [unsortedArry.Length];
+            for(int i = 0; i < unsortedArry.Length; i++)
+                q[i] = unsortedArry[i];
+            
+
+            timer.Start();
+            q = QuickSort.Sort(q);
+            timer.Stop();
+            
+            timer.Reset();
+
+            var m = new int [unsortedArry.Length];
+            for(int i = 0; i < unsortedArry.Length; i++)
+                m[i] = unsortedArry[i];
+            
+            timer.Start();
+            m = MergeSort.Sort(m);
+            timer.Stop();
         }
         static int[] GetUnsortedArray()
         {
-            List<int> randList = new List<int>();
+            var randList = new List<int>();
             var random = new Random();
-            for(int i = 0; i < 100; i++)
+            for(int i = 0; i < 10000; i++)
             {
-                randList.Add(random.Next(100));
+                randList.Add(random.Next(0,1000));
             }
             return randList.ToArray();
         }

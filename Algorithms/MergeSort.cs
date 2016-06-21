@@ -20,16 +20,16 @@ namespace Algorithms
        then it's more likely that a poor pivot will be chosen leading to very unbalanced partitions leading to an O(n^2) runtime.
        The most straightforward example is if all the values in the list are the same.
     */
-    class MergeSort
+    static class MergeSort
     {
         
-        public int[] Sort(int[] array)
+        public static int[] Sort(int[] array)
         {
             int[]helper = new int[array.Length];
             Sort(array, helper, 0, array.Length - 1);
             return array;
         }
-        void Sort(int[] array, int[] helper, int low, int high)
+        static void Sort(int[] array, int[] helper, int low, int high)
         {
             if(low < high)
             {
@@ -39,7 +39,7 @@ namespace Algorithms
                 Merge(array, helper, low, mid, high);   //merge them.
             }
         }
-        void Merge(int[] array, int[] helper, int low, int mid, int high)
+        static void Merge(int[] array, int[] helper, int low, int mid, int high)
         {
             for(int i = low; i <= high; i++)//copy low - high into helper array
             {
@@ -47,7 +47,7 @@ namespace Algorithms
             }
 
             //merging part.
-            int left = low, right = mid + 1, current = low; //assign new variables to make changes to them.
+            int left = low, current = low, right = mid + 1;
             while(left <= mid && right <= high)
             {
                 if(helper[left] <= helper[right]) //element on left is smaller than right element
@@ -69,6 +69,50 @@ namespace Algorithms
             {
                 array[current + i] = helper[left + i];
             }
+        }
+
+        static int[] Sort2(int[] array)
+        {
+            int [] helper = new int [array.Length];
+            Sort2(array, helper, 0, array.Length - 1);
+            return array;
+        }
+
+        static private void Sort2(int[] array, int[] helper, int leftIndex, int rightIndex)
+        {
+            if(leftIndex < rightIndex)
+            {
+                int middleIndex = (leftIndex + rightIndex)/2;
+                Sort2(array, helper, leftIndex, middleIndex);
+                Sort2(array, helper, middleIndex + 1, rightIndex);
+                Merge2(array, helper, leftIndex, middleIndex, rightIndex);
+            }
+        }
+
+        private static void Merge2(int[] array, int[] helper, int leftIndex, int middleIndex, int rightIndex)
+        {
+            for(int i = leftIndex; i <= rightIndex; i++)
+                helper[i] = array[i];
+
+            int left = leftIndex, right = middleIndex + 1, currentIndex = leftIndex;
+
+            while(left <= middleIndex && right <= rightIndex)
+            {
+                if(helper[left] <= helper[right])
+                {
+                    array[currentIndex] = helper[left];
+                    left++;
+                }
+                else
+                {
+                    array[currentIndex] = helper[right];
+                    right++;
+                }
+                currentIndex++;
+            }
+            int remaining = middleIndex - leftIndex;
+            for(int i = 0; i < remaining; i++)
+                array[currentIndex + i] = helper[left + i];  
         }
     }
 }
