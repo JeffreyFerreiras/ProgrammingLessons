@@ -94,22 +94,22 @@ namespace Algorithms
             for(int i = leftIndex; i <= rightIndex; i++)
                 helper[i] = array[i];
 
-            int left = leftIndex, right = middleIndex + 1, currentIndex = leftIndex;
-
-            while(left <= middleIndex && right <= rightIndex)
+            int left = leftIndex, mid = middleIndex + 1, currentIndex = leftIndex;
+            while(left <= middleIndex && mid <= rightIndex)
             {
-                if(helper[left] <= helper[right])
+                if(helper[left] <= helper[mid])
                 {
                     array[currentIndex] = helper[left];
                     left++;
                 }
                 else
                 {
-                    array[currentIndex] = helper[right];
-                    right++;
+                    array[currentIndex] = helper[mid];
+                    mid++;
                 }
                 currentIndex++;
             }
+
             int remaining = middleIndex - leftIndex;
             for(int i = 0; i < remaining; i++)
                 array[currentIndex + i] = helper[left + i];  

@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dictionary.cs" />
+    <Compile Include="HashSet.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stack_Class.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

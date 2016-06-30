@@ -10,7 +10,8 @@ namespace LanguageFeatures
     {
         static void Main(string[] args)
         {
-            Delegates_Lesson delegates = new Delegates_Lesson();
+            //var delegates = new Delegates_Lesson();
+            var asynchroniousProgramming = new AsynchronousProgramming();
         }
     }
 }
