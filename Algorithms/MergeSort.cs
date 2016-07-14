@@ -6,23 +6,39 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    /*
-    Merge sort O(n log n) typical runtime.
-    -  O(n) time complexity.
-    -  Merge sort is used when the data structure doesn't support random access, since it works with pure sequential access.
+/*
+Merge sort O(n log n) typical runtime.
+-  O(n) time complexity.
+-  Merge sort is used when the data structure doesn't support random access, since it works with pure sequential access.
 
-       So, to generalize, quicksort is probably more effective for datasets that fit in memory.
-       For stuff that's larger, it's better to use mergesort.
+    So, to generalize, quicksort is probably more effective for datasets that fit in memory.
+    For stuff that's larger, it's better to use mergesort.
 
-       The other general time to use mergesort over quicksort is if the data is very similar (that is, not close to being uniform).
-       Quicksort relies on using a pivot. In the case where all the values are the similar, quicksort hits a worst case of O(n^2).
-       If the values of the data are very similar,
-       then it's more likely that a poor pivot will be chosen leading to very unbalanced partitions leading to an O(n^2) runtime.
-       The most straightforward example is if all the values in the list are the same.
-    */
+    The other general time to use mergesort over quicksort is if the data is very similar (that is, not close to being uniform).
+    Quicksort relies on using a pivot. In the case where all the values are the similar, quicksort hits a worst case of O(n^2).
+    If the values of the data are very similar,
+    then it's more likely that a poor pivot will be chosen leading to very unbalanced partitions leading to an O(n^2) runtime.
+    The most straightforward example is if all the values in the list are the same.
+*/
+/*
+ * 1. Create a sort method that takes an array.
+ * 2. Call the overloaded sort method with the array, helper, left index and right index.
+ * 3. In the overloaded sort method declare an if statement stating if the left index is less than the right index, continue.
+ * 4. get mid index
+ * 5. sort the left half by recursively calling sort.
+ * 6. sort the right half by recursively calling sort.
+ * 7. merge the array.
+ * 
+ * 1. In Merge, copy items from array to helper from left, to right indexes.
+ * 2. Declare 3 integers. A low that equals left index, a currentIndex that equals the left index and a high that equals the mid point.
+ * 3. while low is less than or equals to mid (NOT high) and high is less or equals to right, continue.
+ * 4. if helper low <= helper high, assign helper low to array currentIndex.
+ * 5. else assign helper high to array currentIndex.
+ * 6. handle remaining elements by declaring in remaining equals to mid - left
+ * 7. for each index assign helper left + index to array current + index 
+ */
     static class MergeSort
-    {
-        
+    {    
         public static int[] Sort(int[] array)
         {
             int[]helper = new int[array.Length];
@@ -34,28 +50,25 @@ namespace Algorithms
             if(low < high)
             {
                 int mid = (low + high)/2;
-                Sort(array, helper, low, mid);          //sort left side.
-                Sort(array, helper, mid + 1, high);     //sort right side.
-                Merge(array, helper, low, mid, high);   //merge them.
+                Sort(array, helper, low, mid);          
+                Sort(array, helper, mid + 1, high);     
+                Merge(array, helper, low, mid, high);
             }
         }
         static void Merge(int[] array, int[] helper, int low, int mid, int high)
         {
-            for(int i = low; i <= high; i++)//copy low - high into helper array
-            {
+            for(int i = low; i <= high; i++)
                 helper[i] = array[i];
-            }
-
-            //merging part.
+            
             int left = low, current = low, right = mid + 1;
             while(left <= mid && right <= high)
             {
-                if(helper[left] <= helper[right]) //element on left is smaller than right element
+                if(helper[left] <= helper[right])
                 {
                     array[current] = helper[left];
                     left++;
                 }
-                else// If right element is smaller than left element.
+                else
                 {
                     array[current] = helper[right];
                     right++;
@@ -63,56 +76,9 @@ namespace Algorithms
                 current++;
             }
 
-            //handle remaining elements.
             int remaining = mid - left;
             for(int i = 0; i <= remaining; i++)
-            {
                 array[current + i] = helper[left + i];
-            }
-        }
-
-        static int[] Sort2(int[] array)
-        {
-            int [] helper = new int [array.Length];
-            Sort2(array, helper, 0, array.Length - 1);
-            return array;
-        }
-
-        static private void Sort2(int[] array, int[] helper, int leftIndex, int rightIndex)
-        {
-            if(leftIndex < rightIndex)
-            {
-                int middleIndex = (leftIndex + rightIndex)/2;
-                Sort2(array, helper, leftIndex, middleIndex);
-                Sort2(array, helper, middleIndex + 1, rightIndex);
-                Merge2(array, helper, leftIndex, middleIndex, rightIndex);
-            }
-        }
-
-        private static void Merge2(int[] array, int[] helper, int leftIndex, int middleIndex, int rightIndex)
-        {
-            for(int i = leftIndex; i <= rightIndex; i++)
-                helper[i] = array[i];
-
-            int left = leftIndex, mid = middleIndex + 1, currentIndex = leftIndex;
-            while(left <= middleIndex && mid <= rightIndex)
-            {
-                if(helper[left] <= helper[mid])
-                {
-                    array[currentIndex] = helper[left];
-                    left++;
-                }
-                else
-                {
-                    array[currentIndex] = helper[mid];
-                    mid++;
-                }
-                currentIndex++;
-            }
-
-            int remaining = middleIndex - leftIndex;
-            for(int i = 0; i < remaining; i++)
-                array[currentIndex + i] = helper[left + i];  
         }
     }
 }

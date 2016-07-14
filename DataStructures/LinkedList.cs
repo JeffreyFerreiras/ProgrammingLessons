@@ -52,9 +52,24 @@ Use this when order matters.
             LinkedListNode<string> node = linked.Find("one");
             linked.AddAfter(node, "inserted");
 
+            linked.
+
             foreach(var value in linked)
             {
                 Console.WriteLine(value);
+            }
+        }
+
+        static void ReverseLinkedList(LinkedList<string> linkedList)
+        {
+            LinkedListNode<string> current = linkedList.First, next = null;
+
+            while(current != null)
+            {
+                LinkedListNode<string> temp = current.Next;
+                current.Next = next;
+                next = current;
+                current = temp;
             }
         }
     }

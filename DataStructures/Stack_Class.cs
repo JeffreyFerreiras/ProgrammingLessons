@@ -14,7 +14,7 @@ Stack accepts null as a valid value and allows duplicate elements.
     */
     class Stack_Class
     {
-        public static void Main()
+        public static void Mains()
         {
 
             // Creates and initializes a new Stack.

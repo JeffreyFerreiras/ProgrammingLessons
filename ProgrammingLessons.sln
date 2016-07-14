@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Al
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{28441FC0-34A1-4D57-B5EA-CEF8375425ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{B06261C1-C3C6-44A2-9D39-6316E439EAD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID", "SOLID\SOLID.csproj", "{035B721A-72C0-451C-8F57-E6ECA6DD3EFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035B721A-72C0-451C-8F57-E6ECA6DD3EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035B721A-72C0-451C-8F57-E6ECA6DD3EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035B721A-72C0-451C-8F57-E6ECA6DD3EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035B721A-72C0-451C-8F57-E6ECA6DD3EFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

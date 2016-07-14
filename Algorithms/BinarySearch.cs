@@ -39,9 +39,13 @@ namespace Algorithms
             while(left <= right)
             {
                 int mid = (left + right) / 2;
-                if(arry[mid] < target) left = mid + 1; 
-                else if(arry[mid] > target) right = mid - 1;
-                else return mid;
+
+                if(arry[mid] < target)
+                    left = mid + 1; 
+                else if(arry[mid] > target)
+                    right = mid - 1;
+                else
+                    return mid;
             }
             return -1;
         }
@@ -62,6 +66,6 @@ namespace Algorithms
             if(arry[mid] < target)      return RecursiveBinSearch(arry, mid + 1, right, target);
             if(arry[mid] > target)      return RecursiveBinSearch(arry, left, mid - 1, target); 
             return -1;
-        }
+        }                           
     }
 }
