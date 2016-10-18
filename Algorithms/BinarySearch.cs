@@ -49,7 +49,7 @@ namespace Algorithms
             }
             return -1;
         }
-        /* Recursive Binary Search
+/* Recursive Binary Search
  *
 0. Get the midpoint by averaging the left and right side. 	
 1. Check if target is mid, if mid return target.

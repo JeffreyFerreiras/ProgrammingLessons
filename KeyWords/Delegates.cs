@@ -13,7 +13,7 @@ namespace KeyWords
     }
     /*
     * Delegages work hand in hand with lambda expresions, 
-    * the Action, Func, and Predicate classes.
+    * the Action, Func, and Predicate classes are ready made delegates.
     * Lambda expressions are shorthand for method logic, they allow programmers to pass anonymous
     * functions in a short hand manner.
     */

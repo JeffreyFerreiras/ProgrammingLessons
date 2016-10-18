@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DesignPatterns.Decorator;
+using System.IO;
 
-namespace LanguageFeatures
+namespace DesignPatterns
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            //var delegates = new Delegates_Lesson();
-            //var asynchroniousProgramming = new AsynchronousProgramming();
         }
     }
 }

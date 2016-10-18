@@ -29,12 +29,12 @@ namespace LanguageFeatures
         }
         void UseAction()
         {
-            Action<string> write = x => Console.WriteLine(x);
+            Action<string> action = x => Console.WriteLine(x);
         }
         void UsePredicate()
         {
-            Predicate<int> boolean = x => x == 5;
-            bool isFive = boolean(5);
+            Predicate<int> predicate = x => x == 5;
+            bool isFive = predicate(5);
         }
     }
 }

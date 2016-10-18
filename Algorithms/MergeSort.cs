@@ -61,6 +61,7 @@ Merge sort O(n log n) typical runtime.
                 helper[i] = array[i];
             
             int left = low, current = low, right = mid + 1;
+
             while(left <= mid && right <= high)
             {
                 if(helper[left] <= helper[right])

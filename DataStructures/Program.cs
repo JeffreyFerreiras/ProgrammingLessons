@@ -1,20 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            //LinkedList<int> intergers = new LinkedList<int>();
-            //Stack<string> stack = new Stack<string>();
-            //Queue<int> queue = new Queue<int>();
-            //LinkedList linkedList = new LinkedList();
-            //Console.WriteLine("Linked list count" + linkedList.Count());
+            var tree = new Trees.BinarySearchTree<int>();
+            for(int i = 1; i < 20; i++)
+            {
+                tree.Add(i + 1);
+            }
+            ;
+            tree.DisplayPreOrder(tree.Root);
+            Console.WriteLine();
+            tree.DisplayInOrder(tree.Root);
+            Console.WriteLine();
+            tree.DisplayPostOrder(tree.Root);
+            Console.WriteLine();
+            tree.DisplayLevelOrder();
+
             Console.ReadLine();
         }
     }

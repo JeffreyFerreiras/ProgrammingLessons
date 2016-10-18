@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LanguageFeatures
 {
-    /**  Async Methods Are Easier to Write
+    /*  Async Methods Are Easier to Write
 
     The async and await keywords in C# are the heart of async programming.
     By using those two keywords, you can use resources in the .NET Framework or the Windows Runtime to create an asynchronous method almost as easily as you create a synchronous method.
@@ -26,7 +26,10 @@ namespace LanguageFeatures
         }
         async void Foo2()
         {
-            Enumerable.Range(1, 100000).ToList().ForEach(x => Console.WriteLine("Second" + x));
+            Enumerable.Range(1, 100000).ToList()
+                .ForEach(x => Console.WriteLine("Second" + x));
+
+            int n = await AccessTheWebAsync();
         }
         async void Foo()
         {
@@ -65,7 +68,7 @@ namespace LanguageFeatures
         {
             foreach(var item in Enumerable.Range(1,1000000))
             {
-                Console.WriteLine("First"+item);
+                Console.WriteLine("First: " + item);
             }
         }
     }

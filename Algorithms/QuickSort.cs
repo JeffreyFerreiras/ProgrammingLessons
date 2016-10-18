@@ -29,17 +29,24 @@ namespace Algorithms
             QuickSort2(arry, 0, arry.Length - 1);
             return arry;
         }
+
         public static void QuickSort2(int[] arry, int leftIndex, int rightIndex)
         {
             int pivot = GetPartitionedPivot2(arry, leftIndex, rightIndex);
-            if(leftIndex < pivot - 1) QuickSort2(arry, leftIndex, pivot -1);
-            if(pivot < rightIndex) QuickSort2(arry, pivot, rightIndex);
+
+            if(leftIndex < pivot - 1)
+                QuickSort2(arry, leftIndex, pivot -1);
+
+            if(pivot < rightIndex)
+                QuickSort2(arry, pivot, rightIndex);
         }
+
         private static int GetPartitionedPivot2(int[] arry, int leftIndex, int rightIndex)
         {
             while(leftIndex <= rightIndex)
             {
                 int midArryVal = arry[(leftIndex + rightIndex) / 2];
+
                 while(arry[leftIndex] < midArryVal) leftIndex++;
                 while(arry[rightIndex] > midArryVal) rightIndex--;
 
@@ -53,6 +60,7 @@ namespace Algorithms
             }
             return leftIndex;
         }
+
         private static void Swap(int[] arry, int leftIndex, int rightIndex)
         {
             int temp = arry[leftIndex];

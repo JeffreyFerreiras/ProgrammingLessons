@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures
 {
-    public class LinkedList
+    public static class LinkedList
     {
         /*
 Linked list & Doubly Linked List.
@@ -42,17 +42,14 @@ Use this when order matters.
         }
         static void Example2()
         {
-
             LinkedList<string> linked = new LinkedList<string>();
-
+            
             linked.AddLast("one");
             linked.AddLast("two");
             linked.AddLast("three");
-
+            
             LinkedListNode<string> node = linked.Find("one");
             linked.AddAfter(node, "inserted");
-
-            linked.
 
             foreach(var value in linked)
             {
@@ -60,16 +57,15 @@ Use this when order matters.
             }
         }
 
-        static void ReverseLinkedList(LinkedList<string> linkedList)
+        public static void ReverseLinkedList(this LinkedList<string> linkedList)
         {
-            LinkedListNode<string> current = linkedList.First, next = null;
-
-            while(current != null)
+            LinkedListNode<string> current  = linkedList.First;
+            
+            while(current.Next != null)
             {
-                LinkedListNode<string> temp = current.Next;
-                current.Next = next;
-                next = current;
-                current = temp;
+                LinkedListNode<string> next = current.Next;
+                linkedList.Remove(next);
+                linkedList.AddFirst(next.Value);
             }
         }
     }
