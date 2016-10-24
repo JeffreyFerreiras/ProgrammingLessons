@@ -26,46 +26,50 @@ namespace Algorithms
          */
         public static int[] Sort(int[] arry)
         {
-            QuickSort2(arry, 0, arry.Length - 1);
+            Sort(arry, 0, arry.Length - 1);
             return arry;
         }
 
-        public static void QuickSort2(int[] arry, int leftIndex, int rightIndex)
+        public static void Sort(int[] arry, int leftIndex, int rightIndex)
         {
-            int pivot = GetPartitionedPivot2(arry, leftIndex, rightIndex);
+            int pivot = GetPartitionedPivot(arry, leftIndex, rightIndex);
 
             if(leftIndex < pivot - 1)
-                QuickSort2(arry, leftIndex, pivot -1);
+                Sort(arry, leftIndex, pivot -1);
 
             if(pivot < rightIndex)
-                QuickSort2(arry, pivot, rightIndex);
+                Sort(arry, pivot, rightIndex);
         }
 
-        private static int GetPartitionedPivot2(int[] arry, int leftIndex, int rightIndex)
+        private static int GetPartitionedPivot(int[] array, int leftIndex, int rightIndex)
         {
             while(leftIndex <= rightIndex)
             {
-                int midArryVal = arry[(leftIndex + rightIndex) / 2];
+                int midArryVal = array[(leftIndex + rightIndex) / 2];
 
-                while(arry[leftIndex] < midArryVal) leftIndex++;
-                while(arry[rightIndex] > midArryVal) rightIndex--;
+                //Check numbers until one needs to be swaped to right side.
+                while(array[leftIndex] < midArryVal) leftIndex++;
+
+                //Check numbers until one needs to be swaped to left side.
+                while(array[rightIndex] > midArryVal) rightIndex--;
 
                 if(leftIndex <= rightIndex)
                 {
-                    Swap(arry, leftIndex, rightIndex);
+                    Swap(array, leftIndex, rightIndex);
 
                     leftIndex++;
                     rightIndex--;
                 }
             }
+
             return leftIndex;
         }
 
-        private static void Swap(int[] arry, int leftIndex, int rightIndex)
+        private static void Swap(int[] array, int leftIndex, int rightIndex)
         {
-            int temp = arry[leftIndex];
-            arry[leftIndex] = arry[rightIndex];
-            arry[rightIndex] = temp;
+            int temp = array[leftIndex];
+            array[leftIndex] = array[rightIndex];
+            array[rightIndex] = temp;
         }
     }
 }

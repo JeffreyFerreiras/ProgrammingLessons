@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsynchronousProgramming.cs" />
+    <Compile Include="Operators.cs" />
     <Compile Include="Delegates_Lesson.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

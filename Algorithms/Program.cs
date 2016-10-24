@@ -12,7 +12,7 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            int [] unsortedArry = GetUnsortedArray();
+            int [] unsortedArry = GetUnsortedArray().ToArray();
 
             var q = new int [unsortedArry.Length];
             for(int i = 0; i < unsortedArry.Length; i++)
@@ -33,15 +33,14 @@ namespace Algorithms
             m = MergeSort.Sort(m);
             timer.Stop();
         }
-        static int[] GetUnsortedArray()
+        static IEnumerable<int> GetUnsortedArray()
         {
-            var randList = new List<int>();
             var random = new Random();
+
             for(int i = 0; i < 10000; i++)
             {
-                randList.Add(random.Next(0,1000));
+                yield return random.Next(0, 1000);
             }
-            return randList.ToArray();
         }
     }
 }

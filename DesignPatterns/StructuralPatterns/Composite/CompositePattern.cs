@@ -32,7 +32,6 @@ namespace DesignPatterns.StructuralPatterns.CompositePattern
             // Wait for user
             Console.ReadKey();
         }
-        
     }
     abstract class Component
     {

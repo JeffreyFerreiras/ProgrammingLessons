@@ -8,8 +8,7 @@ namespace KeyWords
 {
     class Delegates
     {
-        private delegate int MyDel(int num);
-        
+        private delegate int MyDel(int num);        
     }
     /*
     * Delegages work hand in hand with lambda expresions, 

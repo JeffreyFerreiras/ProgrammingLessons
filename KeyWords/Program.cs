@@ -8,7 +8,6 @@ namespace KeyWords
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             TypeOfANDSizeOf typesizeof = new TypeOfANDSizeOf();

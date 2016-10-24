@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BehavioralPatterns\Strategy\MainApp.cs" />
+    <Compile Include="CreationalPatterns\Builder\BuilderPattern.cs" />
+    <Compile Include="CreationalPatterns\Builder\BuilderPatternRealWorld.cs" />
     <Compile Include="CreationalPatterns\Factory\BibliographyPage.cs" />
     <Compile Include="CreationalPatterns\Factory\ConclusionPage.cs" />
     <Compile Include="CreationalPatterns\Factory\Document.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="CreationalPatterns\Singleton\LoadBalancerSingleton.cs" />
     <Compile Include="StructuralPatterns\Adapter\AdapterPattern.cs" />
     <Compile Include="StructuralPatterns\Composite\CompositePattern.cs" />
+    <Compile Include="StructuralPatterns\Composite\CompositePatternPractice.cs" />
     <Compile Include="StructuralPatterns\Decorator\IPizza.cs" />
     <Compile Include="StructuralPatterns\Decorator\MainApp.cs" />
     <Compile Include="StructuralPatterns\Decorator\MozzarellaDecorator.cs" />
@@ -76,6 +79,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="BehavioralPatterns\Strategy\strategy.gif" />
+    <Content Include="CreationalPatterns\Builder\2016-10-18 20_45_45-Jump List for Google Chrome.png" />
     <Content Include="StructuralPatterns\Composite\composite.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

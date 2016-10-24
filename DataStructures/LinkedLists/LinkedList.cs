@@ -14,7 +14,7 @@ namespace DataStructures.LinkedLists
 
         //private long count;
 
-        public long Count{ get; private set;}
+        public long Count { get; private set; }
 
         public Node<T> First { get; private set; }
         public Node<T> Last { get; private set; }
@@ -88,10 +88,11 @@ namespace DataStructures.LinkedLists
                     if(counter == index)
                         return node;
                     node = node.Next;
-                } 
+                }
             }
             throw new IndexOutOfRangeException();
         }
+
         public bool DeleteAt(int index)
         {
             if(index == 0)
@@ -208,6 +209,7 @@ namespace DataStructures.LinkedLists
                     {
                         current = current.Next;
                     }
+
                     return current.Value;
                 }
                 throw new IndexOutOfRangeException();
@@ -216,7 +218,8 @@ namespace DataStructures.LinkedLists
             {
                 if(index >= 0 && index < Count)
                     this[index] = value;
-                else throw new IndexOutOfRangeException();
+                else
+                    throw new IndexOutOfRangeException();
             }
         }
     }

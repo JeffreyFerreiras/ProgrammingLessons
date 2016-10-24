@@ -11,8 +11,7 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-            EnumerableMethods em = new EnumerableMethods();
-            em.Intersecting();
+            EnumerableMethods em = new EnumerableMethods();          
         }
     }
 }

@@ -11,6 +11,7 @@ namespace DesignPatterns.Decorator
         public PepperoniDecorator(IPizza pizza) : base(pizza)
         {
         }
+
         public override string GetDescription()
         {
             return tempPizza.GetDescription() + ", Pepperini";

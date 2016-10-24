@@ -23,12 +23,12 @@ namespace DesignPatterns.StructuralPatterns.Adapter
             // Wait for user
             Console.ReadKey();
         }
-
     }
+
     /// <summary>
     /// The 'Target' class
     /// </summary>
-    class Compound
+    internal class Compound
     {
         protected string    _chemical;
         protected float     _boilingPoint;
@@ -48,11 +48,13 @@ namespace DesignPatterns.StructuralPatterns.Adapter
     }
 
     /// The 'Adapter' class
-    class RichCompoundAdapter : Compound
+    internal class RichCompoundAdapter : Compound
     {
         private ChemicalDatabank _bank;
 
-        public RichCompoundAdapter(string name): base(name) {}
+        public RichCompoundAdapter(string name) : base(name)
+        {
+        }
 
         public override void Display()
         {
@@ -60,7 +62,7 @@ namespace DesignPatterns.StructuralPatterns.Adapter
 
             /** This class adapts the Compound class to make it work with
             'ChemicalDataBank' even though they would otherwise be incompatible.
-            
+
              * Jeffrey, you have seen something similar before as a mapper class**/
 
             _bank = new ChemicalDatabank();
@@ -81,14 +83,15 @@ namespace DesignPatterns.StructuralPatterns.Adapter
     /// <summary>
     /// The 'Adaptee' class
     /// </summary>
-    class ChemicalDatabank
+    internal class ChemicalDatabank
     {
         // The databank 'legacy API', needs to be adapted.
 
         /*
          * this is all the logic you want to get to, without filling up the 'target'
-         * class with junk. 
+         * class with junk.
          */
+
         public float GetCriticalPoint(string compound, string point)
         {
             // Melting Point
