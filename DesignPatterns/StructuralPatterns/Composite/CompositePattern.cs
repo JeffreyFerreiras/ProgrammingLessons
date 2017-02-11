@@ -28,6 +28,8 @@ namespace DesignPatterns.StructuralPatterns.CompositePattern
 
             // Recursively display tree
             root.Display(1);
+            root.Display(2);
+
 
             // Wait for user
             Console.ReadKey();

@@ -26,13 +26,12 @@ namespace DesignPatterns.StructuralPatterns.Decorator
 
             //Real World Example below, because stream writers and readers
             //use decorator patterns internally.
+
             using(var reader = System.IO.File.OpenWrite("~/test.txt"))
+            using(var writer = new System.IO.StreamWriter(reader))
             {
-                using(var writer = new System.IO.StreamWriter(reader)) 
-                {
-                    //write something
-                    writer.Write("Hello World!");
-                }
+                //write something
+                writer.Write("Hello World!");
             }
         }
     }

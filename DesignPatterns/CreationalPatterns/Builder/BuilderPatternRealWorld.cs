@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.CreationalPatterns.Builder
+﻿namespace DesignPatterns.CreationalPatterns.Builder
 {
     using System;
     using System.Collections.Generic;
@@ -12,7 +6,7 @@ namespace DesignPatterns.CreationalPatterns.Builder
     namespace DoFactory.GangOfFour.Builder.RealWorld
     {
         /// <summary>
-        /// MainApp startup class for Real-World 
+        /// MainApp startup class for Real-World
         /// Builder Design Pattern.
         /// </summary>
         public class MainApp
@@ -48,7 +42,7 @@ namespace DesignPatterns.CreationalPatterns.Builder
         /// <summary>
         /// The 'Director' class
         /// </summary>
-        class Shop
+        internal class Shop
         {
             // Builder uses a complex series of steps
             public void Construct(VehicleBuilder vehicleBuilder)
@@ -63,7 +57,7 @@ namespace DesignPatterns.CreationalPatterns.Builder
         /// <summary>
         /// The 'Builder' abstract class
         /// </summary>
-        abstract class VehicleBuilder
+        internal abstract class VehicleBuilder
         {
             protected Vehicle vehicle;
 
@@ -75,15 +69,18 @@ namespace DesignPatterns.CreationalPatterns.Builder
 
             // Abstract build methods
             public abstract void BuildFrame();
+
             public abstract void BuildEngine();
+
             public abstract void BuildWheels();
+
             public abstract void BuildDoors();
         }
 
         /// <summary>
         /// The 'ConcreteBuilder1' class
         /// </summary>
-        class MotorCycleBuilder : VehicleBuilder
+        internal class MotorCycleBuilder : VehicleBuilder
         {
             public MotorCycleBuilder()
             {
@@ -111,11 +108,10 @@ namespace DesignPatterns.CreationalPatterns.Builder
             }
         }
 
-
         /// <summary>
         /// The 'ConcreteBuilder2' class
         /// </summary>
-        class CarBuilder : VehicleBuilder
+        internal class CarBuilder : VehicleBuilder
         {
             public CarBuilder()
             {
@@ -146,7 +142,7 @@ namespace DesignPatterns.CreationalPatterns.Builder
         /// <summary>
         /// The 'ConcreteBuilder3' class
         /// </summary>
-        class ScooterBuilder : VehicleBuilder
+        internal class ScooterBuilder : VehicleBuilder
         {
             public ScooterBuilder()
             {
@@ -177,11 +173,11 @@ namespace DesignPatterns.CreationalPatterns.Builder
         /// <summary>
         /// The 'Product' class
         /// </summary>
-        class Vehicle
+        // the buiders are builing this thing...
+        internal class Vehicle
         {
             private string _vehicleType;
-            private Dictionary<string,string> _parts =
-      new Dictionary<string,string>();
+            private Dictionary<string,string> _parts = new Dictionary<string,string>();
 
             // Constructor
             public Vehicle(string vehicleType)

@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgrammingLessons
 {
-    interface IProgram { }
-    class Program:IProgram
+    internal interface IProgram
+    { }
+
+    internal class Program : IProgram
     {
-        enum weekdays : byte { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
-        static void Main(string[] args)
+        private enum weekdays : byte
+        { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+
+        private static void Main(string[] args)
         {
             Console.WriteLine(weekdays.monday);
             Console.WriteLine(weekdays.tuesday);
@@ -22,10 +23,9 @@ namespace ProgrammingLessons
             Console.WriteLine();
 
             typeof(object).GetMembers().ToList().ForEach(Console.WriteLine);
-            
-            Console.WriteLine();
+
+            Console.WriteLine(sizeof(weekdays));
             Console.ReadKey();
         }
     }
 }
-
