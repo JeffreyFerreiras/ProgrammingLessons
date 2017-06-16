@@ -19,7 +19,8 @@ namespace DataStructures
         public void DisplayDictionaryValue()
         {
             Dictionary<string, ulong> phoneBook = GetPhoneBook();
-            if(phoneBook.ContainsKey("Alex"))
+
+            if (phoneBook.ContainsKey("Alex"))
             {
                 Console.WriteLine(phoneBook["Alex"]); 
             }
@@ -27,7 +28,8 @@ namespace DataStructures
         public void LoopThroughDictionary()
         {
             Dictionary<string, ulong> phoneBook = GetPhoneBook();
-            foreach(KeyValuePair<string, ulong> pair in phoneBook)
+
+            foreach (KeyValuePair<string, ulong> pair in phoneBook)
             {
                 Console.WriteLine(pair.Key, pair.Value);
             }

@@ -25,47 +25,53 @@ namespace Algorithms
         {
             List<int> randList = new List<int>();
             var random = new Random();
-            for(int i = 0; i < 100; i++)
+
+            for (int i = 0; i < 100; i++)
             {
                 randList.Add(i + 1);
                 //randList.Add(random.Next(100));
             }
             int index = BinSearch(randList.OrderBy(o => o).ToArray(), 40);
-            ;
+            
         }
-        public int BinSearch(int [] arry, int target)
+
+
+        public int BinSearch(int[] arry, int target)
         {
-            int left = 0, right = arry.Length -1;
-            while(left <= right)
+            int left = 0;
+            int right = arry.Length - 1;
+
+            while (left <= right)
             {
                 int mid = (left + right) / 2;
 
-                if(arry[mid] < target)
-                    left = mid + 1; 
-                else if(arry[mid] > target)
+                if (arry[mid] < target)
+                    left = mid + 1;
+                else if (arry[mid] > target)
                     right = mid - 1;
                 else
                     return mid;
             }
+
             return -1;
         }
-/* Recursive Binary Search
- *
-0. Get the midpoint by averaging the left and right side. 	
-1. Check if target is mid, if mid return target.
-2. Check if target greater than array[mid]
-    a) If target is greater, then it is on the right side. Search on right side.
-3. Check if target lower than array[mid]
-    a) If target is lower, then it is on the left side. Search on left side.
-4. return -1. If this is hit... the item was not found.
-* */
+        /* Recursive Binary Search
+         *
+        0. Get the midpoint by averaging the left and right side. 	
+        1. Check if target is mid, if mid return target.
+        2. Check if target greater than array[mid]
+            a) If target is greater, then it is on the right side. Search on right side.
+        3. Check if target lower than array[mid]
+            a) If target is lower, then it is on the left side. Search on left side.
+        4. return -1. If this is hit... the item was not found.
+        * */
         public int RecursiveBinSearch(int[] arry, int left, int right, int target)
-        {   
-            int mid = (left + right)/2; 
-            if(arry[mid] == target)     return mid;
-            if(arry[mid] < target)      return RecursiveBinSearch(arry, mid + 1, right, target);
-            if(arry[mid] > target)      return RecursiveBinSearch(arry, left, mid - 1, target); 
+        {
+            int mid = (left + right) / 2;
+            if (arry[mid] == target) return mid;
+            if (arry[mid] < target) return RecursiveBinSearch(arry, mid + 1, right, target);
+            if (arry[mid] > target) return RecursiveBinSearch(arry, left, mid - 1, target);
             return -1;
-        }                           
+        }
     }
 }

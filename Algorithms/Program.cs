@@ -33,6 +33,7 @@ namespace Algorithms
             m = MergeSort.Sort(m);
             timer.Stop();
         }
+
         static IEnumerable<int> GetUnsortedArray()
         {
             var random = new Random();

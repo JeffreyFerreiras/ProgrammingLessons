@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    static class QuickSort
+    public static class QuickSort
     {
         /* O(n log n) typical run time and O(log n) space
+         * 
         1st half.
         1) Get pivot point. GetPivotPoint(arry, left, right)
         2) If left is less than pivot, recur left to pivot - 1
         3) If right if less than pivot, recur pivot + 1 to right
         */
+        
         /*
         2nd half
         GetPivotPoint(arry, left, right)
@@ -24,6 +26,7 @@ namespace Algorithms
              d)check if left is still lower than or equal to right, if it is, swap values.
         2) return left;
          */
+
         public static int[] Sort(int[] arry)
         {
             Sort(arry, 0, arry.Length - 1);

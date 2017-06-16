@@ -12,6 +12,7 @@ namespace DataStructures
                 tree.Add(i + 1);
             }
             ;
+
             tree.DisplayPreOrder(tree.Root);
             Console.WriteLine();
             tree.DisplayInOrder(tree.Root);

@@ -83,6 +83,7 @@ namespace DataStructures.LinkedLists
             {
                 var node = First;
                 int counter = 0;
+
                 while(node.Next != null)
                 {
                     if(counter == index)
@@ -90,6 +91,7 @@ namespace DataStructures.LinkedLists
                     node = node.Next;
                 }
             }
+
             throw new IndexOutOfRangeException();
         }
 
@@ -101,6 +103,7 @@ namespace DataStructures.LinkedLists
                 {
                     First = null;
                     Last = null;
+
                     return true;
                 }
                 First = First.Next;
@@ -138,6 +141,7 @@ namespace DataStructures.LinkedLists
             else
             {
                 Node<T> current = First;
+
                 while(current != null)
                 {
                     if(node == current.Next)

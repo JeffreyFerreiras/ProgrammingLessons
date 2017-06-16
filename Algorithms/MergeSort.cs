@@ -42,44 +42,58 @@ Merge sort O(n log n) typical runtime.
         public static int[] Sort(int[] array)
         {
             int[]helper = new int[array.Length];
+
             Sort(array, helper, 0, array.Length - 1);
+
             return array;
         }
+
         static void Sort(int[] array, int[] helper, int low, int high)
         {
             if(low < high)
             {
                 int mid = (low + high)/2;
+
                 Sort(array, helper, low, mid);          
-                Sort(array, helper, mid + 1, high);     
+                Sort(array, helper, mid + 1, high);
+
                 Merge(array, helper, low, mid, high);
             }
         }
-        static void Merge(int[] array, int[] helper, int low, int mid, int high)
-        {
-            for(int i = low; i <= high; i++)
-                helper[i] = array[i];
-            
-            int left = low, current = low, right = mid + 1;
 
-            while(left <= mid && right <= high)
+        static void Merge(int[] array, int[] helper, int lowIndex, int middleIndex, int highIndex)
+        {
+            for (int i = lowIndex; i <= highIndex; i++)
             {
-                if(helper[left] <= helper[right])
+                helper[i] = array[i];
+            }
+
+            int leftIndex = lowIndex;
+            int currentIndex = lowIndex;
+            int rightIndex = middleIndex + 1;
+
+            while(leftIndex <= middleIndex && rightIndex <= highIndex)
+            {
+                if(helper[leftIndex] <= helper[rightIndex])
                 {
-                    array[current] = helper[left];
-                    left++;
+                    array[currentIndex] = helper[leftIndex];
+                    leftIndex++;
                 }
                 else
                 {
-                    array[current] = helper[right];
-                    right++;
+                    array[currentIndex] = helper[rightIndex];
+                    rightIndex++;
                 }
-                current++;
+
+                currentIndex++;
             }
 
-            int remaining = mid - left;
-            for(int i = 0; i <= remaining; i++)
-                array[current + i] = helper[left + i];
+            int remaining = middleIndex - leftIndex;
+
+            for (int i = 0; i <= remaining; i++)
+            {
+                array[currentIndex + i] = helper[leftIndex + i];
+            }
         }
     }
 }

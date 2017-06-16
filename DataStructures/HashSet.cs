@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures
 {
-    class HashSet
+    internal class HashSet
     {
         /*
         What is it?

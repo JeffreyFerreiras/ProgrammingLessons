@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataStructures.HashSet
 {
-    public class CustomHashTable<K, V>
+    public class CustomHashTable<Key, Value>
     {
         public int Count
         {
@@ -11,15 +11,15 @@ namespace DataStructures.HashSet
             private set { Count = value; }
         }
 
-        private readonly LinkedList<KeyValuePair<K, V>>[] items;
+        private readonly LinkedList<KeyValuePair<Key, Value>>[] items;
 
         public CustomHashTable(int size)
         {
             Count = size;
-            items = new LinkedList<KeyValuePair<K, V>>[size];
+            items = new LinkedList<KeyValuePair<Key, Value>>[size];
         }
 
-        public V FindByKey(K key)
+        public Value FindByKey(Key key)
         {
             int position = GetItemIndex(key);
             var list = GetList(position);
@@ -30,46 +30,46 @@ namespace DataStructures.HashSet
                     return pair.Value;
             }
 
-            return default(V);
+            return default(Value);
         }
 
-        public void Add(K key, V value)
+        public void Add(Key key, Value value)
         {
             int position = GetItemIndex(key);
 
-            LinkedList<KeyValuePair<K,V>> list = GetList(position);
-            var item = new KeyValuePair<K,V> (key, value);
+            LinkedList<KeyValuePair<Key,Value>> list = GetList(position);
+            var item = new KeyValuePair<Key,Value> (key, value);
 
             list.AddFirst(item);
         }
 
-        public void Remove(K key)
+        public void Remove(Key key)
         {
             int position = GetItemIndex(key);
-            LinkedList<KeyValuePair <K, V>> list = GetList(position);
+            LinkedList<KeyValuePair <Key, Value>> list = GetList(position);
 
             foreach(var pair in list)
             {
                 if(pair.Key.Equals(key))
                 {
-                    items[position] = default(LinkedList<KeyValuePair<K, V>>);
+                    items[position] = default(LinkedList<KeyValuePair<Key, Value>>);
                 }
             }
         }
 
-        private int GetItemIndex(K Key)
+        private int GetItemIndex(Key Key)
         {
             int position = Key.GetHashCode() % Count;
             return Math.Abs(position);
         }
 
-        private LinkedList<KeyValuePair<K, V>> GetList(int position)
+        private LinkedList<KeyValuePair<Key, Value>> GetList(int position)
         {
             var list = items[position];
 
             if(list == null)
             {
-                list = new LinkedList<KeyValuePair<K, V>>();
+                list = new LinkedList<KeyValuePair<Key, Value>>();
                 items[position] = list;
             }
 
