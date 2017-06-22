@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructures.HashSet
+namespace DataStructures.HashSet.HashSet
 {
     public class CustomHashTable<Key, Value>
     {

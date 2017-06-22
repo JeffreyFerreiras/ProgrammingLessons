@@ -20,7 +20,7 @@ namespace Algorithms
             
 
             timer.Start();
-            q = QuickSort.Sort(q);
+            q = Quick.QuickSort(q);
             timer.Stop();
             
             timer.Reset();
@@ -30,7 +30,7 @@ namespace Algorithms
                 m[i] = unsortedArry[i];
             
             timer.Start();
-            m = MergeSort.Sort(m);
+            m = Merge.MergeSort(m);
             timer.Stop();
         }
 

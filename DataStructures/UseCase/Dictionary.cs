@@ -11,9 +11,13 @@ namespace DataStructures
         //Dictionaries have key value pairs.
         public Dictionary<string, ulong> GetPhoneBook()
         {
-            Dictionary<string, ulong> phoneBook = new Dictionary<string, ulong>();
-            phoneBook.Add("Alex", 9084459999);
+            Dictionary<string, ulong> phoneBook = new Dictionary<string, ulong>
+            {
+                { "Alex", 9084459999 }
+            };
+
             phoneBook["Jessica"] = 7325129874;
+
             return phoneBook;
         }
         public void DisplayDictionaryValue()

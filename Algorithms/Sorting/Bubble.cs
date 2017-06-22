@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    public static class BubbleSort
+    public static class Bubble
     {
         /***
          * Runtime: O(n^2) Space: O(n) 
          */
 
-        public static void Sort(int[] arry)
+        public static void BubbleSort(this int[] arry)
         {
             for (int i = 0; i < arry.Length; i++)
             {

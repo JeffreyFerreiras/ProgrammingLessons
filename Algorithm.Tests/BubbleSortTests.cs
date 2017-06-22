@@ -1,15 +1,13 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Algorithms.Tests
+﻿namespace Algorithms.Tests
 {
     using Algorithms;
+    using NUnit.Framework;
 
-    [TestClass]
+    [TestFixture]
     public class BubbleSortTests
     {
 
-        [TestMethod]
+        [Test]
         public void Sort_BubbleSort_OrderedArray()
         {
             int[] arry = new int[1000];
@@ -19,7 +17,7 @@ namespace Algorithms.Tests
                 arry[i] = Helper.RandomNumber(i, 1000);
             }
 
-            BubbleSort.Sort(arry);
+            Bubble.BubbleSort(arry);
 
             Assert.IsTrue(Helper.IsSortedArray(arry));
         }
