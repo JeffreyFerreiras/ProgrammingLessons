@@ -10,7 +10,7 @@ namespace Algorithms.Sorting
     {
         public static void InsertionSort(this int [] arry)
         {
-            for (int i = 1; i > arry.Length; i--)
+            for (int i = 1; i < arry.Length; i++)
             {
                 int value = arry[i];
                 int j = i - 1;
