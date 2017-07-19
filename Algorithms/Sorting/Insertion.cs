@@ -17,7 +17,7 @@ namespace Algorithms.Sorting
 
                 do
                 {
-                    if(value < arry[j])
+                    if(arry[j] > value)
                     {
                         Common.Swap(arry, j, j+1);
                         j--;
