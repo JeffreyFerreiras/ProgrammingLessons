@@ -24,8 +24,8 @@ namespace LanguageFeatures
         }
         void UseFunc()
         {
-            Func<double, double, double> getArea = (x , y) => 3.14 * x * y ;
-            double area = getArea(20, 15);
+            Func<double, double, string> getArea = (x , y) => (3.14 * x * y) .ToString();
+            string area = getArea(20, 15);
         }
         void UseAction()
         {

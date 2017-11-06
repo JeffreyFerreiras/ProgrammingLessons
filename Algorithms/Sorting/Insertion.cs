@@ -13,21 +13,14 @@ namespace Algorithms.Sorting
             for (int i = 1; i < arry.Length; i++)
             {
                 int value = arry[i];
-                int j = i - 1;
+                int index = i - 1;
 
-                do
+                //Movie value left until it's in the right place.
+                while(arry[index] > value && index >= 0)
                 {
-                    if(arry[j] > value)
-                    {
-                        Common.Swap(arry, j, j+1);
-                        j--;
-                    }
-                    else
-                    {
-                        break;
-                    }
-
-                } while (j >= 0);
+                    Common.Swap(arry, index, index + 1);
+                    index--;
+                }
             }
         }
     }

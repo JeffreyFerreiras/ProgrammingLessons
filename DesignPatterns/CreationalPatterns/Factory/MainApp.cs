@@ -17,6 +17,7 @@ namespace DesignPatterns.Factory
 
             foreach(var doc in docs)
             {
+                doc.CreatePages();
                 //print out document name
                 Console.WriteLine("\n" + doc.GetType().Name + "--");
 

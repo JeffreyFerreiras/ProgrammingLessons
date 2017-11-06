@@ -50,7 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BehavioralPatterns\ChainOfResponsibility\MainApp.cs" />
+    <Compile Include="BehavioralPatterns\Observer\MainApp.cs" />
     <Compile Include="BehavioralPatterns\Strategy\MainApp.cs" />
+    <Compile Include="CreationalPatterns\Abstract Factory\MainApp.cs" />
     <Compile Include="CreationalPatterns\Builder\BuilderPattern.cs" />
     <Compile Include="CreationalPatterns\Builder\BuilderPatternRealWorld.cs" />
     <Compile Include="CreationalPatterns\Factory\BibliographyPage.cs" />
@@ -86,6 +89,8 @@
     <Compile Include="StructuralPatterns\Iterator\NYPaper.cs" />
     <Compile Include="StructuralPatterns\Iterator\NYPaperIterator.cs" />
     <Compile Include="StructuralPatterns\Iterator\Program.cs" />
+    <Compile Include="StructuralPatterns\Repository\RepositoryPattern.cs" />
+    <Compile Include="StructuralPatterns\UnitOfWork\UnitOfWorkPattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -12,8 +12,13 @@ namespace LanguageFeatures
         {
             //var delegates = new Delegates_Lesson();
             //var asynchroniousProgramming = new AsynchronousProgramming();
-            var operators = new Operators();
-            operators.BitWiseOperators();
+            //var operators = new Operators();
+            //operators.BitWiseOperators();
+
+            CSharpEventSubscriber subscriber = new CSharpEventSubscriber();
+            subscriber.AppStart();
+
+            Console.ReadLine();
         }
     }
 }

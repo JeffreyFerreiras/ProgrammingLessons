@@ -13,7 +13,7 @@ namespace DesignPatterns
 
         static void Main(string[] args)
         {
-         
+            BehavioralPatterns.ChainOfResponsibility.MainApp.DoWork();
         }
     }
 }
