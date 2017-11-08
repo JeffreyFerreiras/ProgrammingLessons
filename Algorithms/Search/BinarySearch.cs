@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    class BinarySearch
+    public class BinarySearch
     {
         /*
         The binary search algo takes an ordered list of numbers and finds the target in O(log n)
@@ -31,10 +31,10 @@ namespace Algorithms
                 randList.Add(i + 1);
                 //randList.Add(random.Next(100));
             }
+
             int index = BinSearch(randList.OrderBy(o => o).ToArray(), 40);
             
         }
-
 
         public int BinSearch(int[] arry, int target)
         {

@@ -24,16 +24,17 @@ namespace Algorithms
         {
             if (leftIndex >= rightIndex) return;
 
-            int pivot = arry[(leftIndex + rightIndex) / 2];
-            int index = Partition(arry, leftIndex, rightIndex, pivot);
+            int index = Partition(arry, leftIndex, rightIndex);
 
             QuickSort(arry, leftIndex, index -1);   //Sort left side
             QuickSort(arry, index, rightIndex);     //Sort right side
         }
 
-        private static int Partition(int[] array, int leftIndex, int rightIndex, int pivot)
+        private static int Partition(int[] array, int leftIndex, int rightIndex)
         {
-            while(leftIndex <= rightIndex)
+            int pivot = array[(leftIndex + rightIndex) / 2];
+
+            while (leftIndex <= rightIndex)
             {
                 while(array[leftIndex] < pivot) leftIndex++;        //Check numbers until one needs to be swaped to right side of the pivot.
                 while (array[rightIndex] > pivot) rightIndex--;     //Check numbers until one needs to be swaped to left side of the pivot.

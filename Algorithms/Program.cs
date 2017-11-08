@@ -12,7 +12,9 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
+
             int [] unsortedArry = GetUnsortedArray().ToArray();
+
 
             var q = new int [unsortedArry.Length];
             for(int i = 0; i < unsortedArry.Length; i++)
