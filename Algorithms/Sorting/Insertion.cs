@@ -4,24 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.Sorting
+namespace Algorithms
 {
     public static class Insertion
     {
-        public static void InsertionSort(this int [] arry)
+        public static int[] InsertionSort(this int[] arry)
         {
-            for (int i = 1; i < arry.Length; i++)
+            for(int i = 1; i < arry.Length; i++)
             {
-                int value = arry[i];
-                int index = i - 1;
+                int inner = i;
+                int val = arry[inner];
 
-                //Movie value left until it's in the right place.
-                while(arry[index] > value && index >= 0)
+                while(inner > 0 && arry[inner - 1] > val)
                 {
-                    Common.Swap(arry, index, index + 1);
-                    index--;
+                    arry[inner] = arry[inner - 1];
+                    inner--;
                 }
+
+                arry[inner] = val;
             }
+
+            return arry;
         }
     }
 }
