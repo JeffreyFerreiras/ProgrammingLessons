@@ -44,7 +44,7 @@ namespace Algorithms
     {    
         public static int[] MergeSort(this int[] array)
         {
-            int[]helper = new int[array.Length];
+            int[] helper = new int[array.Length];
 
             MergeSort(array, helper, 0, array.Length - 1);
 

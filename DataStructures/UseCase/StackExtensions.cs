@@ -25,6 +25,7 @@ namespace DataStructures
             {
                 var temp = stack.Pop();
                 ReverseStack(stack);
+
                 BottomInsert(stack, temp);
             }
         }
