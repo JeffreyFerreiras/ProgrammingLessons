@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Algorithms
 {
 /*
-Merge sort O(n log n) typical runtime.
+-  Merge sort O(n log n) typical runtime.
 -  O(n) space complexity, because an additional array is required.
 -  Merge sort is used when the data structure doesn't support random access, since it works with pure sequential access.
 
@@ -40,7 +40,7 @@ Merge sort O(n log n) typical runtime.
  * 6. handle remaining elements by declaring in remaining equals to mid - left
  * 7. for each index assign helper left + index to array current + index 
  */
-    static class Merge
+    public static class Merge
     {    
         public static int[] MergeSort(this int[] array)
         {
@@ -76,7 +76,8 @@ Merge sort O(n log n) typical runtime.
             int currentIndex = lowIndex;
             int rightIndex = middleIndex + 1;
 
-            // compare the two sides of the helper array. Place the smaller item from the two halfs of the array
+            // compare the two sides of the helper array.
+            // Place the smaller item from the two halfs of the array
             // that are sorted into the target array.
             // continue to do this until one side runs out of items.
 
@@ -105,6 +106,62 @@ Merge sort O(n log n) typical runtime.
             for (int i = 0; i <= remaining; i++)
             {
                 array[currentIndex + i] = helper[leftIndex + i];
+            }
+        }
+
+
+        static int[] MergeSort2(this int[] arry)
+        {
+            int[] helper = new int [arry.Length];
+
+            MergeSort(arry, helper, 0, arry.Length - 1);
+
+            return arry;
+        }
+
+        static void MergeSort2(int[] arry, int[]helper, int low, int high)
+        {
+            if (low < high)
+            {
+                int mid = (high + low) / 2;
+
+                MergeSort2(arry, helper, low, mid-1);
+                MergeSort2(arry, helper, mid, high);
+
+                Combine2(arry, helper, low, mid, high);
+            }
+        }
+
+        private static void Combine2(int[] arry, int[] helper, int low, int mid, int high)
+        {
+            for (int i = low; i <= high; i++)
+            {
+                helper[i] = arry[i];
+            }
+
+            int left = low;
+            int current = low;
+            int right = mid + 1;
+
+            while(left <= mid && right <= high)
+            {
+                if(helper[left] <= helper[right])
+                {
+                    arry[left] = helper[left++];
+                }
+                else
+                {
+                    arry[current] = helper[right++];
+                }
+
+                current++;
+            }
+
+            int remaining = mid - left;
+
+            for (int i = 0; i <= remaining; i++)
+            {
+                arry[current + i] = helper[left + i];
             }
         }
     }

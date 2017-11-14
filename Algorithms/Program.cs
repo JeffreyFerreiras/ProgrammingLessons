@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,40 +11,38 @@ namespace Algorithms
     {
         static System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
 
+        delegate int[] Sort(int[] arry);
+
         static void Main(string[] args)
         {
+            const int LEN = 10;
 
-            int [] unsortedArry = GetUnsortedArray().ToArray();
+            int[]arry = Common.GetRandomizedArray(LEN);
 
+            GenericSort(Quick.QuickSort, arry);
+            GenericSort(Merge.MergeSort, arry);
+            GenericSort(Bubble.BubbleSort, arry);
+            GenericSort(Insertion.InsertionSort, arry);
+            GenericSort(Selection.SelectionSort, arry);
 
-            var q = new int [unsortedArry.Length];
-            for(int i = 0; i < unsortedArry.Length; i++)
-                q[i] = unsortedArry[i];
-            
+            Console.WriteLine("\nSort Again?");
+            string input = Console.ReadLine();
 
-            timer.Start();
-            q = Quick.QuickSort(q);
-            timer.Stop();
-            
-            timer.Reset();
-
-            var m = new int [unsortedArry.Length];
-            for(int i = 0; i < unsortedArry.Length; i++)
-                m[i] = unsortedArry[i];
-            
-            timer.Start();
-            m = Merge.MergeSort(m);
-            timer.Stop();
+            if (input.ToLower() != "n") Main(args);
         }
 
-        static IEnumerable<int> GetUnsortedArray()
+        static void GenericSort(Sort sort, int [] arry)
         {
-            var random = new Random();
+            int[] copy = new int[arry.Length];
+            Array.Copy(arry, copy, arry.Length);
 
-            for(int i = 0; i < 10000; i++)
-            {
-                yield return random.Next(0, 1000);
-            }
+            timer.Start();
+            sort(copy);
+            Console.WriteLine(
+                    $"{sort.Method.Name}:\t Time:{timer.ElapsedTicks.ToString("N")}\t\t\tSorted: {copy.IsSortedArray()}"
+                   /*+$"\tMemory: {GC.GetTotalMemory(true).ToString("N")} bytes\n"*/);
+
+            timer.Reset();
         }
     }
 }
