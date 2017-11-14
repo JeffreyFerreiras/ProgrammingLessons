@@ -16,15 +16,5 @@ namespace Algorithms.Tests
 
             Assert.IsTrue(Helper.IsSortedArray(arry));
         }
-
-        [Test]
-        public void QuickSort_SortArray2_SortedArray()
-        {
-            var arry = Helper.GetRandomizedArray(1000);
-
-            arry.QuickSort2();
-
-            Assert.IsTrue(Helper.IsSortedArray(arry));
-        }
     }
 }
