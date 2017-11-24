@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingLessons", "ProgrammingLessons\ProgrammingLessons.csproj", "{160C61BB-487C-4B48-AAB7-ACE4945E3513}"
 EndProject
@@ -69,6 +69,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPRazorDBApp", "ASPRazorDBApp\ASPRazorDBApp.csproj", "{CA326580-F6E8-43E2-99E0-90FD58C655CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpUnsafeCode", "CSharpUnsafeCode\CSharpUnsafeCode.csproj", "{EB2C5897-04BB-4748-9585-85B82A237E5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memoization and Dynamic Programming", "Memoization and Dynamic Programming\Memoization and Dynamic Programming.csproj", "{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -370,6 +372,22 @@ Global
 		{EB2C5897-04BB-4748-9585-85B82A237E5F}.Release|x64.Build.0 = Release|Any CPU
 		{EB2C5897-04BB-4748-9585-85B82A237E5F}.Release|x86.ActiveCfg = Release|Any CPU
 		{EB2C5897-04BB-4748-9585-85B82A237E5F}.Release|x86.Build.0 = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|x64.Build.0 = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Debug|x86.Build.0 = Debug|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|ARM.Build.0 = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|x64.ActiveCfg = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|x64.Build.0 = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|x86.ActiveCfg = Release|Any CPU
+		{68213E9F-F94C-4679-AAAF-4F03BC4CF47E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

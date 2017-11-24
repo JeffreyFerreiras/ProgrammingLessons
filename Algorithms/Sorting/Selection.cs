@@ -8,27 +8,33 @@ namespace Algorithms
 {
     public static class Selection
     {
-        public static int[] SelectionSort(this int[] arry)
+        /*
+         * 1. Loop through every element minus one.
+         * 2. Traverse non sorted elements. (i to end)
+         * 3. If item with min index is higher than non sorted item, set min index to non sorted index.
+         * 4. Assign current i the minIndex item.
+         */
+        public static int[] SelectionSort(int[] arr)
         {
-            for (int i = 0; i < arry.Length - 1; i++)
+            for (int i = 0; i < arr.Length - 1; i++)
             {
                 int minIndex = i;
-                int inner = i + 1;
+                int nonSortedIndex = i + 1;
 
-                while(inner < arry.Length)
+                while(nonSortedIndex < arr.Length)
                 {
-                    if(arry[inner] < arry[minIndex])
+                    if(arr[minIndex] > arr[nonSortedIndex])
                     {
-                        minIndex = inner;
+                        minIndex = nonSortedIndex;
                     }
 
-                    inner++;
+                    nonSortedIndex++;
                 }
 
-                Common.Swap(arry, i, minIndex);
+                Common.Swap(arr, i, minIndex);
             }
 
-            return arry;
+            return arr;
         }
     }
 }

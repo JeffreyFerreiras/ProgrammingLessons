@@ -14,7 +14,7 @@ namespace Algorithms.Tests
         public static int RandomNumber(int min, int max)
         {
             lock (syncLock)
-            { // synchronize
+            { //synchronize
                 return rand.Next(min, max);
             }
         }
@@ -32,16 +32,21 @@ namespace Algorithms.Tests
             return true;
         }
 
-        public static int [] GetRandomizedArray(int length = 100)
+        public static int[] GetRandomizedArray(int length = 1000, int maxValue = 100)
         {
             int[] arry = new int[length];
 
             for (int i = 0; i < length; i++)
             {
-                arry[i] = RandomNumber(0, 100);
+                arry[i] = RandomNumber(0, maxValue);
             }
 
             return arry;
+        }
+
+        public static int[] GetSortedArray(int length = 1000)
+        {
+            return GetRandomizedArray(length).QuickSort();
         }
     }
 }

@@ -8,23 +8,29 @@ namespace Algorithms
 {
     public static class Insertion
     {
-        public static int[] InsertionSort(this int[] arry)
+        /*
+         * 1. loop from index 1 to end.
+         * 2. cache current value outside while loop.
+         * 3. while inner index is lower than zero and inner - 1 value is greated than current. Shift values left.
+         * 4. assign inner index value to current.
+         */
+        public static int[] InsertionSort(this int[] arr)
         {
-            for(int i = 1; i < arry.Length; i++)
+            for (int i = 1; i < arr.Length; i++)
             {
                 int inner = i;
-                int val = arry[inner];
+                int current = arr[inner];
 
-                while(inner > 0 && arry[inner - 1] > val)
+                while(inner > 0 && arr[inner -1] > current)
                 {
-                    arry[inner] = arry[inner - 1];
+                    arr[inner] = arr[inner - 1];
                     inner--;
                 }
 
-                arry[inner] = val;
+                arr[inner] = current;
             }
 
-            return arry;
+            return arr;
         }
     }
 }

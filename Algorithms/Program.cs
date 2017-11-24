@@ -15,7 +15,7 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            const int LEN = 10;
+            const int LEN = 1000;
 
             int[]arry = Common.GetRandomizedArray(LEN);
 
