@@ -25,7 +25,9 @@ namespace Memoization_and_Dynamic_Programming
 
 
             Console.WriteLine("Golden Ratio formula");
+
             sw.Start();
+
             foreach (var num in Enumerable.Range(0, max))
             {
                 Console.WriteLine($"Fib result: {ConstantFib(num)} Ticks: {sw.ElapsedTicks}");
@@ -61,7 +63,5 @@ namespace Memoization_and_Dynamic_Programming
 
             return (int)Math.Round(factor * (termA - termB));
         }
-
-
     }
 }

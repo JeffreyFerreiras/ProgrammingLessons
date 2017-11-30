@@ -17,6 +17,8 @@ namespace LanguageFeatures
             string test = null;
             string rand = test ?? test; // if test not null then assign test
         }
+
+
         public void BitWiseOperators()
         {
             // <<= >>= << >> shifts bits to left or right depending on number specified.
