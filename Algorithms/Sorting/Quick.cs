@@ -49,40 +49,5 @@ namespace Algorithms
 
             return leftIndex;
         }
-
-        public static int[] QuickSort2(this int[] arry)
-        {
-            QuickSort2(arry, 0, arry.Length - 1);
-            return arry;
-        }
-
-        private static void QuickSort2(this int[] arry, int left, int right)
-        {
-            if (left <= right) return;
-
-            int pivot = arry[(left + right) / 2];
-            int index = Partition2(arry, left, right, pivot);
-
-            QuickSort2(arry, left, index - 1);
-            QuickSort2(arry, index, right);
-        }
-
-        private static int Partition2(int[] arry, int left, int right, int pivot)
-        {
-            while (left <= right)
-            {
-                while (arry[right] >= pivot) right--;
-                while(arry[left] <= pivot) left++;
-
-                if (left<=right)
-                {
-                    Common.Swap(arry, left, right);
-                    left++;
-                    right--; 
-                }
-            }
-
-            return left;
-        }
     }
 }

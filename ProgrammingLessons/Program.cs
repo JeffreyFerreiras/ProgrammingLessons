@@ -1,31 +1,33 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProgrammingLessons
 {
-    internal interface IProgram
-    { }
-
-    internal class Program : IProgram
+    class Program
     {
-        private enum weekdays : byte
-        { monday, tuesday, wednesday, thursday, friday, saturday, sunday }
+        class Person 
+        {
+            public int ID { get; set; }
+        }
 
         private static void Main(string[] args)
         {
-            Console.WriteLine(weekdays.monday);
-            Console.WriteLine(weekdays.tuesday);
-            Console.WriteLine(weekdays.wednesday);
-            Console.WriteLine(weekdays.thursday);
-            Console.WriteLine(weekdays.friday);
-            Console.WriteLine(weekdays.saturday);
-            Console.WriteLine(weekdays.sunday);
-            Console.WriteLine();
+            List<Person> peopleList1 = new List<Person>();
+            peopleList1.Add(new Person() { ID = 1 });
+            peopleList1.Add(new Person() { ID = 2 });
+            peopleList1.Add(new Person() { ID = 3 });
 
-            typeof(object).GetMembers().ToList().ForEach(Console.WriteLine);
+            List<Person> peopleList2 = new List<Person>();
+            peopleList2.Add(new Person() { ID = 1 });
+            peopleList2.Add(new Person() { ID = 2 });
+            peopleList2.Add(new Person() { ID = 3 });
+            peopleList2.Add(new Person() { ID = 4 });
+            peopleList2.Add(new Person() { ID = 5 });
 
-            Console.WriteLine(sizeof(weekdays));
-            Console.ReadKey();
+            var comparer = Comparer<Person>.Create((x, y) => x.ID < y.ID ? 1 : x.ID == y.ID ? 0: -1);
+            peopleList2.RemoveAll(x => peopleList1.Contains(x));
         }
     }
 }
