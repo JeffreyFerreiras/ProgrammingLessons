@@ -1,54 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 
 namespace DataStructures.Trees
 {
-    public class BinarySearchTree<T>
+    public class BinarySearchTree
     {
-        
-        public int Count { get; private set; }
-        public Node<T> Root { get; private set; }
-        public List<Node<T>> Neighbors { get; private set; }
+        private int _count;
+        private Node<int> _root;
 
-        public void Add(T value)
+        public int Count { get => _count; private set => _count = value; }
+
+        public Node<int> Root { get => _root; private set => _root = value; }
+
+        public void Add(int value)
         {
-
-            if(Root == null)
+            if(_root == null)
             {
-                Root = node;
+                _root = new Node<int>(value);
             }
-            else
+
+            InternalAdd(_root, value);
+
+            _count++;
+        }
+
+        private void InternalAdd(Node<int> node, int value)
+        {
+            if(node == null)
             {
-                var current = Root;
+                node = new Node<int>(value);
 
-                while(current != null)
-                {
-                    if(Root.)
-                }
+                return;
+            }
+
+            if(node.Value > value)
+            {
+                InternalAdd(node.LeftChild, value);
+            }
+            else if(node.Value < value)
+            {
+                InternalAdd(node.RightChild, value);
             }
         }
-        
-        private void InternalAdd(Node<T> value)
-        {
 
+        public void Clear()
+        {
+            throw new System.NotImplementedException();
         }
-    }
 
-    public class Node<T>
-    {
-        public T Value { get; set; }
-        public List<Node<T>> Children { get; set; }
-
-        public Node(T value)
+        public bool Contains(int value)
         {
-            Value = value;
+            if(Root == null) return false;
+            if(Root.Value == value) return true;
+
+            return InternalContains(Root, value);
         }
-        public Node(T value, Node<T> left, Node<T> right)
-        {
 
-            Children[0] = left;
-            Children[1] = right;
+        public bool InternalContains(Node<int> node, int value)
+        {
+            if(node == null) return false;
+            if(node.Value == value) return true;
+
+            if(node.Value > value)
+            {
+                return InternalContains(node.LeftChild, value);
+            }
+
+            return InternalContains(node.RightChild, value);
+        }
+
+        public bool Remove(int item)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
