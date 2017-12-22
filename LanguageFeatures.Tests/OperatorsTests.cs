@@ -16,7 +16,7 @@ namespace LanguageFeatures.Tests
         {
             var operators = new Operators();
 
-            operators.UsefullTipsANDTricks();      
+            operators.UsefullTipsANDTricks();
         }
     }
 }

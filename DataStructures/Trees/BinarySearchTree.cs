@@ -1,131 +1,76 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 
 namespace DataStructures.Trees
 {
-    internal class BinarySearchTree<T>
+    public class BinarySearchTree
     {
-        public class NodeList<TNodeList> : Collection<Node<TNodeList>>
+        private int _count;
+        private Node<int> _root;
+
+        public int Count { get => _count; private set => _count = value; }
+
+        public Node<int> Root { get => _root; private set => _root = value; }
+
+        public void Add(int value)
         {
-            public NodeList() : base(){}
-            public NodeList(int size)
+            if(_root == null)
             {
-                for(int i = 0; i < size; i++)
-                {
-                    base.Items.Add(default(Node<TNodeList>));
-                }
+                _root = new Node<int>(value);
             }
-        } 
-        
-        public int Count { get; private set; }
-        public Node<T> Root { get; private set; }
-        public List<Node<T>> Neighbors { get; private set; }
 
-        public void Add(T value)
+            InternalAdd(_root, value);
+
+            _count++;
+        }
+
+        private void InternalAdd(Node<int> node, int value)
         {
-            var node = new Node<T>(value);
-            if(Root == null)
+            if(node == null)
             {
-                Root = node;
+                node = new Node<int>(value);
+
+                return;
             }
-            else
+
+            if(node.Value > value)
             {
-                bool assigned = false;
-                Add(Root, node, ref assigned);
+                InternalAdd(node.LeftChild, value);
+            }
+            else if(node.Value < value)
+            {
+                InternalAdd(node.RightChild, value);
             }
         }
 
-        private void Add(Node<T> root, Node<T> value, ref bool assigned)
+        public void Clear()
         {
-            //if(assigned) return;
-
-            //if(root.Left == null)
-            //{
-            //    root.Left = value;
-            //    assigned = true;
-            //    Count++;
-            //    return;
-            //}
-            //else if(root.Right == null)
-            //{
-            //    root.Right = value;
-            //    assigned = true;
-            //    Count++;
-            //    return;
-            //}
-            
-
-            //if(root.Left.Left != null && root.Left.Right != null)
-            //{
-            //    Add(root.Right, value, ref assigned);
-            //}
-            //else
-            //{
-            //    Add(root.Left, value, ref assigned);
-            //}
+            throw new System.NotImplementedException();
         }
 
-        public void DisplayPreOrder(Node<T> root)
+        public bool Contains(int value)
         {
-            if(root == null) return;
-            Console.WriteLine(root.Value);
-            //DisplayPreOrder(root.Left);
-            //DisplayPreOrder(root.Right);
+            if(Root == null) return false;
+            if(Root.Value == value) return true;
+
+            return InternalContains(Root, value);
         }
 
-        public void DisplayInOrder(Node<T> root)
+        public bool InternalContains(Node<int> node, int value)
         {
-            //if(root == null) return;
-            //DisplayInOrder(root.Left);
-            //Console.WriteLine(root.Value);
-            //DisplayInOrder(root.Right);
+            if(node == null) return false;
+            if(node.Value == value) return true;
+
+            if(node.Value > value)
+            {
+                return InternalContains(node.LeftChild, value);
+            }
+
+            return InternalContains(node.RightChild, value);
         }
 
-        public void DisplayPostOrder(Node<T> root)
+        public bool Remove(int item)
         {
-            //if(root == null) return;
-            //DisplayPostOrder(root.Left);
-            //DisplayPostOrder(root.Right);
-            //Console.WriteLine(root.Value);
-        }
-
-        public void DisplayLevelOrder()
-        {
-            //Node<T> temp = null;
-            //var queue = new System.Collections.Queue();
-
-            //if(Root == null) return;
-            //queue.Enqueue(Root);
-
-            //while(queue.Count > 0)
-            //{
-            //    temp = queue.Dequeue() as Node<T>;
-            //    Console.WriteLine(temp.Value);
-
-            //    if(temp.Left != null)
-            //        queue.Enqueue(temp.Left);
-            //    if(temp.Right != null)
-            //        queue.Enqueue(temp.Right);
-            //}
-            //queue.Clear();
-        }
-    }
-
-    public class Node<T>
-    {
-        public T Value { get; set; }
-        public List<Node<T>> Children { get; set; }
-
-        public Node(T value)
-        {
-            Value = value;
-        }
-        public Node(T value, Node<T> left, Node<T> right)
-        {
-
-            Children[0] = left;
-            Children[1] = right;
+            throw new System.NotImplementedException();
         }
     }
 }

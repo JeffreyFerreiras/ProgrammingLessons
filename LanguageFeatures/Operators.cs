@@ -32,8 +32,7 @@ namespace LanguageFeatures
             // to the right is 001. In the same way when shifting to the left, the empty
             // space will be filled with a 0.
 
-            // ~ invert bits operator
-            
+            // ~ invert bits operator     
             // short is 16 bits
             short c = ~3;
             Convert.ToString(c, 2);
