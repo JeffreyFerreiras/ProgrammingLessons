@@ -33,9 +33,7 @@ namespace LanguageFeatures
                 if (max < unordered[i]) max = unordered[i];
             }      
         }
-
-        static 
-
+        
         //---------------------------------------------------
         private readonly static object _syncLock = new object();
         private readonly static Random _random = new Random();
@@ -67,8 +65,8 @@ namespace LanguageFeatures
             //operators.BitWiseOperators();
 
             //CSharpEventSubscriber subscriber = new CSharpEventSubscriber();
+            
             //subscriber.AppStart();
-
             //EnumClass.UseEnum();
 
             var item = GetInstance<Contact>(nameof(Contact));
