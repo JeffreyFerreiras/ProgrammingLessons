@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
-using DataStructures.Trees;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace DataStructures.Trees.Tests
 {
@@ -70,6 +66,27 @@ namespace DataStructures.Trees.Tests
             var bst = BinTreeFactory();
 
             Assert.IsTrue(bst.Max() == 580);
+        }
+
+        [Test()]
+        public void TraverseInOrderTest()
+        {
+            var bst = BinTreeFactory();
+
+            Action<Node> action = (x) =>
+            {
+                Debug.Print($"Node value: {x.Value} \tIs Leaf: {x.IsLeafNode}");
+            };
+
+            bst.TraverseInOrder(action);
+        }
+
+        [Test()]
+        public void LeafCountTest()
+        {
+            var bst = BinTreeFactory();
+
+            Assert.IsTrue(bst.LeafCount() > 0);
         }
     }
 }

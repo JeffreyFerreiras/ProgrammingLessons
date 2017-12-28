@@ -2,7 +2,7 @@
 
 namespace DataStructures.Trees
 {
-    public class BinarySearchTree
+    public class AVL_Tree
     {
         private int _count;
         private Node _root;

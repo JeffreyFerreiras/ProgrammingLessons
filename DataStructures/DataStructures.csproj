@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Trees\AVL_Tree.cs" />
     <Compile Include="Trees\Node.cs" />
     <Compile Include="UseCase\Dictionary.cs" />
     <Compile Include="UseCase\HashSet.cs" />
