@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using DataStructuresTests;
 
 namespace DataStructures.Trees.Tests
 {
@@ -40,6 +42,36 @@ namespace DataStructures.Trees.Tests
             {
                 bst.Add(x);
             }
+        }
+
+        [Test()]
+        public void AddTest_RotateTree_BalancedTree()
+        {
+            int[] sample = { 43, 18, 22, 9, 21, 6, 8, 20, 63, 50, 62 , 51};
+
+            var bst = new BinarySearchTree();
+
+            foreach(int x in sample)
+            {
+                bst.Add(x);
+            }
+            
+            Assert.IsTrue(bst.IsBalanced);
+        }
+
+        [Test()]
+        public void AddTest_RotateTreeStress_BalancedTree()
+        {
+            int[] sample = Helper.GetRandomArry(1000);
+
+            var bst = new BinarySearchTree();
+
+            foreach(int x in sample)
+            {
+                bst.Add(x);
+            }
+
+            Assert.IsTrue(bst.IsBalanced);
         }
 
         [Test()]

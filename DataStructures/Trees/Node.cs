@@ -34,6 +34,7 @@ namespace DataStructures.Trees
                 int mid = (low + high) / 2;
 
                 Node node = new Node(data[mid]);
+
                 node.LeftChild = node.AddSorted(data, low, mid - 1);
                 node.RightChild = node.AddSorted(data, mid + 1, high);
 
@@ -45,47 +46,122 @@ namespace DataStructures.Trees
 
         internal void Add(int value)
         {
-            if(_value <= value)
+            this.Add(new Node(value));
+        }
+
+        internal void Add(Node node)
+        {
+            if(node.Value > this.Value)
             {
                 if(this.RightChild == null)
-                    this.RightChild = new Node(value);
+                    this.RightChild = node;
                 else
-                    this.RightChild.Add(value);
+                    this.RightChild.Add(node);
             }
-            else
+            else if(node.Value < this.Value)
             {
                 if(this.LeftChild == null)
-                    this.LeftChild = new Node(value);
+                    this.LeftChild = node;
                 else
-                    this.LeftChild.Add(value);
+                    this.LeftChild.Add(node);
+            }
+
+            Balance();
+        }
+
+        internal void Balance(int tension = 2)
+        {
+            int balance = GetBalance();
+            
+            if(balance <= -tension)
+            {
+                if(this.LeftChild == null)
+                {
+                    if(this.RightChild.LeftChild != null)
+                    {
+                        RotateRightLeft();
+                    }
+                    else if(this.RightChild.RightChild != null)
+                    {
+                        RotateRight();
+                    }
+                }
+                else
+                {
+                    RotateRight();
+                }
+            }
+            else if(balance >= tension)
+            {
+                if(this.RightChild == null)
+                {
+                    if(this.LeftChild.RightChild != null)
+                    {
+                        RotateLeftRight();
+                    }
+                    else if(this.LeftChild.LeftChild != null)
+                    {
+                        RotateLeft();
+                    }
+                }
+                else
+                {
+                    RotateLeft();
+                }
             }
         }
 
-        internal void Balance()
+        internal int GetBalance()
         {
-            int leftHeight = this.LeftChild.Height();
-            int rightHeight = this.RightChild.Height();
-            int balance = leftHeight - rightHeight;
+            int leftHeight = this.LeftChild?.Height() ?? 0;
+            int rightHeight = this.RightChild?.Height() ?? 0;
 
-            if(balance <= -2)//right heavy
-            {
-                Rotate(this.RightChild);
-            }
-            else if(balance >= 2)
-            {
-                SwapValues(this, this.LeftChild);
-            }
+            int balance = leftHeight - rightHeight;
+            return balance;
         }
 
         private void RotateRight()
         {
-            SwapValues(this, this.RightChild);
+            Node rightTemp = this.RightChild;
 
-            if(this.LeftChild == null)
-            {
-                this.LeftChild = this.RightChild.RightChild;
-                this.RightChild.RightChild = null;
-            }
+            SwapValues(this, rightTemp);
+
+            this.RightChild = this.RightChild.RightChild;
+
+            rightTemp.RightChild = rightTemp.LeftChild;
+            rightTemp.LeftChild = this.LeftChild;
+
+            this.LeftChild = rightTemp;
+        }
+
+        private void RotateLeft()
+        {
+            Node leftTemp = this.LeftChild;
+
+            SwapValues(this, leftTemp);
+
+            this.LeftChild = this.LeftChild.LeftChild;
+
+            leftTemp.LeftChild = leftTemp.RightChild;
+            leftTemp.RightChild = this.RightChild;
+
+            this.RightChild = leftTemp;
+        }
+
+        private void RotateLeftRight()
+        {
+            SwapValues(this, this.LeftChild.RightChild);
+
+            this.RightChild = this.LeftChild.RightChild;
+            this.LeftChild.RightChild = null;
+        }
+
+        private void RotateRightLeft()
+        {
+            SwapValues(this, this.RightChild.LeftChild);
+
+            this.LeftChild = this.RightChild.LeftChild;
+            this.RightChild.LeftChild = null;
         }
 
         internal void SwapValues(Node left, Node right)
@@ -132,7 +208,7 @@ namespace DataStructures.Trees
             return RightChild.Max();
         }
 
-        internal int Height()
+        internal int Height() //Note to self: Cannot memoize height because it's always changing...
         {
             if(this.IsLeafNode) return 1;
 

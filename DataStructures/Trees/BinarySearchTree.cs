@@ -10,7 +10,15 @@ namespace DataStructures.Trees
         public int Count { get => _count; private set => _count = value; }
 
         public Node Root { get => _root; private set => _root = value; }
+        public bool IsBalanced
+        {
+            get
+            {
+                int balance = _root.GetBalance();
 
+                return Math.Abs(balance) < 2;
+            }
+        }
         public void Add(int value)
         {
             if(_root == null)
