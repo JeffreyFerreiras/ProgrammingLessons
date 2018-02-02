@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructures
 {
@@ -21,7 +23,16 @@ namespace DataStructures
             //Console.WriteLine();
             //tree.DisplayLevelOrder();
 
-            Console.ReadLine();
+            //Console.ReadLine();
+
+            var queue = new Queue<int>();
+
+            queue.Enqueue(5);
+            queue.Enqueue(4);
+            queue.Enqueue(1);
+
+            int test = queue.Dequeue();
+
         }
     }
 }

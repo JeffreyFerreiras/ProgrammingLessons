@@ -14,6 +14,7 @@ namespace Algorithms
          * 3. while inner index is lower than zero and inner - 1 value is greated than current. Shift values left.
          * 4. assign inner index value to current.
          */
+
         public static int[] InsertionSort(this int[] arr)
         {
             for (int i = 1; i < arr.Length; i++)
@@ -31,6 +32,23 @@ namespace Algorithms
             }
 
             return arr;
+        }
+
+        public static void Sort(int[] arr)
+        {
+            for(int i = 1; i < arr.Length; i++)
+            {
+                int inner = i;
+                int current = arr[i];
+
+                while(inner > 0 && arr[inner-1] > arr[i])
+                {
+                    arr[inner - 1] = arr[i];
+                    inner--;
+                }
+
+                arr[inner] = current;
+            }
         }
     }
 }

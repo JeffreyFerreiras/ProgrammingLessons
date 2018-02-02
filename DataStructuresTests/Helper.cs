@@ -9,7 +9,7 @@ namespace DataStructuresTests
     public static class Helper
     {
         private static readonly Random s_random = new Random();
-        private static readonly object s_lock = new object();
+        private static readonly object s_syncLock = new object();
 
         public static bool IsOrdered(this IEnumerable<int> arr)
         {
@@ -24,13 +24,13 @@ namespace DataStructuresTests
             return true;
         }
 
-        internal static int[] GetRandomArry(int size)
+        internal static int[] GetRandomArray(int size)
         {
             var arr = new int[size];
 
             for(int i = 0; i < arr.Length; i++)
             {
-                lock(s_lock)
+                lock(s_syncLock)
                 {
                     arr[i] = s_random.Next(0, 99999);
                 }

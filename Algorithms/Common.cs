@@ -8,8 +8,8 @@ namespace Algorithms
 {
     public static class Common
     {
-        public static readonly Random rand = new Random();
-        private static readonly object syncLock = new object();
+        public static readonly Random s_random = new Random();
+        private static readonly object s_syncLock = new object();
 
         public static void Swap(this int[] array, int leftIndex, int rightIndex)
         {
@@ -32,9 +32,9 @@ namespace Algorithms
 
         public static int RandomNumber(int min, int max)
         {
-            lock (syncLock)
+            lock (s_syncLock)
             { // synchronize
-                return rand.Next(min, max);
+                return s_random.Next(min, max);
             }
         }
 

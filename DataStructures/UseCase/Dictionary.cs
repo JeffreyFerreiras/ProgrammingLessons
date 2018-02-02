@@ -20,6 +20,7 @@ namespace DataStructures
 
             return phoneBook;
         }
+
         public void DisplayDictionaryValue()
         {
             Dictionary<string, ulong> phoneBook = GetPhoneBook();
@@ -29,6 +30,7 @@ namespace DataStructures
                 Console.WriteLine(phoneBook["Alex"]); 
             }
         }
+
         public void LoopThroughDictionary()
         {
             Dictionary<string, ulong> phoneBook = GetPhoneBook();

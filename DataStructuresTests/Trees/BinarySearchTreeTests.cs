@@ -62,7 +62,7 @@ namespace DataStructures.Trees.Tests
         [Test()]
         public void AddTest_RotateTreeStress_BalancedTree()
         {
-            int[] sample = Helper.GetRandomArry(1000);
+            int[] sample = Helper.GetRandomArray(1000);
 
             var bst = new BinarySearchTree();
 

@@ -10,6 +10,7 @@ namespace DataStructures.Trees
         public int Count { get => _count; private set => _count = value; }
 
         public Node Root { get => _root; private set => _root = value; }
+
         public bool IsBalanced
         {
             get
@@ -19,6 +20,14 @@ namespace DataStructures.Trees
                 return Math.Abs(balance) < 2;
             }
         }
+
+        public BinarySearchTree(int[] data)
+        {
+            Array.Sort(data);
+
+            _root = Node.Create(data);
+        }
+
         public void Add(int value)
         {
             if(_root == null)
@@ -72,7 +81,7 @@ namespace DataStructures.Trees
 
         public void Delete(int value)
         {
-            Node node = _root.Find(value);
+            Node node = _root?.Find(value);
 
             if(node != null)
             {

@@ -11,7 +11,7 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-            EnumerableMethods em = new EnumerableMethods();          
+            var em = new EnumerableMethods();
         }
     }
 }

@@ -22,12 +22,21 @@ namespace DataStructures.Trees
 
         public bool IsDeleted { get => _isDeleted; internal set => _isDeleted = value; }
 
+        private Node()
+        {
+        }
+
         internal Node(int value)
         {
             Value = value;
         }
 
-        public Node AddSorted(int[] data, int low, int high)
+        internal static Node Create(int[] data)
+        {
+            return new Node().AddSorted(data, 0, data.Length - 1);
+        }
+
+        internal Node AddSorted(int[] data, int low, int high)
         {
             if(low <= high)
             {
@@ -72,7 +81,7 @@ namespace DataStructures.Trees
         internal void Balance(int tension = 2)
         {
             int balance = GetBalance();
-            
+
             if(balance <= -tension)
             {
                 if(this.LeftChild == null)
@@ -230,18 +239,11 @@ namespace DataStructures.Trees
 
         internal void TraverseInOrder(Action<Node> action)
         {
-            if(IsLeafNode)
-            {
-                action(this);
-            }
-            else
-            {
-                this.LeftChild?.TraverseInOrder(action);
+            this.LeftChild?.TraverseInOrder(action);
 
-                action(this);
+            action(this);
 
-                this.RightChild?.TraverseInOrder(action);
-            }
+            this.RightChild?.TraverseInOrder(action);
         }
 
         internal void TraversePreOrder(Action<Node> action)

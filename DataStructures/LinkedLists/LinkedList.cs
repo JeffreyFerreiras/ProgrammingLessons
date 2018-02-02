@@ -62,6 +62,7 @@ namespace DataStructures.LinkedLists
         public void AddFirst(T value)
         {
             var node = new Node<T> { Value = value };
+
             AddFirst(node);
         }
 
@@ -74,6 +75,7 @@ namespace DataStructures.LinkedLists
                 node.Next = First;
                 First = node;
             }
+
             Count++;
         }
 
@@ -88,6 +90,7 @@ namespace DataStructures.LinkedLists
                 {
                     if(counter == index)
                         return node;
+
                     node = node.Next;
                 }
             }
@@ -159,6 +162,7 @@ namespace DataStructures.LinkedLists
         public void Reverse()
         {
             var current = First;
+
             while(current.Next != null)
             {
                 var next = current.Next;

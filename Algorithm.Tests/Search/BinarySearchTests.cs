@@ -1,24 +1,18 @@
 ﻿using NUnit.Framework;
-using Algorithms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithms.Tests
 {
-
     [TestFixture()]
     public class BinarySearchTests
     {
-        public static readonly Random random = new Random();
+        public static readonly Random s_random = new Random();
 
         [Test()]
         public void BinSearch_TargetInArray_FindsTarget()
         {
-            var arr = Helper.GetSortedArray(1000);
-            int target = arr[random.Next(0, arr.Length)];
+            int[] arr = Helper.GetSortedArray(1000);
+            int target = arr[s_random.Next(0, arr.Length)];
 
             Assert.True(arr[BinarySearch.BinSearch(arr, target)] == target);
         }

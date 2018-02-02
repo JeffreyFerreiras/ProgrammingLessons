@@ -1,4 +1,5 @@
-﻿using Algorithms.Sorting;
+﻿using Algorithms;
+using Algorithms.Sorting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,17 @@ namespace Algorithms.Sorting.Tests
             //var arry = new int [] { 5, 4, 3, 2, 1 };
 
             arry.InsertionSort();
+            Assert.True(Helper.IsSortedArray(arry));
+        }
+
+        [Test()]
+        public void SortTest()
+        {
+            var arry = Helper.GetRandomizedArray(7);
+            //var arry = new int [] { 5, 4, 3, 2, 1 };
+
+            Insertion.Sort(arry);
+
             Assert.True(Helper.IsSortedArray(arry));
         }
     }
