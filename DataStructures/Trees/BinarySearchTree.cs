@@ -21,6 +21,7 @@ namespace DataStructures.Trees
             }
         }
 
+        public BinarySearchTree() { }
         public BinarySearchTree(int[] data)
         {
             Array.Sort(data);

@@ -15,20 +15,27 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            const int LEN = 1000;
+            PrintSortStats(10000);
+            PrintSortStats(1000);
+            PrintSortStats(150);
 
-            int[]arry = Common.GetRandomizedArray(LEN);
+            Console.WriteLine("\nSort Again?");
+            string input = Console.ReadLine();
 
+            if(input.ToLower() != "n") Main(args);
+        }
+
+        private static void PrintSortStats(int len)
+        {
+            Console.WriteLine($"\nItem Count: {len}");
+            int[] arry = Common.GetRandomizedArray(len);
+
+            GenericSort(Heap.HeapSort, arry);
             GenericSort(Quick.QuickSort, arry);
             GenericSort(Merge.MergeSort, arry);
             GenericSort(Bubble.BubbleSort, arry);
             GenericSort(Insertion.InsertionSort, arry);
             GenericSort(Selection.SelectionSort, arry);
-
-            Console.WriteLine("\nSort Again?");
-            string input = Console.ReadLine();
-
-            if (input.ToLower() != "n") Main(args);
         }
 
         static void GenericSort(Sort sort, int [] arry)
@@ -38,6 +45,7 @@ namespace Algorithms
 
             timer.Start();
             sort(copy);
+
             Console.WriteLine(
                     $"{sort.Method.Name}:\t Time:{timer.ElapsedTicks.ToString("N")}\t\t\tSorted: {copy.IsSortedArray()}"
                    /*+$"\tMemory: {GC.GetTotalMemory(true).ToString("N")} bytes\n"*/);

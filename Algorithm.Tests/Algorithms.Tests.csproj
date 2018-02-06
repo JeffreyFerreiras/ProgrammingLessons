@@ -56,6 +56,7 @@
     <Compile Include="Sorting\BubbleSortTests.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting\HeapTests.cs" />
     <Compile Include="Sorting\MergeTests.cs" />
     <Compile Include="Sorting\QuickSortTests.cs" />
     <Compile Include="Sorting\InsertionTests.cs" />

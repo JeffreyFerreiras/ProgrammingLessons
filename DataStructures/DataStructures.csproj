@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Trees\AbstractHeap.cs" />
     <Compile Include="Trees\AVL_Tree.cs" />
+    <Compile Include="Trees\MaxBinaryHeap.cs" />
+    <Compile Include="Trees\MinBinaryHeap.cs" />
     <Compile Include="Trees\Node.cs" />
     <Compile Include="UseCase\Dictionary.cs" />
     <Compile Include="UseCase\HashSet.cs" />
-    <Compile Include="HashSet\HashSet.cs" />
+    <Compile Include="Hash\HashTable.cs" />
     <Compile Include="UseCase\LinkedList.cs" />
     <Compile Include="LinkedLists\LinkedList.cs" />
     <Compile Include="Program.cs" />

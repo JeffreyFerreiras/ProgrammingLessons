@@ -5,7 +5,6 @@
         /* 
          * O(n log n) typical run time and O(log n) space.
          * O(n^2) worst case, if many items duplicate.
-         * 
          */
 
         public static int[] QuickSort(this int[] arr)
@@ -15,33 +14,33 @@
             return arr;
         }
 
-        private static void QuickSort(int[] arr, int leftIndex, int rightIndex)
+        private static void QuickSort(int[] arr, int low, int high)
         {
-            if(leftIndex < rightIndex)
+            if(low < high)
             {
-                int partitionIndex = Partition(arr, leftIndex, rightIndex);
+                int i = Partition(arr, low, high);
 
-                QuickSort(arr, leftIndex, partitionIndex - 1);      //Sort left side
-                QuickSort(arr, partitionIndex, rightIndex);         //Sort right side
+                QuickSort(arr, low, i - 1);      //Sort left side
+                QuickSort(arr, i, high);         //Sort right side
             }
         }
 
-        private static int Partition(int[] arr, int leftIndex, int rightIndex)
+        private static int Partition(int[] arr, int low, int high)
         {
-            int pivot = arr[(leftIndex + rightIndex) / 2];
+            int pivot = arr[(low + high) / 2];
 
-            while(leftIndex <= rightIndex)
+            while(low <= high)
             {
-                while(arr[leftIndex] < pivot) leftIndex++;          //Check numbers until one needs to be swaped to right side of the pivot.
-                while(arr[rightIndex] > pivot) rightIndex--;        //Check numbers until one needs to be swaped to left side of the pivot.
+                while(arr[low] < pivot) low++;          //Check numbers until one needs to be swaped to right side of the pivot.
+                while(arr[high] > pivot) high--;        //Check numbers until one needs to be swaped to left side of the pivot.
 
-                if(leftIndex <= rightIndex)
+                if(low <= high)
                 {
-                    Common.Swap(arr, leftIndex++, rightIndex--);
+                    Common.Swap(arr, low++, high--);
                 }
             }
 
-            return leftIndex;
+            return low;
         }
     }
 }

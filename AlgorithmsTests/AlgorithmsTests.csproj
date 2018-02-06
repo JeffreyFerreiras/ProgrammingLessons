@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E5B69000-B3FA-4685-9659-D92A4341B2DA}</ProjectGuid>
+    <ProjectGuid>{AA5E8B4D-DB7F-47C6-AB64-17309175EE7B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataStructuresTests</RootNamespace>
-    <AssemblyName>DataStructuresTests</AssemblyName>
+    <RootNamespace>AlgorithmsTests</RootNamespace>
+    <AssemblyName>AlgorithmsTests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,18 +50,16 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trees\BinarySearchTreeTests.cs" />
-    <Compile Include="Trees\MinBinaryHeapTests.cs" />
+    <Compile Include="Sorting\HeapTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataStructures\DataStructures.csproj">
-      <Project>{20DEBA42-25DD-42B8-82BE-B15B2680A2B0}</Project>
-      <Name>DataStructures</Name>
+    <ProjectReference Include="..\Algorithms\Algorithms.csproj">
+      <Project>{927772DD-95B8-4B50-A188-25C2A9AACFCD}</Project>
+      <Name>Algorithms</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

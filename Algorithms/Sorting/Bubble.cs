@@ -12,11 +12,11 @@ namespace Algorithms
          * Runtime: O(n^2) Space: O(n) 
          */
          
-        public static int[] BubbleSort2(this int[] arry)
+        public static int[] BubbleSort(this int[] arry)
         {
             for (int outer = 0; outer < arry.Length; outer++)
             {
-                for (int inner = 0; inner < arry.Length -1; inner++)
+                for (int inner = 0; inner < arry.Length -1 - outer; inner++)
                 {
                     if(arry[inner] > arry[inner + 1])
                     {
@@ -28,7 +28,7 @@ namespace Algorithms
             return arry;
         }
 
-        public static int[] BubbleSort(this int[] arry)
+        public static int[] BubbleSort2(this int[] arry)
         {
             bool swapped;
 

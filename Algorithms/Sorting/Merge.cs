@@ -46,66 +46,69 @@ namespace Algorithms
         {
             int[] helper = new int[array.Length];
 
-            MergeSort(array, helper, 0, array.Length - 1);
+            Sort(array, helper, 0, array.Length - 1);
 
             return array;
         }
 
-        static void MergeSort(int[] array, int[] helper, int low, int high)
+        static void Sort(int[] array, int[] helper, int low, int high)
         {
             if(low < high)
             {
                 int mid = (low + high)/2;
 
-                MergeSort(array, helper, low, mid);          
-                MergeSort(array, helper, mid + 1, high);
+                Sort(array, helper, low, mid);          
+                Sort(array, helper, mid + 1, high);
 
                 Combine(array, helper, low, mid, high);
             }
         }
 
-        static void Combine(int[] array, int[] helper, int lowIndex, int middleIndex, int highIndex)
+        static void Combine(int[] array, int[] helper, int low, int mid, int high)
         {
             //copy items to helper list
-            for (int i = lowIndex; i <= highIndex; i++)
+            for (int i = low; i <= high; i++)
             {
                 helper[i] = array[i];
             }
 
-            int leftIndex = lowIndex;
-            int currentIndex = lowIndex;
-            int rightIndex = middleIndex + 1;
+            int left = low;
+            int current = low;
+            int right = mid + 1;
 
             // compare the two sides of the helper array.
             // Place the smaller item from the two halfs of the array
             // that are sorted into the target array.
             // continue to do this until one side runs out of items.
 
-            while(leftIndex <= middleIndex && rightIndex <= highIndex)
+            while(left <= mid && right <= high)
             {
-                if(helper[leftIndex] <= helper[rightIndex])
+                if(helper[left] <= helper[right])
                 {
-                    array[currentIndex] = helper[leftIndex];
-                    leftIndex++;
+                    array[current] = helper[left];
+                    left++;
                 }
                 else
                 {
-                    array[currentIndex] = helper[rightIndex];
-                    rightIndex++;
+                    array[current] = helper[right];
+                    right++;
                 }
 
-                currentIndex++;
+                current++;
             }
 
             // place remaining items in target array.
-            // Because one side of the array is going to run out of items first, the remaining side will
-            // have a sorted list of items that needs to be placed at the end of the target array.
+            // Because one side of the array is going
+            // to run out of items first,
+            // the remaining side will
+            // have a sorted list of items that needs
+            // to be placed at the end of the target array.
 
-            int remaining = middleIndex - leftIndex;
+            int remaining = mid - left;
 
             for (int i = 0; i <= remaining; i++)
             {
-                array[currentIndex + i] = helper[leftIndex + i];
+                array[current + i] = helper[left + i];
             }
         }
     }

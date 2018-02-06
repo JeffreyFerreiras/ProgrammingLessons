@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common.cs" />
+    <Compile Include="Misc\Euclids.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Sorting\Bubble.cs" />
     <Compile Include="Sorting\Heap.cs" />

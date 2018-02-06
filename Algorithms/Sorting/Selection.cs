@@ -43,22 +43,20 @@ namespace Algorithms
         {
             for(int i = 0; i < arr.Length - 1; i++)
             {
-                int min = i;
-                int unsorted = i+1;
+                int low = i;
+                int high = i + 1;
 
-                while(unsorted < arr.Length)
+                while(high < arr.Length)
                 {
-                    if(arr[min] > arr[unsorted])
+                    if(arr[low] > arr[high])
                     {
-                        min = unsorted;
+                        low = high;
                     }
 
-                    unsorted++;
+                    high++;
                 }
 
-                int tmp = arr[i];
-                arr[i] = arr[min];
-                arr[min] = tmp;
+                Common.Swap(arr, low, i);
             }
         }
     }

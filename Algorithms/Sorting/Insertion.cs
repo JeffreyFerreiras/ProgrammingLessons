@@ -20,7 +20,7 @@ namespace Algorithms
             for (int i = 1; i < arr.Length; i++)
             {
                 int inner = i;
-                int current = arr[inner];
+                int current = arr[i];
 
                 while(inner > 0 && arr[inner -1] > current)
                 {
@@ -38,16 +38,16 @@ namespace Algorithms
         {
             for(int i = 1; i < arr.Length; i++)
             {
-                int inner = i;
+                int insert = i;
                 int current = arr[i];
 
-                while(inner > 0 && arr[inner-1] > arr[i])
+                while(insert > 0 && arr[insert -1] > current)
                 {
-                    arr[inner - 1] = arr[i];
-                    inner--;
+                    arr[insert] = arr[insert-1];
+                    insert--;
                 }
 
-                arr[inner] = current;
+                arr[insert] = current;
             }
         }
     }

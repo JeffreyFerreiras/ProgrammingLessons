@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataStructures.HashSet.HashSet
+namespace DataStructures.Hash
 {
     public class CustomHashTable<Key, Value>
     {
@@ -11,11 +11,13 @@ namespace DataStructures.HashSet.HashSet
             private set { Count = value; }
         }
 
+        //Array of linked lists
         private readonly LinkedList<KeyValuePair<Key, Value>>[] items;
 
         public CustomHashTable(int size)
         {
             Count = size;
+
             items = new LinkedList<KeyValuePair<Key, Value>>[size];
         }
 
@@ -37,8 +39,8 @@ namespace DataStructures.HashSet.HashSet
         {
             int position = GetItemIndex(key);
 
-            LinkedList<KeyValuePair<Key,Value>> list = GetList(position);
-            var item = new KeyValuePair<Key,Value> (key, value);
+            LinkedList<KeyValuePair<Key, Value>> list = GetList(position);
+            var item = new KeyValuePair<Key, Value>(key, value);
 
             list.AddFirst(item);
         }
@@ -46,7 +48,7 @@ namespace DataStructures.HashSet.HashSet
         public void Remove(Key key)
         {
             int position = GetItemIndex(key);
-            LinkedList<KeyValuePair <Key, Value>> list = GetList(position);
+            LinkedList<KeyValuePair<Key, Value>> list = GetList(position);
 
             foreach(var pair in list)
             {
@@ -60,17 +62,19 @@ namespace DataStructures.HashSet.HashSet
         private int GetItemIndex(Key Key)
         {
             int position = Key.GetHashCode() % Count;
+
             return Math.Abs(position);
         }
 
-        private LinkedList<KeyValuePair<Key, Value>> GetList(int position)
+        private LinkedList<KeyValuePair<Key, Value>> GetList(int index)
         {
-            var list = items[position];
+            var list = items[index];
 
             if(list == null)
             {
                 list = new LinkedList<KeyValuePair<Key, Value>>();
-                items[position] = list;
+
+                items[index] = list;
             }
 
             return list;

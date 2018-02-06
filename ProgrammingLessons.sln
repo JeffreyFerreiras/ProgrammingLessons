@@ -76,8 +76,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures.Tests", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresTests", "DataStructuresTests\DataStructuresTests.csproj", "{E5B69000-B3FA-4685-9659-D92A4341B2DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedBrackets", "BalancedBrackets\BalancedBrackets.csproj", "{5CFF2382-7347-4E39-880F-52C67563DD74}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -426,22 +424,6 @@ Global
 		{E5B69000-B3FA-4685-9659-D92A4341B2DA}.Release|x64.Build.0 = Release|Any CPU
 		{E5B69000-B3FA-4685-9659-D92A4341B2DA}.Release|x86.ActiveCfg = Release|Any CPU
 		{E5B69000-B3FA-4685-9659-D92A4341B2DA}.Release|x86.Build.0 = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|ARM.Build.0 = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|x64.Build.0 = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Debug|x86.Build.0 = Debug|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|ARM.ActiveCfg = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|ARM.Build.0 = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|x64.ActiveCfg = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|x64.Build.0 = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|x86.ActiveCfg = Release|Any CPU
-		{5CFF2382-7347-4E39-880F-52C67563DD74}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
