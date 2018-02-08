@@ -24,17 +24,18 @@
 
         private static void Heapify(int[] source, int size, int index)
         {
-            int largest = index;
-            int leftIndex = 2 * index + 1;
-            int rightIndex = 2 * index + 2;
+            int biggerChildIndex = index;
+            int leftChildIndex = 2 * index + 1;
+            int rightChildIndex = 2 * index + 2;
 
-            if(leftIndex < size && source[leftIndex] > source[largest]) largest = leftIndex;
-            if(rightIndex < size && source[rightIndex] > source[largest]) largest = rightIndex;
+            if(leftChildIndex < size && source[leftChildIndex] > source[biggerChildIndex]) biggerChildIndex = leftChildIndex;
+            if(rightChildIndex < size && source[rightChildIndex] > source[biggerChildIndex]) biggerChildIndex = rightChildIndex;
 
-            if(largest != index)
+            if(biggerChildIndex != index)
             {
-                Common.Swap(source, index, largest);
-                Heapify(source, size, largest);
+                Common.Swap(source, index, biggerChildIndex);
+
+                Heapify(source, size, biggerChildIndex);
             }
         }
     }

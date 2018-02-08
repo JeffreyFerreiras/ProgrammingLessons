@@ -13,9 +13,13 @@ namespace Algorithms
 
         public static void Swap(this int[] array, int leftIndex, int rightIndex)
         {
-            int temp = array[leftIndex];
-            array[leftIndex] = array[rightIndex];
-            array[rightIndex] = temp;
+            array[leftIndex] =  array[leftIndex] ^ array[rightIndex];
+            array[rightIndex] = array[leftIndex] ^ array[rightIndex];
+            array[leftIndex] =  array[leftIndex] ^ array[rightIndex];
+
+            //int temp = array[leftIndex];
+            //array[leftIndex] = array[rightIndex];
+            //array[rightIndex] = temp;
         }
 
         public static int[] GetRandomizedArray(int length = 100)
