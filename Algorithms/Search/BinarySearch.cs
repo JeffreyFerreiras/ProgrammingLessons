@@ -15,7 +15,8 @@
                 c) Check if target lower than array[mid]. If so, assign mid point to right - 1
                 d) Else, return midpoint.
             2. Return -1.
-          * */
+          *
+          */
 
         /* Recursive Binary Search
          *
@@ -33,8 +34,8 @@
             int mid = (left + right) / 2;
 
             if(arry[mid] == target) return mid;
-            if(arry[mid] < target) return RecursiveBinSearch(arry, mid + 1, right, target);
-            if(arry[mid] > target) return RecursiveBinSearch(arry, left, mid - 1, target);
+            if(arry[mid] < target)  return RecursiveBinSearch(arry, mid + 1, right, target);
+            if(arry[mid] > target)  return RecursiveBinSearch(arry, left, mid - 1, target);
 
             return -1;
         }

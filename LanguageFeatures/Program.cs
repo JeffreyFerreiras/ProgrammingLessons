@@ -24,14 +24,17 @@ namespace LanguageFeatures
     {
         static void Main(string[] args)
         {
-            int[] unordered = { 5, 9, 4, 2, 6, 4 };
-            int min=0, max=0;
+            var operators = new Operators();
+            operators.RunAllMethods();
 
-            for (int i = 0; i < unordered.Length; i++)
-            {
-                if (min > unordered[i]) min = unordered[i];
-                if (max < unordered[i]) max = unordered[i];
-            }      
+            //int[] unordered = { 5, 9, 4, 2, 6, 4 };
+            //int min=0, max=0;
+
+            //for (int i = 0; i < unordered.Length; i++)
+            //{
+            //    if (min > unordered[i]) min = unordered[i];
+            //    if (max < unordered[i]) max = unordered[i];
+            //}      
         }
         
         //---------------------------------------------------

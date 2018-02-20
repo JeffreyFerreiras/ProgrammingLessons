@@ -126,6 +126,7 @@ namespace DataStructures.Trees
             int rightHeight = this.RightChild?.Height() ?? 0;
 
             int balance = leftHeight - rightHeight;
+
             return balance;
         }
 
@@ -175,9 +176,13 @@ namespace DataStructures.Trees
 
         internal void SwapValues(Node left, Node right)
         {
-            int temp = left.Value;
-            left.Value = right.Value;
-            right.Value = temp;
+            left.Value =  left.Value ^ right.Value;
+            right.Value = left.Value ^ right.Value;
+            left.Value =  left.Value ^ right.Value;
+
+            //int temp = left.Value;
+            //left.Value = right.Value;
+            //right.Value = temp;
         }
 
         internal Node Find(int value)
@@ -219,9 +224,9 @@ namespace DataStructures.Trees
 
         internal int Height() //Note to self: Cannot memoize height because it's always changing...
         {
-            if(this.IsLeafNode) return 1;
+            if(this.IsLeafNode) return 1; 
 
-            int left = this.LeftChild != null ? this.LeftChild.Height() : 0;
+            int left =  this.LeftChild != null ? this.LeftChild.Height() : 0;
             int right = this.RightChild != null ? this.RightChild.Height() : 0;
 
             return left > right ? left + 1 : right + 1;

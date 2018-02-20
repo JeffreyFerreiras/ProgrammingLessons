@@ -47,7 +47,7 @@ namespace Algorithms
             sort(copy);
 
             Console.WriteLine(
-                    $"{sort.Method.Name}:\t Time:{timer.ElapsedTicks.ToString("N")}\t\t\tSorted: {copy.IsSortedArray()}"
+                    $"{sort.Method.Name}:\t Time:{timer.ElapsedTicks.ToString("N")}\t\t\tSorted: {copy.IsSorted()}"
                    /*+$"\tMemory: {GC.GetTotalMemory(true).ToString("N")} bytes\n"*/);
 
             timer.Reset();

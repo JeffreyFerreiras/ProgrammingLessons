@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trees\BinarySearchTreeTests.cs" />
     <Compile Include="Trees\MinBinaryHeapTests.cs" />
+    <Compile Include="Trees\PrefixTreeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

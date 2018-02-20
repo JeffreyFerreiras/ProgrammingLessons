@@ -8,6 +8,19 @@ namespace LanguageFeatures
 {
     public class Operators
     {
+        public void RunAllMethods()
+        {
+            foreach(var method in this.GetType().GetMethods())
+            {
+                if(method.Name == nameof(RunAllMethods)) continue;
+                try
+                {
+                    method.Invoke(this, null);
+                }
+                catch {}
+            };
+        }
+
         public void NullablesOperators()
         { //    ?.      ?[     ??
             var nums = Enumerable.Range(0,100).ToArray();
@@ -54,31 +67,57 @@ namespace LanguageFeatures
         {
             //Detect if two integers have opposite signs
             int zero = 0,
-                one = 1, 
+                one = 1,
                 negOne = -1,
                 two = 2,
-                negTwo = -2;        
+                negTwo = -2;
 
-            bool areOppositeSign = ((one ^ negOne) < 0);             // true iff x and y have opposite signs
-            int inversed = one ^ negOne;
+            bool areOppositeSign = ((one ^ negOne) < 0); // true if x and y have opposite signs
 
-            DisplayBin(inversed);
-            DisplayBin(two);
-
-            int f = 555;
-
-            f = ~f+1;
+            int xord = one ^ negOne;
+            int temp = xord >> 1;
+            string s = Convert.ToString(two, 2);
+        }
+        
+        public void ChangeSignOnSignedInt()
+        {
+            // Change a positive number to a negative by
+            // inverting the bits, then add one to offset the
+            // bit used for negative numbers at the start.
+            
+            int f = 555; 
             DisplayBin(f);
 
-            two = ~two + 1;
-            one = ~one >> 1;
-            DisplayBin(two);
+            f = ~f+1; // to a negative
+            DisplayBin(f);
+
+            f = ~f+1; // from a negative
+            DisplayBin(f);
+        }
+
+        public void SwapValues() // Swap a value in place (no addition space) by using XOR
+        {
+            int a = 3, b = 6;
+
+            a = a ^ b;
+            DisplayBin(a);
+            DisplayBin(b);
+
+            b = a ^ b;
+            DisplayBin(a);
+            DisplayBin(b);
+
+            a = a ^ b;
+            DisplayBin(a);
+            DisplayBin(b);
         }
 
         public void DisplayBin(int n)
         {
             string result = Convert.ToString(n, 2);
 
+            Console.WriteLine();
+            Console.WriteLine(n);
             Console.WriteLine(result);
             System.Diagnostics.Debug.Print(result);
         }

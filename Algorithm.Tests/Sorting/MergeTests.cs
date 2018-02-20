@@ -18,7 +18,7 @@ namespace Algorithms.Tests
 
             arry.MergeSort();
 
-            Assert.IsTrue(arry.IsSortedArray());
+            Assert.IsTrue(arry.IsSorted());
         }
     }
 }
