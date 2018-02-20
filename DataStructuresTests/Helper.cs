@@ -26,13 +26,23 @@ namespace DataStructuresTests
 
         internal static int[] GetRandomArray(int size)
         {
+            return GetRandomArray(size, 0, 100);
+        }
+
+        internal static int[] GetRandomArray(int size, int max)
+        {
+            return GetRandomArray(size, 0, max);
+        }
+
+        internal static int[] GetRandomArray(int size, int min, int max)
+        {
             var arr = new int[size];
 
             for(int i = 0; i < arr.Length; i++)
             {
                 lock(s_syncLock)
                 {
-                    arr[i] = s_random.Next(0, 99999);
+                    arr[i] = s_random.Next(min, max);
                 }
             }
 

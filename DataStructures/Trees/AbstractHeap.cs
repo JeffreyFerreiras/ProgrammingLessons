@@ -12,7 +12,7 @@ namespace DataStructures.Trees
         protected int[] _items = new int[_capacity];
 
         public int Count { get; protected set; }
-
+        public abstract bool IsBalanced { get; }
         public int Peek()
         {
             if(0 == Count)
@@ -26,6 +26,7 @@ namespace DataStructures.Trees
         public abstract int Poll();
         public abstract void Add(int item);
         public abstract void Remove(int item);
+        
         protected abstract void HeapifyUp();
         protected abstract void HeapifyDown();
 
@@ -43,9 +44,9 @@ namespace DataStructures.Trees
 
         protected void Swap(int left, int right)
         {
-            int temp = _items[left];
-            _items[left] = _items[right];
-            _items[right] = temp;
+            _items[left] =  _items[left] ^ _items[right];
+            _items[right] = _items[left] ^ _items[right];
+            _items[left] =  _items[left] ^ _items[right];
         }
 
         protected void EnsureExtraCapacity()

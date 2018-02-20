@@ -8,7 +8,8 @@ namespace DataStructures.Trees
 {
     public class MinBinaryHeap : AbstractHeap
     {
-        
+        public override bool IsBalanced => IsValidMinHeap();
+
         public override int Poll()
         {
             if(0 == Count)
@@ -17,6 +18,7 @@ namespace DataStructures.Trees
             }
 
             int item = _items[0];
+
             _items[0]= _items[Count-1];
 
             Count--;
@@ -62,6 +64,7 @@ namespace DataStructures.Trees
                 else
                 {
                     Swap(index, smallerChildIndex);
+
                     index = smallerChildIndex;
                 }
             }
@@ -77,6 +80,42 @@ namespace DataStructures.Trees
             {
                 return GetLeftChildIndex(index);
             }
+        }
+
+        bool IsValidMinHeap()
+        {
+            return IsValidMinHeap(0);
+        }
+
+        private bool IsValidMinHeap(int index)
+        {
+            bool isBalanced = true;
+
+            if(HasLeftChild(index))
+            {
+                if(_items[GetLeftChildIndex(index)] < _items[index])
+                {
+                    isBalanced = false;
+                }
+                else
+                {
+                    isBalanced = IsValidMinHeap(GetLeftChildIndex(index));
+                }
+            }
+
+            if(HasRightChild(index))
+            {
+                if(_items[GetRightChildIndex(index)] < _items[index])
+                {
+                    isBalanced = false;
+                }
+                else
+                {
+                    isBalanced = IsValidMinHeap(GetRightChildIndex(index));
+                }
+            }
+
+            return isBalanced;
         }
 
         public override void Remove(int item)

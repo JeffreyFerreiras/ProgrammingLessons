@@ -13,15 +13,17 @@ namespace DataStructures.Trees.Tests
     public class MinBinaryHeapTests
     {
         [Test()]
-        public void AddTest()
+        public void Add_ValidInput_HeapifiedHeap()
         {
-            var items = Helper.GetRandomArray(10);
+            var items = Helper.GetRandomArray(15, 100);
             var minHeap = new MinBinaryHeap();
 
             foreach(var item in items)
             {
                 minHeap.Add(item);
             }
+
+            Assert.IsTrue(minHeap.IsBalanced);
         }
     }
 }

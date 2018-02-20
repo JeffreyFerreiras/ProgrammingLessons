@@ -4,6 +4,8 @@ namespace DataStructures.Trees
 {
     public class MaxBinaryHeap : AbstractHeap
     {
+        public override bool IsBalanced => throw new NotImplementedException();
+
         public override int Poll()
         {
             throw new NotImplementedException();
