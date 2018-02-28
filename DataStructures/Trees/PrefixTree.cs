@@ -41,20 +41,20 @@ namespace DataStructures.Trees
             }
 
             char prefix = remaining[0];
-            string sub = remaining.Substring(1);
+            remaining = remaining.Substring(1);
 
             if(!node.Children.ContainsKey(prefix))
             {
-                node.Children.Add(prefix, new Node(current));
+                node.Children.Add(prefix, new Node(current + prefix));
             }
 
-            if(sub.Length == 0)
+            if(remaining.Length == 0)
             {
                 node.Children[prefix].IsWord = true;
             }
             else
             {
-                AddRecursive(node.Children[prefix], sub, current + prefix);
+                AddRecursive(node.Children[prefix], remaining, current + prefix);
             }
         }
 
@@ -66,10 +66,10 @@ namespace DataStructures.Trees
             {
                 if(!node.Children.ContainsKey(search))
                 {
-                    return new string[] { };
+                    return new string[0];
                 }
 
-
+                node = node.Children[search];
             }
 
             return FindAllWords(node);
@@ -84,8 +84,10 @@ namespace DataStructures.Trees
 
             foreach(var childPair in node.Children)
             {
-                foreach(var result in FindAllWords(node))
-                { };
+                foreach(string result in FindAllWords(childPair.Value))
+                {
+                    yield return result;
+                };
             }
         }
     }

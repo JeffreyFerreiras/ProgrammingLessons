@@ -26,8 +26,9 @@ namespace DataStructuresTests.Trees
 
 
         [Theory]
+        [TestCase("Not In Dictionary", new string[] { })]
         [TestCase("te", new string[] { "test", "terra" })]
-        [TestCase("th", new string[] { "things", "these" })]
+        [TestCase("th", new string[] { "things", "these", "the" })]
         [TestCase("tr", new string[] { "try" })]
         [TestCase("a", new string[] { "ark", "angle" })]
         [TestCase("", new string[] {
@@ -41,7 +42,7 @@ namespace DataStructuresTests.Trees
                 "terra",
                 "ark"
             })]
-        [TestCase("Not In Dictionary", new string[] { })]
+        
         public void SearchReturnsAllAvailableSubset(string searchString, string[] expected)
         {
             var trie = new PrefixTree();
