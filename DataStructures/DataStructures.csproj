@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphs\Employee.cs" />
+    <Compile Include="Graphs\Graph.cs" />
     <Compile Include="Trees\AbstractHeap.cs" />
     <Compile Include="Trees\AVL_Tree.cs" />
     <Compile Include="Trees\MaxBinaryHeap.cs" />

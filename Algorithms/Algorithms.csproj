@@ -46,6 +46,8 @@
     <Compile Include="Common.cs" />
     <Compile Include="Misc\Euclids.cs" />
     <Compile Include="Search\BinarySearch.cs" />
+    <Compile Include="Search\BreadthFirstSearch.cs" />
+    <Compile Include="Search\DephFirstSearch.cs" />
     <Compile Include="Sorting\Bubble.cs" />
     <Compile Include="Sorting\Heap.cs" />
     <Compile Include="Sorting\Insertion.cs" />

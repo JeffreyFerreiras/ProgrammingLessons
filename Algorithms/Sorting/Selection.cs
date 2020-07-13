@@ -20,20 +20,20 @@ namespace Algorithms
         {
             for (int i = 0; i < arr.Length - 1; i++)
             {
-                int minIndex = i;
-                int nonSortedIndex = i + 1;
+                int indexOfMinValue = i;
+                int indexOfElementNotSorted = i + 1;
 
-                while(nonSortedIndex < arr.Length)
+                while(indexOfElementNotSorted < arr.Length)
                 {
-                    if(arr[minIndex] > arr[nonSortedIndex])
+                    if(arr[indexOfMinValue] > arr[indexOfElementNotSorted])
                     {
-                        minIndex = nonSortedIndex;
+                        indexOfMinValue = indexOfElementNotSorted;
                     }
 
-                    nonSortedIndex++;
+                    indexOfElementNotSorted++;
                 }
 
-                Common.Swap(arr, i, minIndex);
+                Common.Swap(arr, i, indexOfMinValue);
             }
 
             return arr;
