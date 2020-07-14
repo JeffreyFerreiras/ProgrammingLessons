@@ -11,7 +11,7 @@ namespace Algorithms.Search
     {
 		/*
 			1. check if the current employee has matching name, if so, return that employee
-            2.
+            2. loop through each co-workerand conduct a recursive search.
 
 		 */
 		public Employee Search(Employee employee, string employeeName, HashSet<Employee> empSet = null)
@@ -30,11 +30,11 @@ namespace Algorithms.Search
 
             Employee found = null;
 
-            foreach (var subordinate in employee.Subordinates)
+            foreach (var coworker in employee.CoWorkers)
             {
-                if (!seen.Contains(subordinate))
+                if (!seen.Contains(coworker))
                 {
-                    found = Search(subordinate, employeeName, seen);
+                    found = Search(coworker, employeeName, seen);
 
                     if(found is object)
                     {
