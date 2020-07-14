@@ -7,29 +7,9 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Search
 {
-    public class BreadthFirstSearch
+    public static class BreadthFirstSearch
     {
-        public Employee BuildEmployeeGraph()
-        {
-            Employee Eva = new Employee("Eva");
-            Employee Sophia = new Employee("Sophia");
-            Employee Brian = new Employee("Brian");
-            Eva.AddSubordinate(Sophia);
-            Eva.AddSubordinate(Brian);
-
-            Employee Lisa = new Employee("Lisa");
-            Employee Tina = new Employee("Tina");
-            Employee John = new Employee("John");
-            Employee Mike = new Employee("Mike");
-            Sophia.AddSubordinate(Lisa);
-            Sophia.AddSubordinate(John);
-            Brian.AddSubordinate(Tina);
-            Brian.AddSubordinate(Mike);
-
-            return Eva;
-        }
-
-        public Employee GetEmployee(Employee root, string employeeName)
+        public static Employee GetEmployee(this Employee root, string employeeName)
         {
             var queue = new Queue<Employee>();
             var seen = new HashSet<Employee>();

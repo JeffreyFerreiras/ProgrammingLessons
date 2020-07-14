@@ -21,12 +21,12 @@ namespace DataStructures.Graphs
 
         protected Node GetNode(int id)
         {
-
+            throw new NotImplementedException();
         }
 
         public bool HasPathDFS(int sourceId, int destinationId)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

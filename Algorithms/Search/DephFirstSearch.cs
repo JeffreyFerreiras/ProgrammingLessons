@@ -8,5 +8,9 @@ namespace Algorithms.Search
 {
     public class DephFirstSearch
     {
+		public Employee Search(Employee employee, string employeeName)
+		{
+			
+		}
     }
 }
