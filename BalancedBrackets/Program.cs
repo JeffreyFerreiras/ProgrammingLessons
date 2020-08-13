@@ -13,7 +13,7 @@ namespace BalancedBrackets
             string case4 = "{[(])}";        //no
             string case5 = "[]{}()}";       //no
 
-            string balanced = IsBalancedBracket(case1);
+            string balanced =  IsBalancedBracket(case1);
             string balanced2 = IsBalancedBracket(case2);
             string balanced3 = IsBalancedBracket(case3);
             string balanced4 = IsBalancedBracket(case4);
@@ -21,11 +21,11 @@ namespace BalancedBrackets
         }
 
         private readonly static Dictionary<char, char> brackets = new Dictionary<char, char>
-            {
-                { '{','}'},
-                { '(',')'},
-                { '[',']'},
-            };
+        {
+            { '{','}'},
+            { '(',')'},
+            { '[',']'},
+        };
 
         private static string IsBalancedBracket(string s)
         {
