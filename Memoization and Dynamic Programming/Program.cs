@@ -14,15 +14,16 @@ namespace Memoization_and_Dynamic_Programming
 
             Console.WriteLine("Recursive formula");
             sw.Start();
+
             foreach(var num in Enumerable.Range(0, max))
             {
                 Console.WriteLine($"Fib result: {Fib(num)} Ticks: {sw.ElapsedTicks}");
             }
+
             Console.WriteLine();
             sw.Reset();
 
             Console.WriteLine("Golden Ratio formula");
-
             sw.Start();
 
             foreach(var num in Enumerable.Range(0, max))
@@ -57,7 +58,7 @@ namespace Memoization_and_Dynamic_Programming
 
             double factor = 1 / Math.Sqrt(5);
 
-            return (int)Math.Round(factor * (termA - termB));
+            return (int)Math.Round( factor * (termA - termB) );
         }
     }
 }

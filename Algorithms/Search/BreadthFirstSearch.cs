@@ -26,12 +26,12 @@ namespace Algorithms.Search
                     return employee;
                 }
 
-                foreach (var subordinate in employee.Subordinates)
+                foreach (var coWorker in employee.CoWorkers)
                 {
-                    if (!seen.Contains(subordinate))
+                    if (!seen.Contains(coWorker))
                     {
-                        seen.Add(subordinate);
-                        queue.Enqueue(subordinate);
+                        seen.Add(coWorker);
+                        queue.Enqueue(coWorker);
                     }
                 }
             }

@@ -1,6 +1,6 @@
 ﻿namespace Algorithms
 {
-    public static class BinarySearch
+    public class BinarySearch
     {
         /*
             The binary search algo takes an ordered list of numbers and finds the target in O(log n)
