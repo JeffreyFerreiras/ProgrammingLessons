@@ -13,13 +13,14 @@ namespace Algorithms
 
         public static void Swap(this int[] array, int leftIndex, int rightIndex)
         {
-            array[leftIndex] =  array[leftIndex] ^ array[rightIndex];
-            array[rightIndex] = array[leftIndex] ^ array[rightIndex];
-            array[leftIndex] =  array[leftIndex] ^ array[rightIndex];
+            //Commented this out because it's not always working
+            //array[leftIndex]  =  array[leftIndex] ^ array[rightIndex];
+            //array[rightIndex] = array[leftIndex] ^ array[rightIndex];
+            //array[leftIndex]  =  array[leftIndex] ^ array[rightIndex];
 
-            //int temp = array[leftIndex];
-            //array[leftIndex] = array[rightIndex];
-            //array[rightIndex] = temp;
+            int temp = array[leftIndex];
+            array[leftIndex] = array[rightIndex];
+            array[rightIndex] = temp;
         }
 
         public static int[] GetRandomizedArray(int length = 100)
@@ -28,7 +29,7 @@ namespace Algorithms
 
             for (int i = 0; i < length; i++)
             {
-                arry[i] = RandomNumber(0, 100);
+                arry[i] = RandomNumber(0, 1000);
             }
 
             return arry;

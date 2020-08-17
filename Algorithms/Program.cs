@@ -32,6 +32,7 @@ namespace Algorithms
 
             GenericSort(Heap.HeapSort, arry);
             GenericSort(Quick.QuickSort, arry);
+            GenericSort(QuickTraining.QuickSort, arry);
             GenericSort(Merge.MergeSort, arry);
             GenericSort(Bubble.BubbleSort, arry);
             GenericSort(Insertion.InsertionSort, arry);

@@ -226,8 +226,8 @@ namespace DataStructures.Trees
         {
             if(this.IsLeafNode) return 1; 
 
-            int left =  this.LeftChild != null ? this.LeftChild.Height() : 0;
-            int right = this.RightChild != null ? this.RightChild.Height() : 0;
+            int left =  this.LeftChild != null   ? this.LeftChild.Height() : 0;
+            int right = this.RightChild != null  ? this.RightChild.Height() : 0;
 
             return left > right ? left + 1 : right + 1;
         }
