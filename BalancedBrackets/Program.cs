@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BalancedBrackets
 {
@@ -22,14 +21,14 @@ namespace BalancedBrackets
 
         private readonly static Dictionary<char, char> brackets = new Dictionary<char, char>
         {
-            { '{','}'},
-            { '(',')'},
-            { '[',']'},
+          { '{','}'},
+          { '(',')'},
+          { '[',']'},
         };
 
         private static string IsBalancedBracket(string s)
         {
-            if(string.IsNullOrWhiteSpace(s) || s.Length % 2 != 0)
+            if (string.IsNullOrWhiteSpace(s) || s.Length % 2 != 0)
             {
                 return "No";
             }
@@ -43,29 +42,29 @@ namespace BalancedBrackets
 
         private static bool IsBalancedBetween(string s, int low, int high) //O(n) time, O(1) space
         {
-            if(low >= high) return true;
-            if(!brackets.ContainsKey(s[low])) return false;
+            if (low >= high) return true;
+            if (!brackets.ContainsKey(s[low])) return false;
 
-            if(brackets[s[low]] == s[low + 1])
+            if (brackets[s[low]] == s[low + 1])
             {
                 low += 2;
 
                 return IsBalancedBetween(s, low, high);
             }
 
-            while(s[high] != brackets[s[low]] && low < high)
+            while (s[high] != brackets[s[low]] && low < high)
             {
-                if(brackets.ContainsKey(s[high - 1]) && brackets[s[high - 1]] == s[high])
+                if (brackets.ContainsKey(s[high - 1]) && brackets[s[high - 1]] == s[high])
                 {
                     high -= 2;
                 }
                 else
                 {
                     high--;
-                }   
+                }
             }
 
-            if(high <= low) return false;
+            if (high <= low) return false;
 
             return IsBalancedBetween(s, ++low, high);
         }
