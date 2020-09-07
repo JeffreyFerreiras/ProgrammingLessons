@@ -38,16 +38,17 @@ namespace Algorithms
         {
             for(int i = 1; i < arr.Length; i++)
             {
-                int insert = i;
-                int current = arr[i];
+                int insertIndex = i;
+                int value = arr[i];
 
-                while(insert > 0 && arr[insert -1] > current)
+                while(insertIndex > 0 && arr[insertIndex -1] > value)
                 {
-                    arr[insert] = arr[insert-1];
-                    insert--;
+                    arr[insertIndex] = arr[insertIndex-1];
+
+                    insertIndex--;
                 }
 
-                arr[insert] = current;
+                arr[insertIndex] = value;
             }
         }
     }

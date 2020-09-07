@@ -13,6 +13,8 @@ namespace Algorithms
          * 2. Traverse non sorted elements. (i +1 to end)
          * 3. If item with min index is higher than non sorted item, set min index to non sorted index.
          * 4. Swap i the minIndex values.
+         * 
+         * This algorithm is good for minimizing writes
          */
 
 
@@ -20,20 +22,20 @@ namespace Algorithms
         {
             for (int i = 0; i < arr.Length - 1; i++)
             {
-                int indexOfMinValue = i;
+                int minIndex = i;
                 int indexOfElementNotSorted = i + 1;
 
                 while(indexOfElementNotSorted < arr.Length)
                 {
-                    if(arr[indexOfMinValue] > arr[indexOfElementNotSorted])
+                    if(arr[minIndex] > arr[indexOfElementNotSorted])
                     {
-                        indexOfMinValue = indexOfElementNotSorted;
+                        minIndex = indexOfElementNotSorted;
                     }
 
                     indexOfElementNotSorted++;
                 }
 
-                Common.Swap(arr, i, indexOfMinValue);
+                Common.Swap(arr, i, minIndex);
             }
 
             return arr;

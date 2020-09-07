@@ -10,17 +10,17 @@ namespace Algorithms.Misc
 
     public class Euclids
     {
-        public static int FindCommonDivisor(int a, int b) 
+        public static int FindCommonDivisor(int first, int second) 
         {
-            int result = a / b;
-            int rem = a % b;
+            int result = first / second;
+            int rem = first % second;
 
             if(rem != 0)
             {
-                a = b;
-                b = rem;
+                first = second;
+                second = rem;
 
-                return FindCommonDivisor(a, b);
+                return FindCommonDivisor(first, second);
             }
 
             return result;
