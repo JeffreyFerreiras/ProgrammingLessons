@@ -19,7 +19,7 @@ namespace DataStructures.Trees
 
             int item = _items[0];
 
-            _items[0]= _items[Count-1];
+            _items[0] = _items[Count-1];
 
             Count--;
 

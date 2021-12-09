@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures.Trees
 {
@@ -15,7 +11,7 @@ namespace DataStructures.Trees
         public abstract bool IsBalanced { get; }
         public int Peek()
         {
-            if(0 == Count)
+            if (0 == Count)
             {
                 throw new InvalidOperationException("Heap not initialized");
             }
@@ -26,36 +22,69 @@ namespace DataStructures.Trees
         public abstract int Poll();
         public abstract void Add(int item);
         public abstract void Remove(int item);
-        
+
         protected abstract void HeapifyUp();
         protected abstract void HeapifyDown();
 
-        protected int GetLeftChildIndex(int parentIndex)    => 2 * parentIndex + 1;
-        protected int GetRightChildIndex(int parentIndex)   => 2 * parentIndex + 2;
-        protected int GetParentIndex(int index)             => (index - 1) / 2;
+        protected int GetLeftChildIndex(int parentIndex)
+        {
+            return 2 * parentIndex + 1;
+        }
 
-        protected bool HasRightChild(int index)             => GetRightChildIndex(index) < Count;
-        protected bool HasLeftChild(int index)              => GetLeftChildIndex(index) < Count;
-        protected bool HasParent(int index)                 => GetParentIndex(index) >= 0;
+        protected int GetRightChildIndex(int parentIndex)
+        {
+            return 2 * parentIndex + 2;
+        }
 
-        protected int LeftChild(int index)                  => _items[GetLeftChildIndex(index)];
-        protected int RightChild(int index)                 => _items[GetRightChildIndex(index)];
-        protected int Parent(int index)                     => _items[GetParentIndex(index)];
+        protected int GetParentIndex(int index)
+        {
+            return (index - 1) / 2;
+        }
+
+        protected bool HasRightChild(int index)
+        {
+            return GetRightChildIndex(index) < Count;
+        }
+
+        protected bool HasLeftChild(int index)
+        {
+            return GetLeftChildIndex(index) < Count;
+        }
+
+        protected bool HasParent(int index)
+        {
+            return GetParentIndex(index) >= 0;
+        }
+
+        protected int LeftChild(int index)
+        {
+            return _items[GetLeftChildIndex(index)];
+        }
+
+        protected int RightChild(int index)
+        {
+            return _items[GetRightChildIndex(index)];
+        }
+
+        protected int Parent(int index)
+        {
+            return _items[GetParentIndex(index)];
+        }
 
         protected void Swap(int left, int right)
         {
-            _items[left] =  _items[left] ^ _items[right];
+            _items[left] = _items[left] ^ _items[right];
             _items[right] = _items[left] ^ _items[right];
-            _items[left] =  _items[left] ^ _items[right];
+            _items[left] = _items[left] ^ _items[right];
         }
 
         protected void EnsureExtraCapacity()
         {
-            if(Count == _capacity)
+            if (Count == _capacity)
             {
                 _capacity *= 2;
 
-                var temp = new int[_capacity];
+                int[] temp = new int[_capacity];
 
                 _items.CopyTo(temp, 0);
                 _items = temp;

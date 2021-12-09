@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures.Graphs
 {
@@ -11,11 +8,11 @@ namespace DataStructures.Graphs
         public class Node
         {
             private int Id { get; set; }
-            LinkedList<Node> AdjacentNodes { get; } = new LinkedList<Node>();
+            private LinkedList<Node> AdjacentNodes { get; } = new LinkedList<Node>();
 
             private Node(int id)
             {
-                this.Id = id;
+                Id = id;
             }
         }
 

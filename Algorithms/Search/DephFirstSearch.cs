@@ -12,14 +12,14 @@ namespace Algorithms.Search
 
 		 */
 
-        public Employee Search(Employee employee, string employeeName, HashSet<Employee> empSet = null)
+        public Employee Search(Employee employee, string employeeName, HashSet<Employee> employeesSeen = null)
         {
             if (employee is null)
             {
                 throw new InvalidOperationException();
             }
 
-            var seen = empSet ?? new HashSet<Employee>();
+            HashSet<Employee> seen = employeesSeen ?? new HashSet<Employee>();
 
             if (employee.Name.Equals(employeeName))
             {
@@ -28,7 +28,7 @@ namespace Algorithms.Search
 
             Employee found = null;
 
-            foreach (var coworker in employee.CoWorkers)
+            foreach (Employee coworker in employee.CoWorkers)
             {
                 if (!seen.Contains(coworker))
                 {

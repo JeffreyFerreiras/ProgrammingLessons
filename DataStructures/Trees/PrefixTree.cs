@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DataStructures.Trees
 {
@@ -17,11 +13,11 @@ namespace DataStructures.Trees
 
             public Node(string word)
             {
-                this.Word = word;
+                Word = word;
             }
         }
 
-        private Node _root;
+        private readonly Node _root;
 
         public PrefixTree()
         {
@@ -35,20 +31,21 @@ namespace DataStructures.Trees
 
         private void AddRecursive(Node node, string remaining, string current)
         {
-            if(string.IsNullOrWhiteSpace(remaining))
+            if (string.IsNullOrWhiteSpace(remaining))
             {
                 return;
             }
 
             char prefix = remaining[0];
+            
             remaining = remaining.Substring(1);
 
-            if(!node.Children.ContainsKey(prefix))
+            if (!node.Children.ContainsKey(prefix))
             {
                 node.Children.Add(prefix, new Node(current + prefix));
             }
 
-            if(remaining.Length == 0)
+            if (remaining.Length == 0)
             {
                 node.Children[prefix].IsWord = true;
             }
@@ -62,9 +59,9 @@ namespace DataStructures.Trees
         {
             Node node = _root;
 
-            foreach(char search in searchString)
+            foreach (char search in searchString)
             {
-                if(!node.Children.ContainsKey(search))
+                if (!node.Children.ContainsKey(search))
                 {
                     return new string[0];
                 }
@@ -77,14 +74,14 @@ namespace DataStructures.Trees
 
         private IEnumerable<string> FindAllWords(Node node)
         {
-            if(node.IsWord)
+            if (node.IsWord)
             {
                 yield return node.Word;
             }
 
-            foreach(var childPair in node.Children)
+            foreach (KeyValuePair<char, Node> childPair in node.Children)
             {
-                foreach(string result in FindAllWords(childPair.Value))
+                foreach (string result in FindAllWords(childPair.Value))
                 {
                     yield return result;
                 };

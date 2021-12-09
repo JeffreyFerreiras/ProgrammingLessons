@@ -1,9 +1,5 @@
 ﻿using DataStructures.Graphs;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithms.Search
 {
@@ -26,7 +22,7 @@ namespace Algorithms.Search
                     return employee;
                 }
 
-                foreach (var coWorker in employee.CoWorkers)
+                foreach (Employee coWorker in employee.CoWorkers)
                 {
                     if (!seen.Contains(coWorker))
                     {
