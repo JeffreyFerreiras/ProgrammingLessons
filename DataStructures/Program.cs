@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Collections.Generic;
 
 namespace DataStructures
 {
@@ -33,6 +34,20 @@ namespace DataStructures
 
             int test = queue.Dequeue();
 
+            var stackRank = recursive(false, 0);
+        }
+
+        static int recursive(bool stop, int rank)
+        {
+            if (rank > 15)
+            {
+                stop=true;
+            }
+             
+            if (stop)
+                return rank;
+
+            return recursive(stop, rank+1);
         }
     }
 }

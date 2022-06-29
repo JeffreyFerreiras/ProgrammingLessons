@@ -4,7 +4,8 @@ using NUnit.Framework;
 
 namespace Algorithms.Tests
 {
-    [TestFixture]
+
+	[TestFixture]
     public class QuickSortTests
     {
         [Test]
@@ -16,5 +17,15 @@ namespace Algorithms.Tests
 
             Assert.IsTrue(Helper.IsSortedArray(arry));
         }
-    }
+
+		[Test]
+		public void QuickSort_Practice()
+		{
+			var arry = Helper.GetRandomizedArray(15);
+
+			arry.QuickSort();
+
+			Assert.IsTrue(Helper.IsSortedArray(arry));
+		}
+	}
 }

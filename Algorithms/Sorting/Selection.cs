@@ -41,25 +41,29 @@ namespace Algorithms
             return arr;
         }
 
-        public static void Sort(int[] arr)
+        public static void Sort(int[] nums)
         {
-            for(int i = 0; i < arr.Length - 1; i++)
-            {
-                int low = i;
-                int high = i + 1;
 
-                while(high < arr.Length)
-                {
-                    if(arr[low] > arr[high])
-                    {
-                        low = high;
-                    }
+			// loop through the items
+            for(int i = 0; i < nums.Length - 1; i++)
+			{
+				int smallest = i; // keep track of the smallest value index
+				int unsorted = i + 1; // keep track of the unsorted index
 
-                    high++;
-                }
-
-                Common.Swap(arr, low, i);
-            }
+				while (unsorted < nums.Length) // loop through the unsorted items
+				{
+					if (nums[smallest] > nums[unsorted])  // if the smallest is greater than the unsorted, the smallest now becomes the unsorted's index
+					{
+						smallest = unsorted;
+					}
+					unsorted++;
+				}
+				
+				//swap smallest value found with the current index
+				var temp = nums[smallest];
+				nums[smallest] = nums[i];
+				nums[i] = temp;
+			}
         }
     }
 }

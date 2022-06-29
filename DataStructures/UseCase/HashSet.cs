@@ -24,7 +24,13 @@ namespace DataStructures
         
         public void HashSetOps()
         {
+            // O(1)
+
             HashSet<int> intSet = new HashSet<int>();//ICollection<T>, IEnumerable<T>, IEnumerable, ISerializable, IDeserializationCallback, ISet<T>, IReadOnlyCollection<T>
+            string value = "My name Jeeeffff";
+            var key = value.GetHashCode();
+
+            new Dictionary<int, string>() { { key, value} };
         }
     }
 }

@@ -61,6 +61,7 @@
     <Compile Include="Sorting\MergeTests.cs" />
     <Compile Include="Sorting\QuickSortTests.cs" />
     <Compile Include="Sorting\InsertionTests.cs" />
+    <Compile Include="Sorting\SelectionSortTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.csproj">

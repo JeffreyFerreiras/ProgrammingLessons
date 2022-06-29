@@ -2,88 +2,88 @@
 
 namespace Algorithms
 {
-    public static class QuickTraining
-    {
-        internal static int[] QuickSort(int[] arry)
-        {
-            QuickSort(arry, 0, arry.Length - 1);
-            return arry;
-        }
+	public static class QuickTraining
+	{
+		internal static int[] QuickSort(int[] nums)
+		{
+			QuickSort(nums, 0, nums.Length - 1);
 
-        private static void QuickSort(int[] arry, int low, int high)
-        {
-            if(low < high)
-            {
-                int pivotIndex = Partition(arry, low, high);
+			return nums;
+		}
 
-                QuickSort(arry, low, pivotIndex - 1);
-                QuickSort(arry, pivotIndex, high);
-            }
-        }
+		private static void QuickSort(int[] nums, int low, int high)
+		{
+			if (low < high)
+			{
+				int partitionIndex = Partition(nums, low, high);
 
-        private static int Partition(int[] arry, int low, int high)
-        {
-            var pivotValue = arry[low + (high - low) / 2];
+				QuickSort(nums, low, partitionIndex - 1); //sort the left side
+				QuickSort(nums, partitionIndex, high); // sort the right side
+			}
+		}
 
-            while(low <= high)
-            {
-                while (arry[low]  < pivotValue) low++;
-                while (arry[high] > pivotValue) high--;
+		private static int Partition(int[] nums, int low, int high)
+		{
+			int pivotValue = nums[low + (high - low) / 2];
 
-                if(low <= high)
-                {
-                    Common.Swap(arry, low, high);
+			while(low <= high)
+			{
+				while (nums[low] < pivotValue) low++;
+				while (nums[high] > pivotValue) high--;
 
-                    low++;
-                    high--;
-                }
-            }
+				if(low <= high)
+				{
+					var temp = nums[low];
+					nums[low] = nums[high];
+					nums[high] = temp;
+				}
+			}
 
-            return low;
-        }
-    }
+			return low;
+		}
+	}
 
-    public static class Quick
-    {
-        /* 
+	public static class Quick
+	{
+		/* 
          * O(n log n) typical run time and O(log n) space.
          * O(n^2) worst case, if many items duplicate.
          */
 
-        public static int[] QuickSort(this int[] arr)
-        {
-            QuickSort(arr, 0, arr.Length - 1);
+		public static int[] QuickSort(this int[] arr)
+		{
+			QuickSort(arr, 0, arr.Length - 1);
 
-            return arr;
-        }
+			return arr;
+		}
 
-        private static void QuickSort(int[] arr, int low, int high)
-        {
-            if(low < high)
-            {
-                int i = Partition(arr, low, high);
+		private static void QuickSort(int[] arr, int low, int high)
+		{
+			if (low < high)
+			{
+				int i = Partition(arr, low, high);
 
-                QuickSort(arr, low, i - 1);      //Sort left side
-                QuickSort(arr, i, high);         //Sort right side
-            }
-        }
+				QuickSort(arr, low, i - 1);      //Sort left side
+				QuickSort(arr, i, high);         //Sort right side
+			}
+		}
 
-        private static int Partition(int[] arr, int low, int high)
-        {
-            int pivot = arr[(low + high) / 2];
+		private static int Partition(int[] arr, int low, int high)
+		{
+			int pivot = arr[(low + high) / 2];
 
-            while(low <= high)
-            {
-                while(arr[low]  < pivot) low++;          //Check numbers until one needs to be swaped to right side of the pivot.
-                while(arr[high] > pivot) high--;         //Check numbers until one needs to be swaped to left side of the pivot.
+			while (low <= high)
+			{
+				while (arr[low] < pivot) low++;          //Check numbers until one needs to be swaped to right side of the pivot.
+				while (arr[high] > pivot) high--;         //Check numbers until one needs to be swaped to left side of the pivot.
 
-                if(low <= high)
-                {
-                    Common.Swap(arr, low++, high--);
-                }
-            }
+				if (low <= high)
+				{
+					Common.Swap(arr, low++, high--);
+				}
+			}
 
-            return low;
-        }
-    }
+			return low;
+		}
+	}
 }

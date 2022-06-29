@@ -34,22 +34,24 @@ namespace Algorithms
             return arr;
         }
 
-        public static void Sort(int[] arr)
-        {
-            for(int i = 1; i < arr.Length; i++)
-            {
-                int insertIndex = i;
-                int value = arr[i];
+		public static void Sort(int[] nums)
+		{
+			// loop through all items
+			for (int i = 1; i < nums.Length; i++)
+			{
+				int j = i;
+				int currentValue = nums[i]; // keep track of the current value
 
-                while(insertIndex > 0 && arr[insertIndex -1] > value)
-                {
-                    arr[insertIndex] = arr[insertIndex-1];
+				while (j > 0 && nums[j - 1] > currentValue)
+				{
+					//shift items right
+					nums[j] = nums[j - 1];
 
-                    insertIndex--;
-                }
+					j--;
+				}
 
-                arr[insertIndex] = value;
-            }
-        }
+				nums[j] = currentValue;
+			}
+		}
     }
 }

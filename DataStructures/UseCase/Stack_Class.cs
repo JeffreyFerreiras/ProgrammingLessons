@@ -14,7 +14,10 @@ Stack accepts null as a valid value and allows duplicate elements.
         public Stack_Class()
         {
             // Creates and initializes a new Stack.
+            
             var stackOfStrings = new Stack<string>();
+
+
             stackOfStrings.Push("Hello");
             stackOfStrings.Push("World");
             stackOfStrings.Push("!");
@@ -27,5 +30,7 @@ Stack accepts null as a valid value and allows duplicate elements.
             var reversedintstack = stackOfInts.ReverseStack();
             var reversedstringstack = stackOfStrings.ReverseStack(); 
         }
+
+        
     }
 }

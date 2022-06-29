@@ -55,7 +55,7 @@ namespace Algorithms
         {
             if(low < high)
             {
-                int mid = (low + high)/2;
+                int mid = (low + (high - low)) / 2;
 
                 Sort(array, helper, low, mid);          
                 Sort(array, helper, mid + 1, high);
@@ -64,37 +64,37 @@ namespace Algorithms
             }
         }
 
-        static void Combine(int[] array, int[] helper, int low, int mid, int high)
+        static void Combine(int[] target, int[] helper, int low, int mid, int high)
         {
             //copy items to helper list
             for (int i = low; i <= high; i++)
             {
-                helper[i] = array[i];
+                helper[i] = target[i];
             }
 
-            int left = low;
-            int current = low;
-            int right = mid + 1;
+            int lowHelperIndex = low;
+            int currentTargetIndex = low;
+            int highHelperIndex = mid + 1;
 
             // compare the two sides of the helper array.
             // Place the smaller item from the two halfs of the array
             // that are sorted into the target array.
             // continue to do this until one side runs out of items.
 
-            while(left <= mid && right <= high)
+            while(lowHelperIndex <= mid && highHelperIndex <= high)
             {
-                if(helper[left] <= helper[right])
+                if(helper[lowHelperIndex] <= helper[highHelperIndex])
                 {
-                    array[current] = helper[left];
-                    left++;
+                    target[currentTargetIndex] = helper[lowHelperIndex];
+                    lowHelperIndex++;
                 }
                 else
                 {
-                    array[current] = helper[right];
-                    right++;
+                    target[currentTargetIndex] = helper[highHelperIndex];
+                    highHelperIndex++;
                 }
 
-                current++;
+                currentTargetIndex++;
             }
 
             // place remaining items in target array.
@@ -104,12 +104,69 @@ namespace Algorithms
             // have a sorted list of items that needs
             // to be placed at the end of the target array.
 
-            int remaining = mid - left;
+            int remaining = mid - lowHelperIndex;
 
             for (int i = 0; i <= remaining; i++)
             {
-                array[current + i] = helper[left + i];
+                target[currentTargetIndex + i] = helper[lowHelperIndex + i];
             }
         }
     }
+
+	public static class MergePractice
+	{
+		public static int[] MergeSort(this int[] nums)
+		{
+			int[] helper = new int[nums.Length];
+
+			Sort(nums, helper, 0, nums.Length - 1);
+
+			return nums;
+		}
+
+		public static void Sort(int[] nums, int[] helper, int low, int high)
+		{
+			if(low < high)
+			{
+				int mid = (low + (high - low)) / 2;
+				Sort(nums, helper, low, mid);
+				Sort(nums, helper, mid + 1, high);
+				Merge(nums, helper, low, mid, high);
+			}
+		}
+
+		public static void Merge(int[] nums, int[] helper, int low, int mid, int high)
+		{
+			for(int i = low; i < high; i++)
+			{
+				helper[i] = nums[i];
+			}
+
+			int lowHelper = low, currentIndex = low, highHelper = mid;
+
+			while(lowHelper < mid && highHelper <= high)
+			{
+				// assign lower value
+				if (helper[highHelper] <= helper[lowHelper])
+				{
+					nums[currentIndex] = helper[highHelper];
+					highHelper++;
+				}
+				else if (helper[highHelper] > helper[lowHelper])
+				{
+					nums[currentIndex] = helper[lowHelper];
+					lowHelper++;
+				}
+
+				currentIndex++;
+			}
+
+			int remaining = mid - lowHelper;
+
+			for(int i = 0; i < remaining; i++)
+			{
+				nums[currentIndex + i] = helper[lowHelper + i];
+			}
+		}
+	}
 }
