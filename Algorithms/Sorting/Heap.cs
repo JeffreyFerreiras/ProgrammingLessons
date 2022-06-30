@@ -1,4 +1,7 @@
-﻿namespace Algorithms
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace Algorithms
 {
     public static class Heap
     {
@@ -7,7 +10,7 @@
             int size = source.Length;
 
             //Rearange the array to a heap;
-            for(int i = size / 2 - 1; i >= 0; i--)
+            for(int i = (size / 2 ) - 1; i >= 0; i--)
             {
                 Heapify(source, size, i);
             }
@@ -22,20 +25,27 @@
             return source;
         }
 
-        private static void Heapify(int[] source, int size, int index)
+        private static void Heapify(int[] source, int length, int index)
         {
             int biggerChildIndex = index;
             int leftChildIndex = 2 * index + 1;
             int rightChildIndex = 2 * index + 2;
 
-            if(leftChildIndex < size && source[leftChildIndex] > source[biggerChildIndex]) biggerChildIndex = leftChildIndex;
-            if(rightChildIndex < size && source[rightChildIndex] > source[biggerChildIndex]) biggerChildIndex = rightChildIndex;
+			if (leftChildIndex < length && source[leftChildIndex] > source[biggerChildIndex])
+			{
+				biggerChildIndex = leftChildIndex;
+			}
+            
+			if(rightChildIndex < length && source[rightChildIndex] > source[biggerChildIndex])
+			{
+				biggerChildIndex = rightChildIndex;
+			}
 
-            if(biggerChildIndex != index)
+			if (biggerChildIndex != index)
             {
                 Common.Swap(source, index, biggerChildIndex);
 
-                Heapify(source, size, biggerChildIndex);
+                Heapify(source, length, biggerChildIndex);
             }
         }
     }

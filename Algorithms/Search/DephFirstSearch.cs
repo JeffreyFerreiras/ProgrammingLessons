@@ -45,5 +45,32 @@ namespace Algorithms.Search
 
             return found;
         }
+
+		public Employee SearchPractice(Employee employee, string name, HashSet<Employee> seen = null)
+		{
+			seen = seen ?? new HashSet<Employee>();
+
+			if (employee.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
+			{
+				return employee;
+			}
+
+			foreach (Employee coworker in employee.CoWorkers) 
+			{
+				if (!seen.Contains(coworker))
+				{
+					Employee found = SearchPractice(coworker, name, seen);
+
+					if (found is object) 
+					{
+						return found;
+					}
+				}
+			}
+
+			seen.Add(employee);
+
+			return null;
+		}
     }
 }
