@@ -43,7 +43,6 @@ namespace StackAndHeap
         private static void Change(string abc)
         {
             abc = "cba";
-
         }
     }
 }
