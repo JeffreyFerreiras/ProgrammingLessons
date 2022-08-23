@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30225.117
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingLessons", "ProgrammingLessons\ProgrammingLessons.csproj", "{160C61BB-487C-4B48-AAB7-ACE4945E3513}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyWords", "KeyWords\KeyWords.csproj", "{1C7D8B90-33A0-44A6-AE68-6919987EA85E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{927772DD-95B8-4B50-A188-25C2A9AACFCD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{28441FC0-34A1-4D57-B5EA-CEF8375425ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{B06261C1-C3C6-44A2-9D39-6316E439EAD8}"
 EndProject
@@ -74,7 +72,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures.Tests", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresTests", "DataStructuresTests\DataStructuresTests.csproj", "{E5B69000-B3FA-4685-9659-D92A4341B2DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalProgramming", "FunctionalProgramming\FunctionalProgramming.csproj", "{78ABCF9F-2A9A-405C-B7E9-D94186F40089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalProgramming", "FunctionalProgramming\FunctionalProgramming.csproj", "{78ABCF9F-2A9A-405C-B7E9-D94186F40089}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,22 +150,6 @@ Global
 		{927772DD-95B8-4B50-A188-25C2A9AACFCD}.Release|x64.Build.0 = Release|Any CPU
 		{927772DD-95B8-4B50-A188-25C2A9AACFCD}.Release|x86.ActiveCfg = Release|Any CPU
 		{927772DD-95B8-4B50-A188-25C2A9AACFCD}.Release|x86.Build.0 = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|ARM.Build.0 = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|x64.Build.0 = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Debug|x86.Build.0 = Debug|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|ARM.ActiveCfg = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|ARM.Build.0 = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|x64.ActiveCfg = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|x64.Build.0 = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|x86.ActiveCfg = Release|Any CPU
-		{28441FC0-34A1-4D57-B5EA-CEF8375425ED}.Release|x86.Build.0 = Release|Any CPU
 		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B06261C1-C3C6-44A2-9D39-6316E439EAD8}.Debug|ARM.ActiveCfg = Debug|Any CPU

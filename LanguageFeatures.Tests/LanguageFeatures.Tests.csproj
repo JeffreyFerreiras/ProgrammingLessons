@@ -54,12 +54,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LanguageFeatures\LanguageFeatures.csproj">
-      <Project>{28441FC0-34A1-4D57-B5EA-CEF8375425ED}</Project>
-      <Name>LanguageFeatures</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

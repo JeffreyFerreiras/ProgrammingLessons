@@ -61,8 +61,12 @@ namespace Algorithms.Search
 
 				foreach(var coworker in employee.CoWorkers)
 				{
-					if (seen.Contains(coworker)) continue;
-					queue.Enqueue(coworker);
+					if (seen.Contains(coworker))
+                    {
+                        continue;
+                    }
+
+                    queue.Enqueue(coworker);
 					seen.Add(coworker);
 				}
 			}

@@ -28,20 +28,6 @@ namespace Algorithms
 		//    return arry;
 		//}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		public static int[] BubbleSort(this int[] nums)
 		{
 
