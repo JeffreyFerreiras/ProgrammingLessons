@@ -46,7 +46,7 @@
             int low = 0;
             int high = arr.Length - 1;
 
-            while(low < high)
+            while(low <= high)
             {
                 mid = (low + high) / 2;
 
