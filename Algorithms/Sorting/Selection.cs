@@ -41,7 +41,11 @@ namespace Algorithms
             return arr;
         }
 
-        public static void Sort(int[] nums)
+		/// <summary>
+		/// Selection sort - sort with diminishing increment (descending)
+		/// </summary>
+		/// <param name="nums"></param>
+		public static void Sort(int[] nums)
         {
 
 			// loop through the items
