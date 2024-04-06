@@ -37,7 +37,7 @@ namespace Algorithms.Search
 
             return null;
         }
-
+        
 		/**
 		 hint: When doing a breadth first search, use a queue
 		 */

@@ -53,8 +53,8 @@ namespace Memoization_and_Dynamic_Programming
 
         private static int ConstantFib(int input)
         {
-            double termA = Math.Pow(((1 + Math.Sqrt(5)) / 2), input);
-            double termB = Math.Pow(((1 - Math.Sqrt(5)) / 2), input);
+            double termA = Math.Pow((1 + Math.Sqrt(5)) / 2, input);
+            double termB = Math.Pow((1 - Math.Sqrt(5)) / 2, input);
 
             double factor = 1 / Math.Sqrt(5);
 

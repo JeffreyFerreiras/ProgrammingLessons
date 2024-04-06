@@ -17,7 +17,8 @@ namespace XMLParsing
         {
             XmlDocument doc = new XmlDocument();
 
-            string executingAssemblyLoc = Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName;
+            string assemblyLoc = Assembly.GetExecutingAssembly().Location;
+            string executingAssemblyLoc = Directory.GetParent(assemblyLoc)?.FullName ?? string.Empty;
             string xmlFile = Path.Combine(executingAssemblyLoc, "sampleXML.xml");
             Catalog catalog = XmlDeserializer(xmlFile);
             PrintProperties(catalog.BookList);
@@ -35,15 +36,13 @@ namespace XMLParsing
             Console.ReadLine();
         }
 
-        static Catalog XmlDeserializer(string xmlFile)
+        static Catalog? XmlDeserializer(string xmlFile)
         {
-            using (var stream = new StreamReader(xmlFile))
-            using (var xmlReader = XmlReader.Create(stream))
-            {
-                var ser = new XmlSerializer(typeof(Catalog));
+            using var stream = new StreamReader(xmlFile);
+            using var xmlReader = XmlReader.Create(stream);
+            var ser = new XmlSerializer(typeof(Catalog));
 
-                return ser.Deserialize(xmlReader) as Catalog;
-            }
+            return ser.Deserialize(xmlReader) as Catalog;
         }
 
         private static T ConvertNode<T>(XmlNode node)
