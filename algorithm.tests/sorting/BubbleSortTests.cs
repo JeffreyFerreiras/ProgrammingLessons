@@ -1,6 +1,7 @@
 ﻿namespace Algorithms.Tests
 {
     using Algorithms;
+    using NUnit.Framework;
     using System;
     using System.Diagnostics;
 
@@ -12,15 +13,15 @@
         public void Sort_BubbleSort_OrderedArray()
         {
             int[] arry = Helper.GetRandomizedArray(1000);
-            
+
             Bubble.BubbleSort(arry);
 
-            Assert.IsTrue(Helper.IsSortedArray(arry));
+            Assert.That(Helper.IsSortedArray(arry), Is.True);
         }
 
         [Test]
         public void Sort_BubbleSortSpeedTest_OrderedArrays()
-        { 
+        {
             Stopwatch watch = new Stopwatch();
 
             int[] arry = Helper.GetRandomizedArray(1000);
@@ -40,7 +41,7 @@
 
             Debug.WriteLine("SORT 2 " + watch.ElapsedTicks.ToString());
 
-            Assert.IsTrue(Helper.IsSortedArray(arry) && Helper.IsSortedArray(arry2));
+            Assert.That(Helper.IsSortedArray(arry) && Helper.IsSortedArray(arry2), Is.True);
         }
     }
 }
