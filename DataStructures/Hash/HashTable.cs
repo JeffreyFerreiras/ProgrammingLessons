@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataStructures.Hash
+﻿namespace DataStructures.Hash
 {
     public class CustomHashTable<Key, Value>
     {

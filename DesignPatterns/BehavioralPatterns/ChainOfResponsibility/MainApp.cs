@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.BehavioralPatterns.ChainOfResponsibility
+﻿namespace DesignPatterns.BehavioralPatterns.ChainOfResponsibility
 {
     /*
      * to its receiver by giving more than one object a chance to handle the request.

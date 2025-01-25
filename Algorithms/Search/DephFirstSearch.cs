@@ -1,6 +1,4 @@
 ﻿using DataStructures.Graphs;
-using System;
-using System.Collections.Generic;
 
 namespace Algorithms.Search
 {

@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BenchmarkDotNet.Disassemblers;
-using CommandLine.Text;
-using System.Xml.Linq;
-
-namespace Algorithms.Sorting
+﻿namespace Algorithms.Sorting
 {
 	public class Shell
 	{

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DataStructures.Graphs
+﻿namespace DataStructures.Graphs
 {
     public class Graph
     {

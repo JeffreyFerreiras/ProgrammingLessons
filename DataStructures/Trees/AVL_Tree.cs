@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DataStructures.Trees
+﻿namespace DataStructures.Trees
 {
     public class AVL_Tree
     {

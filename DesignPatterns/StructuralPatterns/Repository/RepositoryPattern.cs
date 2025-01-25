@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.StructuralPatterns.Repository
+﻿namespace DesignPatterns.StructuralPatterns.Repository
 {
     /* allows your applications to perform with CRUD-like operations.
      * A more technical definition could be that it provides an abstraction

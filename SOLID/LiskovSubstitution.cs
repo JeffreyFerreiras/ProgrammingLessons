@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SOLID
+﻿namespace SOLID
 {
     //Liskov Substitution Principle 		- derived classes must be substitutable for their base class
     // A subclass should behave in such a way that it would not cause problems if used instead of a super class.

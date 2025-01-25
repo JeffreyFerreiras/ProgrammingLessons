@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace DesignPatterns.Factory
+﻿namespace DesignPatterns.Factory
 {
     abstract class Document
     {

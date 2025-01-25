@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FunctionalProgramming
+﻿namespace FunctionalProgramming
 {
     class Program
     {

@@ -1,7 +1,4 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using DataStructuresTests;
 
 namespace DataStructures.Trees.Tests

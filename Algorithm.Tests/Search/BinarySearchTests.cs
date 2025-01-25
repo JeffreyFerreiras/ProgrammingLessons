@@ -1,7 +1,4 @@
-﻿using NUnit.Framework;
-using System;
-
-namespace Algorithms.Tests
+﻿namespace Algorithms.Tests
 {
     [TestFixture()]
     public class BinarySearchTests

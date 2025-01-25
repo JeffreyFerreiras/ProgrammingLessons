@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace Algorithms
+﻿namespace Algorithms
 {
     public static class Heap
     {

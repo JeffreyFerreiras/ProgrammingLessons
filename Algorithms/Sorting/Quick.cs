@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Algorithms
+﻿namespace Algorithms
 {
 	public static class QuickTraining
 	{

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DesignPatterns.StructuralPatterns.UnitOfWork
+﻿namespace DesignPatterns.StructuralPatterns.UnitOfWork
 {
     /*
      * Unit of Work pattern holds multiple Generic Repository. It keeps track of all db changes then

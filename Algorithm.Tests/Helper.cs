@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Algorithms.Tests
+﻿namespace Algorithms.Tests
 {
     internal static class Helper
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using Algorithms;
-using NUnit.Framework;
-
-namespace Algorithms.Tests
+﻿namespace Algorithms.Tests
 {
 
 	[TestFixture]

@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-
-namespace Algorithms.Tests
+﻿namespace Algorithms.Tests
 {
 	[TestFixture]
 	public class SelectionSortTests

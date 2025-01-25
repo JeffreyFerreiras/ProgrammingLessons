@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace DataStructures.Trees
+﻿namespace DataStructures.Trees
 {
     //Type of Trie,
     public class PrefixTree

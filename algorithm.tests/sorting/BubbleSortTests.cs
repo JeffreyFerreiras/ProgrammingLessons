@@ -1,7 +1,6 @@
 ﻿namespace Algorithms.Tests
 {
     using Algorithms;
-    using NUnit.Framework;
     using System;
     using System.Diagnostics;
 

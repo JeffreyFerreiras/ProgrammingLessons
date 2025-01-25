@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DesignPatterns.StructuralPatterns.Adapter
+﻿namespace DesignPatterns.StructuralPatterns.Adapter
 {
     internal class MainApp
     {

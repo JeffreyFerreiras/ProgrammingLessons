@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algorithms.Misc
+﻿namespace Algorithms.Misc
 {
     //Euclid's Algorithm is used to find the two most common divisor of two numbers.
 
