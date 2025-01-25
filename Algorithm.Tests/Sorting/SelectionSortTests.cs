@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Tests
+﻿using NUnit.Framework;
+
+namespace Algorithms.Tests
 {
 	[TestFixture]
 	public class SelectionSortTests
@@ -10,7 +12,7 @@
 
 			Selection.Sort(arry);
 
-			Assert.IsTrue(Helper.IsSortedArray(arry));
+			Assert.That(Helper.IsSortedArray(arry), Is.True);
 		}
 	}
 }

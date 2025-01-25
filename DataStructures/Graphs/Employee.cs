@@ -7,7 +7,7 @@
     {
         private List<Employee> _subordinates = new List<Employee>();
 
-        public IEnumerable<Employee> CoWorkers => _subordinates.ToArray();
+        public IList<Employee> CoWorkers => _subordinates.ToArray();
         public string Name { get; private set; }
 
         public Employee(string name)

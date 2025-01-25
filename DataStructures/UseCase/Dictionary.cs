@@ -6,9 +6,9 @@
         public Dictionary<string, ulong> GetPhoneBook()
         {
             Dictionary<string, ulong> phoneBook = new Dictionary<string, ulong>
-            {
-                { "Alex", 9084459999 }
-            };
+                {
+                    { "Alex", 9084459999 }
+                };
 
             phoneBook["Jessica"] = 7325129874;
 
@@ -21,7 +21,7 @@
 
             if (phoneBook.ContainsKey("Alex"))
             {
-                Console.WriteLine(phoneBook["Alex"]); 
+                Console.WriteLine(phoneBook["Alex"]);
             }
         }
 
@@ -31,7 +31,7 @@
 
             foreach (KeyValuePair<string, ulong> pair in phoneBook)
             {
-                Console.WriteLine(pair.Key, pair.Value);
+                Console.WriteLine($"{pair.Key}: {pair.Value}");
             }
         }
     }

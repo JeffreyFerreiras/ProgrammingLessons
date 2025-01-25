@@ -13,7 +13,7 @@ namespace DataStructures.Trees.Tests
 
             BinarySearchTree bst = new BinarySearchTree();
 
-            foreach(int x in sample)
+            foreach (int x in sample)
             {
                 bst.Add(x);
             }
@@ -26,7 +26,7 @@ namespace DataStructures.Trees.Tests
         {
             var tree = BinTreeFactory();
 
-            Assert.IsTrue(tree.Contains(6));
+            Assert.That(tree.Contains(6), Is.True);
         }
 
         [Test()]
@@ -36,7 +36,7 @@ namespace DataStructures.Trees.Tests
 
             BinarySearchTree bst = new BinarySearchTree();
 
-            foreach(int x in sample)
+            foreach (int x in sample)
             {
                 bst.Add(x);
             }
@@ -45,16 +45,16 @@ namespace DataStructures.Trees.Tests
         [Test()]
         public void AddTest_RotateTree_BalancedTree()
         {
-            int[] sample = { 43, 18, 22, 9, 21, 6, 8, 20, 63, 50, 62 , 51};
+            int[] sample = { 43, 18, 22, 9, 21, 6, 8, 20, 63, 50, 62, 51 };
 
             var bst = new BinarySearchTree();
 
-            foreach(int x in sample)
+            foreach (int x in sample)
             {
                 bst.Add(x);
             }
-            
-            Assert.IsTrue(bst.IsBalanced);
+
+            Assert.That(bst.IsBalanced, Is.True);
         }
 
         [Test()]
@@ -64,12 +64,12 @@ namespace DataStructures.Trees.Tests
 
             var bst = new BinarySearchTree();
 
-            foreach(int x in sample)
+            foreach (int x in sample)
             {
                 bst.Add(x);
             }
 
-            Assert.IsTrue(bst.IsBalanced);
+            Assert.That(bst.IsBalanced, Is.True);
         }
 
         [Test()]
@@ -79,7 +79,7 @@ namespace DataStructures.Trees.Tests
 
             bst.Remove(6);
 
-            Assert.IsFalse(bst.Contains(6));
+            Assert.That(bst.Contains(6), Is.False);
         }
 
         [Test()]
@@ -87,7 +87,7 @@ namespace DataStructures.Trees.Tests
         {
             var bst = BinTreeFactory();
 
-            Assert.IsTrue(bst.Min() == 6);
+            Assert.That(bst.Min(), Is.EqualTo(6));
         }
 
         [Test()]
@@ -95,7 +95,7 @@ namespace DataStructures.Trees.Tests
         {
             var bst = BinTreeFactory();
 
-            Assert.IsTrue(bst.Max() == 580);
+            Assert.That(bst.Max(), Is.EqualTo(580));
         }
 
         [Test()]
@@ -116,7 +116,7 @@ namespace DataStructures.Trees.Tests
         {
             var bst = BinTreeFactory();
 
-            Assert.IsTrue(bst.LeafCount() > 0);
+            Assert.That(bst.LeafCount(), Is.GreaterThan(0));
         }
     }
 }

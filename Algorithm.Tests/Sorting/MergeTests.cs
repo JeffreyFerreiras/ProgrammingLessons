@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Tests
+﻿using NUnit.Framework;
+
+namespace Algorithms.Tests
 {
     [TestFixture()]
     public class MergeTests
@@ -10,7 +12,7 @@
 
             arry.MergeSort();
 
-            Assert.IsTrue(arry.IsSorted());
+            Assert.That(arry.IsSorted(), Is.True);
         }
     }
 }

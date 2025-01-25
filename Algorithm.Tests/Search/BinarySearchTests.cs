@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Tests
+﻿using NUnit.Framework;
+
+namespace Algorithms.Tests
 {
     [TestFixture()]
     public class BinarySearchTests
@@ -11,7 +13,7 @@
             int[] arr = Helper.GetSortedArray(1000);
             int target = arr[s_random.Next(0, arr.Length)];
 
-            Assert.True(arr[BinarySearch.BinSearch(arr, target)] == target);
+            Assert.That(arr[BinarySearch.BinSearch(arr, target)], Is.EqualTo(target));
         }
 
         [Test()]
@@ -20,7 +22,7 @@
             var arr = Helper.GetSortedArray(1000);
             int target = 888;
 
-            Assert.True(arr.BinSearch(target) == -1);
+            Assert.That(arr.BinSearch(target), Is.EqualTo(-1));
         }
     }
 }

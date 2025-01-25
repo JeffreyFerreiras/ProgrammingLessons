@@ -1,4 +1,7 @@
-﻿namespace DataStructuresTests.Trees
+﻿using DataStructures.Trees;
+using NUnit.Framework;
+
+namespace DataStructuresTests.Trees
 {
     [TestFixture]
     public class PrefixTreeTests
@@ -34,20 +37,20 @@
                 "terra",
                 "ark"
             })]
-        
+
         public void SearchReturnsAllAvailableSubset(string searchString, string[] expected)
         {
             var trie = new PrefixTree();
 
-            foreach(string word in memoryDictionary)
+            foreach (string word in memoryDictionary)
             {
                 trie.Add(word);
             }
 
             var results = trie.Search(searchString);
 
-            Assert.IsFalse(results.Except(expected).Any());
-            Assert.IsFalse(expected.Except(results).Any());
+            Assert.That(results.Except(expected).Any(), Is.False);
+            Assert.That(expected.Except(results).Any(), Is.False);
         }
     }
 }

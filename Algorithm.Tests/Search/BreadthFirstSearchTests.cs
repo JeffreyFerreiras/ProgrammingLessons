@@ -1,5 +1,6 @@
 ﻿using Algorithms.Search;
 using DataStructures.Graphs;
+using NUnit.Framework;
 
 namespace Algorithms.Tests.Search
 {
@@ -32,7 +33,7 @@ namespace Algorithms.Tests.Search
             var rootEmployee = BuildEmployeeGraph();
             var searchedEmployee = BreadthFirstSearch.GetEmployee(rootEmployee, "Tina");
 
-            Assert.NotNull(searchedEmployee);
+            Assert.That(searchedEmployee, Is.Not.Null);
         }
     }
 }

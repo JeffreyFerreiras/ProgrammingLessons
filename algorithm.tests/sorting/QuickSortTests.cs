@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Tests
+﻿using NUnit.Framework;
+
+namespace Algorithms.Tests
 {
 
 	[TestFixture]
@@ -11,7 +13,7 @@
 
             arry.QuickSort();
 
-            Assert.IsTrue(Helper.IsSortedArray(arry));
+            Assert.That(Helper.IsSortedArray(arry), Is.True);
         }
 
 		[Test]
@@ -21,7 +23,7 @@
 
 			arry.QuickSort();
 
-			Assert.IsTrue(Helper.IsSortedArray(arry));
+			Assert.That(Helper.IsSortedArray(arry), Is.True);
 		}
 	}
 }

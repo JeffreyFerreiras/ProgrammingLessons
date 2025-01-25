@@ -2,15 +2,10 @@
 {
     public class Graph
     {
-        public class Node
+        public class Node(int id)
         {
-            private int Id { get; set; }
-            private LinkedList<Node> AdjacentNodes { get; } = new LinkedList<Node>();
-
-            private Node(int id)
-            {
-                Id = id;
-            }
+            private int Id { get; set; } = id;
+            public LinkedList<Node> AdjacentNodes { get; } = new LinkedList<Node>();
         }
 
         protected Node GetNode(int id)

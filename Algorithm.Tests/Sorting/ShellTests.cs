@@ -1,4 +1,5 @@
 ﻿using Algorithms.Sorting;
+using NUnit.Framework;
 
 namespace Algorithms.Tests.Sorting
 {
@@ -11,7 +12,7 @@ namespace Algorithms.Tests.Sorting
 
 			Shell.Sort(arry);
 			Array.Reverse(arry);
-			Assert.IsTrue(Helper.IsSortedArray(arry));
+			Assert.That(Helper.IsSortedArray(arry), Is.True);
 		}
 	}
 }
