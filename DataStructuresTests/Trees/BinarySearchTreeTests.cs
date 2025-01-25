@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using DataStructuresTests;
+using NUnit.Framework;
 
 namespace DataStructures.Trees.Tests
 {
