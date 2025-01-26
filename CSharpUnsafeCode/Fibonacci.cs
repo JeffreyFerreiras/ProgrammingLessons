@@ -1,6 +1,4 @@
 using BenchmarkDotNet.Attributes;
-using System;
-using System.Diagnostics;
 
 namespace CSharpUnsafeCode;
 
