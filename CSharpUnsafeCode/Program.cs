@@ -7,9 +7,12 @@ namespace CSharpUnsafeCode
     {
         static unsafe void Main(string[] args)
         {
-            BenchmarkRunner.Run<FibonacciBenchmark>();
-            BenchmarkRunner.Run<ComplexStructBenchmark>();
+            //BenchmarkRunner.Run<FibonacciBenchmark>();
             BenchmarkRunner.Run<ComplexStructPerformanceTest>();
+
+            //var test = new ComplexStructPerformanceTest { ArraySize = 3 };
+            //test.RegularComplexClassArray();
+            //test.StackAllocatedComplexClassArray();
         }
     }
 }

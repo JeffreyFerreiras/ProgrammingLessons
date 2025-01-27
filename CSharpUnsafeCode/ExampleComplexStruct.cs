@@ -7,7 +7,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace CSharpUnsafeCode;
 
-public struct ExampleComplexStruct
+public unsafe struct ExampleComplexStruct
 {
     public int Id;
     public fixed char Name[100]; // Fixed-size buffer for string
@@ -21,16 +21,17 @@ public class ComplexStructPerformanceTest
     [Params(20000)] // Array size for benchmarking
     public int ArraySize;
 
-    private ExampleComplexStruct InitializeComplexClass(int index)
+    private unsafe ExampleComplexStruct InitializeComplexClass(int index)
     {
-        return new ExampleComplexStruct
+        ExampleComplexStruct example = new ExampleComplexStruct
         {
             Id = index,
-            Name = $"Name{index}",
             BirthDate = DateTime.Now.AddYears(-index),
             Salary = index * 1000,
             IsActive = index % 2 == 0
         };
+        AssignStringToFixedCharArray(example.Name, $"Name{index}");
+        return example;
     }
 
     [Benchmark]
@@ -44,8 +45,15 @@ public class ComplexStructPerformanceTest
 
         for (int i = 0; i < ArraySize; ++i)
         {
+            unsafe
+            {
+                fixed (char* namePtr = array[i].Name)
+                {
+                    AssignStringToFixedCharArray(namePtr, "_Updated");
+                }
+            }
+
             array[i].Id += 1;
-            array[i].Name += "_Updated";
             array[i].BirthDate = array[i].BirthDate.AddDays(1);
             array[i].Salary += 500;
             array[i].IsActive = !array[i].IsActive;
@@ -67,7 +75,7 @@ public class ComplexStructPerformanceTest
         for (int i = 0; i < ArraySize; ++i)
         {
             arrayPointer[i].Id += 1;
-            arrayPointer[i].Name += "_Updated";
+            AssignStringToFixedCharArray(arrayPointer[i].Name, "_Updated");
             arrayPointer[i].BirthDate = arrayPointer[i].BirthDate.AddDays(1);
             arrayPointer[i].Salary += 500;
             arrayPointer[i].IsActive = !arrayPointer[i].IsActive;
@@ -85,7 +93,7 @@ public class ComplexStructPerformanceTest
     }
 
     //assign string value to fixed char array
-    private unsafe char* AssignStringToFixedCharArray(char* fixedCharArray, string value)
+    private unsafe void AssignStringToFixedCharArray(char* fixedCharArray, string value)
     {
         //Ensure the string is not null
         ArgumentNullException.ThrowIfNull(value);
@@ -97,6 +105,7 @@ public class ComplexStructPerformanceTest
         {
             fixedCharArray[i] = value[i];
         }
+
         fixedCharArray[value.Length] = '\0'; // Null-terminate the string
     }
 }
