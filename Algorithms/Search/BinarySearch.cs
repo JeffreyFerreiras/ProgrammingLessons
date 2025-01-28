@@ -33,9 +33,20 @@
         {
             int mid = (left + right) / 2;
 
-            if(arry[mid] == target) return mid;
-            if(arry[mid] < target)  return RecursiveBinSearch(arry, mid + 1, right, target);
-            if(arry[mid] > target)  return RecursiveBinSearch(arry, left, mid - 1, target);
+            if(arry[mid] == target)
+            {
+                return mid;
+            }
+
+            if (arry[mid] < target)
+            {
+                return RecursiveBinSearch(arry, mid + 1, right, target);
+            }
+
+            if (arry[mid] > target)
+            {
+                return RecursiveBinSearch(arry, left, mid - 1, target);
+            }
 
             return -1;
         }
@@ -51,11 +62,17 @@
                 mid = (low + high) / 2;
 
                 if(arr[mid] > x)
+                {
                     high = mid - 1;
+                }
                 else if(arr[mid] < x)
+                {
                     low = mid + 1;
+                }
                 else
+                {
                     return mid;
+                }
             }
 
             return -1; //Not found

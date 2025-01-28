@@ -4,71 +4,48 @@ namespace Algorithms.Search
 {
     public static class BreadthFirstSearch
     {
-		
-        public static Employee GetEmployee(this Employee root, string employeeName)
+        /// <summary>
+        /// Performs a breadth-first search to find an employee by name.
+        /// </summary>
+        /// <param name="root">The root employee to start the search from.</param>
+        /// <param name="employeeName">The name of the employee to search for.</param>
+        /// <returns>The employee if found, otherwise null.</returns>
+        public static Employee? Search(this Employee root, string employeeName)
         {
+            // Initialize a queue to manage the breadth-first search
             var queue = new Queue<Employee>();
+            // Initialize a set to keep track of seen employees to avoid cycles
             var seen = new HashSet<Employee>();
 
+            // Enqueue the root employee and mark as seen
             queue.Enqueue(root);
             seen.Add(root);
 
+            // Continue the search while there are employees in the queue
             while (queue.Count > 0)
             {
+                // Dequeue the next employee to process
                 Employee employee = queue.Dequeue();
 
+                // Check if the current employee's name matches the search name
                 if (employeeName.Equals(employee.Name))
                 {
-                    return employee;
+                    return employee; // Return the employee if found
                 }
 
+                // Enqueue all unseen co-workers of the current employee
                 foreach (Employee coWorker in employee.CoWorkers)
                 {
                     if (!seen.Contains(coWorker))
                     {
-                        seen.Add(coWorker);
-                        queue.Enqueue(coWorker);
+                        seen.Add(coWorker); // Mark co-worker as seen
+                        queue.Enqueue(coWorker); // Enqueue co-worker for further processing
                     }
                 }
             }
 
+            // Return null if the employee was not found
             return null;
         }
-        
-		/**
-		 hint: When doing a breadth first search, use a queue
-		 */
-
-		public static Employee BreadthFirstSearchPractice(Employee root, string name)
-		{
-			var queue = new Queue<Employee>();
-			var seen = new HashSet<Employee>();
-
-			queue.Enqueue(root);
-			seen.Add(root);
-
-			while(queue.Count() > 0)
-			{
-				var employee = queue.Dequeue();
-
-				if (employee.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
-				{
-					return employee;
-				}
-
-				foreach(var coworker in employee.CoWorkers)
-				{
-					if (seen.Contains(coworker))
-                    {
-                        continue;
-                    }
-
-                    queue.Enqueue(coworker);
-					seen.Add(coworker);
-				}
-			}
-
-			return null;
-		}
     }
 }

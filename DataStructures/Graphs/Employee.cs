@@ -5,9 +5,9 @@
     /// </summary>
     public class Employee
     {
-        private List<Employee> _subordinates = new List<Employee>();
+        private List<Employee> _coWorkers = new List<Employee>();
 
-        public IList<Employee> CoWorkers => _subordinates.ToArray();
+        public IList<Employee> CoWorkers => _coWorkers.ToArray();
         public string Name { get; private set; }
 
         public Employee(string name)
@@ -15,14 +15,14 @@
             this.Name = name;
         }
 
-        public void AddSubordinate(Employee employee)
+        public void AddCoWorker(Employee employee)
         {
-            this._subordinates.Add(employee);
+            this._coWorkers.Add(employee);
         }
 
-        public void RemoveSubordinate(Employee employee)
+        public void RemoveCoWorker(Employee employee)
         {
-            this._subordinates.Remove(employee);
+            this._coWorkers.Remove(employee);
         }
     }
 }

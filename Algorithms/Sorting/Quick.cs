@@ -59,14 +59,14 @@
 		{
 			if (low < high)
 			{
-				int i = Partition(arr, low, high);
+				int i = PartitionSubarray(arr, low, high);
 
-				QuickSort(arr, low, i - 1);      //Sort left side
-				QuickSort(arr, i, high);         //Sort right side
+				QuickSort(arr, low, i - 1);      //ShellSort left side
+				QuickSort(arr, i, high);         //ShellSort right side
 			}
 		}
 
-		private static int Partition(int[] arr, int low, int high)
+		private static int PartitionSubarray(int[] arr, int low, int high)
 		{
 			int pivot = arr[(low + high) / 2];
 

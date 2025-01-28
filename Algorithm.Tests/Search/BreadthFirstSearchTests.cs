@@ -12,17 +12,17 @@ namespace Algorithms.Tests.Search
             Employee Eva = new Employee("Eva");
             Employee Sophia = new Employee("Sophia");
             Employee Brian = new Employee("Brian");
-            Eva.AddSubordinate(Sophia);
-            Eva.AddSubordinate(Brian);
+            Eva.AddCoWorker(Sophia);
+            Eva.AddCoWorker(Brian);
 
             Employee Lisa = new Employee("Lisa");
             Employee Tina = new Employee("Tina");
             Employee John = new Employee("John");
             Employee Mike = new Employee("Mike");
-            Sophia.AddSubordinate(Lisa);
-            Sophia.AddSubordinate(John);
-            Brian.AddSubordinate(Tina);
-            Brian.AddSubordinate(Mike);
+            Sophia.AddCoWorker(Lisa);
+            Sophia.AddCoWorker(John);
+            Brian.AddCoWorker(Tina);
+            Brian.AddCoWorker(Mike);
 
             return Eva;
         }
@@ -31,7 +31,7 @@ namespace Algorithms.Tests.Search
         public void BFS_Test()
         {
             var rootEmployee = BuildEmployeeGraph();
-            var searchedEmployee = BreadthFirstSearch.GetEmployee(rootEmployee, "Tina");
+            var searchedEmployee = BreadthFirstSearch.Search(rootEmployee, "Tina");
 
             Assert.That(searchedEmployee, Is.Not.Null);
         }

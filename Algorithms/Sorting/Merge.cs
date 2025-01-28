@@ -35,7 +35,7 @@
  * 7. for each index assign helper left + index to array current + index 
  */
     public static class Merge
-    {    
+    {
         public static int[] MergeSort(this int[] array)
         {
             int[] helper = new int[array.Length];
@@ -47,11 +47,11 @@
 
         static void Sort(int[] array, int[] helper, int low, int high)
         {
-            if(low < high)
+            if (low < high)
             {
-                int mid = (low + (high - low)) / 2;
+                int mid = low + (high - low) / 2;
 
-                Sort(array, helper, low, mid);          
+                Sort(array, helper, low, mid);
                 Sort(array, helper, mid + 1, high);
 
                 Combine(array, helper, low, mid, high);
@@ -71,13 +71,13 @@
             int highHelperIndex = mid + 1;
 
             // compare the two sides of the helper array.
-            // Place the smaller item from the two halfs of the array
+            // Place the smaller item from the two halves of the array
             // that are sorted into the target array.
             // continue to do this until one side runs out of items.
 
-            while(lowHelperIndex <= mid && highHelperIndex <= high)
+            while (lowHelperIndex <= mid && highHelperIndex <= high)
             {
-                if(helper[lowHelperIndex] <= helper[highHelperIndex])
+                if (helper[lowHelperIndex] <= helper[highHelperIndex])
                 {
                     target[currentTargetIndex] = helper[lowHelperIndex];
                     lowHelperIndex++;

@@ -1,4 +1,6 @@
-﻿namespace Algorithms
+﻿using Algorithms.Sorting;
+
+namespace Algorithms
 {
     class Program
     {
@@ -13,9 +15,12 @@
             PrintSortStats(150);
 
             Console.WriteLine("\nSort Again?");
-            string input = Console.ReadLine();
+            string? input = Console.ReadLine();
 
-            if(input.ToLower() != "n") Main(args);
+            if(input?.ToLower() != "n")
+            {
+                Main(args);
+            }
         }
 
         private static void PrintSortStats(int len)
@@ -23,6 +28,7 @@
             Console.WriteLine($"\nItem Count: {len}");
             int[] arry = Common.GetRandomizedArray(len);
 
+            GenericSort(Shell.ShellSort, arry);
             GenericSort(Heap.HeapSort, arry);
             GenericSort(Quick.QuickSort, arry);
             GenericSort(Merge.MergeSort, arry);
