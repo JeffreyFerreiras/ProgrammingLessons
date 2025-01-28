@@ -4,7 +4,7 @@ namespace Algorithms
 {
     class Program
     {
-        static System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
+        private static readonly System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
 
         delegate int[] Sort(int[] arry);
 
