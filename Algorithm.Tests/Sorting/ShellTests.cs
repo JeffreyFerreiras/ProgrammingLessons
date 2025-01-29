@@ -11,7 +11,6 @@ namespace Algorithms.Tests.Sorting
 			var arry = Helper.GetRandomizedArray(5);
 
 			Shell.ShellSort(arry);
-			Array.Reverse(arry);
 			Assert.That(Helper.IsSortedArray(arry), Is.True);
 		}
 	}
