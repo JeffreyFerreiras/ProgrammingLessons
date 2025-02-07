@@ -31,7 +31,7 @@ namespace Algorithms.Tests.Search
         public void BFS_Test()
         {
             var rootEmployee = BuildEmployeeGraph();
-            var searchedEmployee = BreadthFirstSearch.Search(rootEmployee, "Tina");
+            var searchedEmployee = BreadthFirstSearchGraph.Search(rootEmployee, "Tina");
 
             Assert.That(searchedEmployee, Is.Not.Null);
         }

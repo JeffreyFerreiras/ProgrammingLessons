@@ -2,7 +2,7 @@
 
 namespace Algorithms.Search;
 
-public class DephFirstSearch
+public class DephFirstSearchGraph
 {
     /*
         1. Check if the current employee has a matching name, if so, return that employee.
@@ -51,4 +51,5 @@ public class DephFirstSearch
         // Return the found employee, or null if no match was found.
         return found;
     }
+
 }

@@ -49,10 +49,10 @@
         {
             if (low < high)
             {
-                int mid = low + (high - low) / 2;
+                int mid = low + (high - low) / 2; // find the middle index
 
-                Sort(array, helper, low, mid);
-                Sort(array, helper, mid + 1, high);
+                Sort(array, helper, low, mid); // sort the left half
+                Sort(array, helper, mid + 1, high); // sort the right half
 
                 Combine(array, helper, low, mid, high);
             }

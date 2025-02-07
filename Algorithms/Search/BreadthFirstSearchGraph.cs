@@ -1,8 +1,10 @@
 ﻿using DataStructures.Graphs;
+using System;
+using System.Collections.Generic;
 
 namespace Algorithms.Search
 {
-    public static class BreadthFirstSearch
+    public static class BreadthFirstSearchGraph
     {
         /// <summary>
         /// Performs a breadth-first search to find an employee by name.
