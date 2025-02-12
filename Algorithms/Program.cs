@@ -10,9 +10,10 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            PrintSortStats(10000);
-            PrintSortStats(1000);
-            PrintSortStats(150);
+            // PrintSortStats(10000);
+            // PrintSortStats(1000);
+            // PrintSortStats(150);
+            PrintSortStats(20);
 
             Console.WriteLine("\nSort Again?");
             string? input = Console.ReadLine();
