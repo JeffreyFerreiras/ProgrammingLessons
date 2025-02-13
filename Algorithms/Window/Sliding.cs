@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Algorithms.Window;
 
 public class Sliding

@@ -21,37 +21,48 @@
         /// <returns>The sorted array.</returns>
         public static int[] ShellSort(int[] array)
         {
-            // Initialize the gap size.
+            // Initialize the gap size to half the length of the array.
+            // This determines the initial interval between elements to be compared.
             int gap = array.Length / 2;
 
-            // Continue until the gap size is reduced to 0.
+            // Continue the sorting process until the gap size is reduced to 0.
             while (gap > 0)
             {
                 // Perform a modified insertion sort for each gap size.
+                // This loop iterates through the array, starting from the 'gap' index.
                 for (int i = gap; i < array.Length; i++)
                 {
                     // Store the current value and its index.
+                    // The 'currentValue' is the element to be inserted into its correct position in the gapped subarray.
                     int currentValue = array[i];
                     int currentIndex = i;
 
                     // Shift elements of the sorted segment to the right to create the correct position for the current value.
+                    // This inner loop compares the 'currentValue' with elements at 'gap' intervals to its left.
                     while (currentIndex >= gap && array[currentIndex - gap] > currentValue)
                     {
+                        // Shift the larger element to the right.
                         array[currentIndex] = array[currentIndex - gap];
+                        // Move the index to the left by the 'gap' size.
                         currentIndex -= gap;
                     }
 
                     // Place the current value in its correct position.
+                    // After shifting the necessary elements, insert 'currentValue' into its correct position.
                     array[currentIndex] = currentValue;
                 }
 
                 // Reduce the gap size for the next iteration.
+                // This determines how the gap is reduced for the next pass.
+                // Using different gap sequences can significantly affect the algorithm's performance.
                 if (gap == 2)
                 {
+                    // If the gap is 2, set it to 1 for the final insertion sort pass.
                     gap = 1;
                 }
                 else
                 {
+                    // Otherwise, reduce the gap by dividing it by 2.2 (a common factor used in Shellsort).
                     gap = (int)(gap / 2.2);
                 }
             }
