@@ -58,9 +58,10 @@
 				}
 				
 				//swap smallest value found with the current index
-				var temp = nums[smallest];
-				nums[smallest] = nums[i];
-				nums[i] = temp;
+                nums.Swap(i, smallest);
+				// var temp = nums[smallest];
+				// nums[smallest] = nums[i];
+				// nums[i] = temp;
 			}
         }
     }

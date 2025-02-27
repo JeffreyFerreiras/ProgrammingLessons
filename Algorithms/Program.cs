@@ -10,10 +10,11 @@ namespace Algorithms
 
         static void Main(string[] args)
         {
-            // PrintSortStats(10000);
+            Common.PrintSwapEnabled = false;
+            PrintSortStats(10000);
             // PrintSortStats(1000);
             // PrintSortStats(150);
-            PrintSortStats(20);
+            PrintSortStats(5);
 
             Console.WriteLine("\nSort Again?");
             string? input = Console.ReadLine();
@@ -27,7 +28,7 @@ namespace Algorithms
         private static void PrintSortStats(int len)
         {
             Console.WriteLine($"\nItem Count: {len}");
-            int[] arry = Common.GetRandomizedArray(len);
+            int[] arry = Common.GetRandomizedArray(len, 9);
 
             GenericSort(Shell.ShellSort, arry);
             GenericSort(Heap.HeapSort, arry);
@@ -45,9 +46,20 @@ namespace Algorithms
 
             timer.Start();
             sort(copy);
+            timer.Stop();
+
+            string elapsedTime;
+            if (timer.ElapsedMilliseconds > 0)
+            {
+                elapsedTime = $"{timer.ElapsedMilliseconds.ToString("N")} ms";
+            }
+            else
+            {
+                elapsedTime = $"{timer.ElapsedTicks.ToString("N")} ns";
+            }
 
             Console.WriteLine(
-                    $"{sort.Method.Name}:\t Time:{timer.ElapsedTicks.ToString("N")}\t\t\tSorted: {copy.IsSorted()}"
+                    $"{sort.Method.Name}:\t Time:{elapsedTime}\t\t\tSorted: {copy.IsSorted()}"
                    /*+$"\tMemory: {GC.GetTotalMemory(true).ToString("N")} bytes\n"*/);
 
             timer.Reset();

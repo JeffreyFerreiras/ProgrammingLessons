@@ -4,26 +4,72 @@
     {
         public static readonly Random s_random = new Random();
         private static readonly object s_syncLock = new object();
+        public static bool PrintSwapEnabled = false;
 
         public static void Swap(this int[] array, int leftIndex, int rightIndex)
         {
-            //Commented this out because it's not always working
-            //array[leftIndex]  =  array[leftIndex] ^ array[rightIndex];
-            //array[rightIndex] = array[leftIndex] ^ array[rightIndex];
-            //array[leftIndex]  =  array[leftIndex] ^ array[rightIndex];
-
+            // Print array before swap
+            if (PrintSwapEnabled)
+            {
+                Console.Write("Before: ");
+                array.PrintArray(new[] { leftIndex, rightIndex });
+            }
             int temp = array[leftIndex];
             array[leftIndex] = array[rightIndex];
             array[rightIndex] = temp;
+            
+            // Print array after swap
+            if (PrintSwapEnabled)
+            {
+                Console.Write("After:  ");
+                array.PrintArray(new[] { leftIndex, rightIndex });
+            }
         }
 
-        public static int[] GetRandomizedArray(int length = 100)
+        public static void PrintArray(this int[] array, int[] highlightIndices = null, ConsoleColor highlightColor = ConsoleColor.Red)
+        {
+            const int maxDisplayElements = 20; // Limit display to avoid overwhelming console
+            
+            Console.Write("[");
+            
+            int displayCount = Math.Min(array.Length, maxDisplayElements);
+            bool showEllipsis = array.Length > maxDisplayElements;
+            
+            for (int i = 0; i < displayCount; i++)
+            {
+                if (highlightIndices != null && Array.IndexOf(highlightIndices, i) >= 0)
+                {
+                    ConsoleColor originalColor = Console.ForegroundColor;
+                    Console.ForegroundColor = highlightColor;
+                    Console.Write(array[i]);
+                    Console.ForegroundColor = originalColor;
+                }
+                else
+                {
+                    Console.Write(array[i]);
+                }
+                
+                if (i < displayCount - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            
+            if (showEllipsis)
+            {
+                Console.Write(", ...");
+            }
+            
+            Console.WriteLine("]");
+        }
+
+        public static int[] GetRandomizedArray(int length = 100, int max = 1000)
         {
             int[] arry = new int[length];
 
             for (int i = 0; i < length; i++)
             {
-                arry[i] = RandomNumber(0, 1000);
+                arry[i] = RandomNumber(0, max);
             }
 
             return arry;
