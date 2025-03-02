@@ -14,7 +14,12 @@ public class DephFirstSearchGrid
     /// <returns>
     /// A tuple (row, col) representing the position of the target if found, otherwise null.
     /// </returns>
-    public static (int row, int col)? Search(int[,] grid, int row, int col, int target, HashSet<(int, int)>? visited = null)
+    public static (int row, int col)? Search(
+        int[,] grid,
+        int row,
+        int col,
+        int target,
+        HashSet<(int, int)>? visited = null)
     {
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);
