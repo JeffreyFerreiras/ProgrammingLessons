@@ -1,4 +1,4 @@
-﻿namespace Algorithms.Misc
+﻿namespace Algorithms
 {
     // Euclid's Algorithm is used to find the greatest common divisor (GCD) of two numbers.
 
