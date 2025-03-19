@@ -19,7 +19,7 @@ public class DephFirstSearchGraph
         }
 
         // Initialize the set of seen employees if it is null.
-        employeesSeen ??= new HashSet<Employee>();
+        employeesSeen ??= [];
 
         // If the current employee's name matches the search name, return the employee.
         if (employee.Name.Equals(employeeName))

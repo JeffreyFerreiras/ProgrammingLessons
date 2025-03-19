@@ -30,7 +30,7 @@ public class DephFirstSearchGrid
             return null;
         }
 
-        visited ??= new HashSet<(int, int)>();
+        visited ??= [];
 
         // If already visited, skip.
         if (visited.Contains((row, col)))

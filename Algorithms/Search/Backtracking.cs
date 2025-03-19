@@ -47,7 +47,7 @@ namespace Algorithms
             if (row == boardSize)
             {
                 // Add a copy of the current placement to solutions
-                solutions.Add(new List<int>(currentPlacement));
+                solutions.Add([.. currentPlacement]);
                 return;
             }
             
