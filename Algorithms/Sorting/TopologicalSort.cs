@@ -77,4 +77,49 @@ public static class TopologicalSort
         // Return the sorted list.
         return sortedList;
     }
+
+    public static int[] KahnSort(Dictionary<int, List<int>> graph)
+    {
+        Dictionary<int, int> incomingEdges = new(graph.Keys.Count);
+        foreach (var key in graph.Keys)
+        {
+            incomingEdges[key] = 0; // Initialize in-degree to 0 for all nodes.
+        }
+        //count incoming edges
+        foreach (var key in graph.Keys)
+        {
+            foreach (var neighbor in graph[key])
+            {
+                if (!incomingEdges.TryAdd(neighbor, 1))
+                {
+                    incomingEdges[neighbor] += 1;
+                }
+            }
+        }
+
+        List<int> sortedValues = new(graph.Keys.Count);
+        var absentIncomingEdges = incomingEdges.Where(edge => edge.Value == 0).Select(x => x.Key);
+        Queue<int> queue = new(absentIncomingEdges);
+        while (queue.Count > 0)
+        {
+            int current = queue.Dequeue();
+            sortedValues.Add(current);
+
+            foreach (var key in graph[current])
+            {
+                incomingEdges[key] -= 1;
+                if (incomingEdges[key] == 0)
+                {
+                    queue.Enqueue(key);
+                }
+            }
+        }
+
+        if (sortedValues.Count != graph.Keys.Count)
+        {
+            return []; // there is a cycle
+        }
+
+        return [.. sortedValues];
+    }
 }
