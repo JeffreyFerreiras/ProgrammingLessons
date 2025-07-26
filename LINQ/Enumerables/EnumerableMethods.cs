@@ -14,7 +14,7 @@
 
         public EnumerableMethods()
         {
-            for(int i = 0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
                 int rand = random.Next(100);
                 collection.Add(rand);
@@ -23,9 +23,10 @@
                 collection2.Add(rand);
             }
         }
+
         public void Cast()
         {
-            double[] doubles = new [] { 5.5, 6.6, 7.7};
+            double[] doubles = new[] { 5.5, 6.6, 7.7 };
             int[] ints = doubles.Cast<int>().ToArray();
         }
 
@@ -36,7 +37,7 @@
 
             factorial = Enumerable.Range(0, num).Aggregate((a, b) => a * b);
             factorial = Enumerable.Range(0, num).Aggregate(num / 2, (a, b) => a * b);
-            factorial = Enumerable.Range(0, num).Aggregate(num / 2, (a, b) => a * b, a => a*15);
+            factorial = Enumerable.Range(0, num).Aggregate(num / 2, (a, b) => a * b, a => a * 15);
         }
 
         public void Intersecting()
@@ -47,11 +48,8 @@
         public void Join()
         {
             var collection3 = collection
-                .Join(collection2,
-                outer => outer,
-                inner => inner,
-                (inner, outer) => inner).ToList();
+                .Join(collection2, outer => outer, inner => inner, (inner, outer) => inner)
+                .ToList();
         }
     }
 }
-
